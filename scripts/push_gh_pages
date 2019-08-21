@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+REPO_TARGET=$(git config --get remote.origin.url)
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
+MAIN=$(readlink -f $DIR/../)
+cd $MAIN/build && rm .git
+cd $MAIN/build && git init .  && git checkout -b gh-pages
+cd $MAIN/build && git add . && git commit -m "release"
+cd $MAIN/build && git commit
+cd $MAIN/build && git remote add origin $REPO_TARGET
+cd $MAIN/build && git push -f origin gh-pages
