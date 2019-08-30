@@ -1,4 +1,4 @@
-FROM node:10.16.3-alpine as builder
+FROM node:10.16.3-alpine
 RUN apk add --update --no-cache \
     ca-certificates \
     openssl \
@@ -8,14 +8,10 @@ RUN apk add --update --no-cache \
     make \
     patch \
     imagemagick \
+    git \
   && rm -rf /var/cache/apk/* \
   && npm install -g yarn
-ADD package.json /app/package.json
-ADD yarn.lock /app/yarn.lock
-WORKDIR /app
-RUN yarn install
 ADD . /app
-RUN yarn run build
+WORKDIR /app
 
-FROM nginx:1.17.3-alpine
-COPY --from=builder /app/build /usr/share/nginx/html
+USER node
