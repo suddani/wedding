@@ -1,24 +1,11 @@
 import React from 'react';
 
-export default class CountDown extends React.Component {
-  
-  constructor(props) {
-    super(props);
-    this.countDownDate = new Date("5 10, 2020 08:00:00").getTime();
-    this.state = {
-      counter: this.generateCounter()
-    };
-  }
-  render() {
-    return <span>{this.state.counter}</span>
-  }
+import useInterval from '../hooks/useInterval';
 
-  componentDidMount() {
-    this.interval = setInterval(this.tick, 1000);
-  }
-
-  generateCounter() {
-    var distance = this.countDownDate - new Date().getTime();
+export default function CountDown(_props) {
+  const countDownDate = new Date("5 10, 2020 08:00:00").getTime();
+  function generateCounter() {
+    var distance = countDownDate - new Date().getTime();
 
     // Time calculations for days, hours, minutes and seconds
     var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -26,18 +13,12 @@ export default class CountDown extends React.Component {
     var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
     var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-    console.log("Generate");
-
     return days + "d " + hours + "h "+ minutes + "m " + seconds + "s ";
   }
 
-  tick = () => {
-    this.setState( {
-      counter: this.generateCounter()
-    })
-  }
-  
-  componentWillUnmount() {
-    clearInterval(this.interval);
-  }
+  const [counter, setCounter] = React.useState(generateCounter());
+
+  useInterval(() => setCounter(generateCounter()), 1000);
+
+  return <span>{counter}</span>;
 }

@@ -1,0 +1,17 @@
+.heartContainer {
+  display: grid;
+  grid-template-rows: 1fr;
+  grid-template-columns: 1fr;
+}
+
+.heartContainer > img {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  align-self: stretch;
+  justify-self: stretch;
+}
+.heartContainer > span {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  align-self: center;
+}
