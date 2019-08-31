@@ -15,4 +15,8 @@
   grid-column: 1/2;
   align-self: center;
   justify-self: center;
+  font-weight: bold;
+  color: #ffffff;
+  position: relative;
+  top: -5%;
 }

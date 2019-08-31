@@ -20,13 +20,17 @@ export default function Heart(props) {
     // let elementWidth = container.current.offsetWidth - paddingX - borderX;
     let elementHeight = container.current.offsetHeight - paddingY - borderY;
 
-    setFontSize(`${elementHeight/5}px`);
+    setFontSize(`${elementHeight/3.5}px`);
   },[props.size]);
+  let text = null;
+  if (props.text) {
+    text = <span style={{fontSize: fontSize}}>{props.text}</span>;
+  }
   return (
     <span className={[props.className, 'heartContainer'].join(' ')}
           ref={container}>
-      <img width={props.size} src={heart} alt='heart' className={props.iconClass}/>
-      <span style={{fontSize: fontSize}}>{props.text}</span>
+      <img width={props.size} height={props.size} src={heart} alt='heart' className={props.iconClass}/>
+      {text}
     </span>
   );
 }

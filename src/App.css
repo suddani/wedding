@@ -1,8 +1,8 @@
 .App {
   display: grid;
-  height: 100vh;
-  background-color: rgba(40, 44, 52, 0.50);
+  background-color: #464040;
   overflow: hidden;
+  grid-template-rows: 1fr;
 }
 
 @media only screen and (max-width: 600px) {
@@ -16,3 +16,5 @@
     font-size: 3em;
   }
 }
+
+

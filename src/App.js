@@ -1,14 +1,19 @@
 import React from 'react';
 import './App.css';
-import Countdown from './components/CountDown';
-import Heart from './components/Heart';
-import banner from './assets/images/IMG_0833.jpeg';
+import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import MenuBar from './components/MenuBar';
+import Home from './components/Home';
+import About from './components/About';
 
 function App() {
   return (
     <div className="App">
-      <Heart size='250' text='D+M' iconClass='heart'/>
-      <Countdown/>
+      <Router>
+        <MenuBar slideIn={true} style={{gridColumn: '1/1', gridRow: '1/1'}}></MenuBar>
+        <Route exact path="/" component={Home} style={{gridColumn: '1/1', gridRow: '1/1'}}/>
+        <Route exact path="/about" component={About}/>
+      </Router>
     </div>
   );
 }

@@ -1,0 +1,37 @@
+.Home {
+  display: grid;
+}
+
+.slider {
+  /* height: 625px; */
+  /* background: red; */
+  overflow: hidden;
+  width: 100%;
+}
+
+.slider > ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  height: inherit;
+  width: 100%;
+  overflow: hidden;
+}
+
+.slider > ul > li {
+  position: relative;
+  height: inherit;
+  overflow: hidden;
+  width: 100%;
+  display: block;
+}
+
+.slider > ul > li > div {
+  position: relative;
+  height: inherit;
+  width: 100%;
+  background-size: cover;
+  background-position: center 25%;
+  background-repeat: no-repeat;
+}

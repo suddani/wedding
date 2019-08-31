@@ -11,3 +11,20 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+/* Hide scrollbar*/
+body {
+  overflow-y: scroll;
+  scrollbar-width: none; /* Firefox */
+  -ms-overflow-style: none;  /* IE 10+ */
+  /* -ms-overflow-style: -ms-autohiding-scrollbar; */
+}
+body::-webkit-scrollbar { /* WebKit */
+  height: 0;
+  width: 0px;  /* Remove scrollbar space */
+  background: transparent;  /* Optional: just make scrollbar invisible */
+}
+/* Optional: show position indicator in red */
+body::-webkit-scrollbar-thumb {
+  background: #FF0000;
+}

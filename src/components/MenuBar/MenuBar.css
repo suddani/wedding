@@ -1,0 +1,56 @@
+.MenuBar {
+  list-style-type: none;
+  display: flex;
+  height: 150px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  background: #fff;
+}
+
+.MenuBar.fixed {
+  transition: top 1s linear;
+}
+
+.MenuBar > ul {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 0;
+  margin: 0;
+}
+
+.MenuBar > ul > li {
+  display: flex;
+  align-items: center;
+  margin-right: 18px;
+  color: #666;
+  text-transform: uppercase;
+  font-size: 15px;
+  padding-top: 18px;
+  padding-bottom: 18px;
+}
+
+.MenuBar > ul > li > .heartContainer {
+  margin-right: 12px;
+  text-decoration: none;
+}
+
+.MenuBar > ul > li > a {
+  text-decoration: none;
+  outline: 0;
+}
+
+.MenuBar > ul > li > a:visited {
+  text-decoration: none;
+  color: #666;
+}
+.MenuBar > ul > li > a:hover {
+  text-decoration: none;
+  color: #f0394d;
+}
+.MenuBar > ul > li > a:link {
+  text-decoration: none;
+  color: #666;
+}
+
