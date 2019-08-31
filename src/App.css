@@ -1,71 +1,8 @@
 .App {
-  text-align: center;
   display: grid;
-  grid-template-areas:
-    "banner"
-    "banner"
-    "banner";
-    grid-template-rows: max-content 1fr 300px;
-    grid-template-columns: 100%;
   height: 100vh;
   background-color: rgba(40, 44, 52, 0.50);
   overflow: hidden;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-.banner {
-  overflow: hidden;
-  grid-area: banner;
-}
-
-.banner > img {
-  position: relative;
-  /* top: -30%; */
-  width: 100%;
-}
-
-.navigation {
-  height: 50px;
-  background-color: rgba(40, 44, 52, 0.50);
-  grid-column: 1/3;
-  grid-row: 1/2;
-  z-index: 1;
-  display: grid;
-  align-items: center;
-  grid-template-columns: 1fr 1fr;
-}
-.navigation > span {
-  display: flex;
-}
-.navigation > span:last-child {
-  justify-content: flex-end;
-  margin-right: 16px;
-}
-
-.navigation > span > span {
-  padding-left: 8px;
-  font-weight: bold;
-  color: #fff;
-  cursor: pointer;
-}
-
-.App > h1 {
-  font-size: 8em;
-  font-weight: bold;
-  font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
-  color: #fff;
-  grid-row: 3/4;
-  grid-column: 1/2;
-  z-index: 1;
-  align-self: center;
-  margin: 0;
-}
-
-.heart {
-  color: black;
 }
 
 @media only screen and (max-width: 600px) {
