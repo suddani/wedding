@@ -7,7 +7,7 @@ import './Heart.css';
 export default function Heart(props) {
   const container = React.useRef(null);
   const [fontSize, setFontSize] = React.useState("16px");
-  React.useEffect(() => {
+  React.useLayoutEffect(() => {
     var cs = window.getComputedStyle(container.current);
 
     // var paddingX = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
