@@ -22,3 +22,8 @@
 .saveTheDate > div:nth-child(3) {
   font-size: 25px;
 }
+
+.saveTheDate > div:nth-child(4) {
+  transform: rotate(10deg);
+  font-size: 25px;
+}

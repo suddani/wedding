@@ -9,7 +9,8 @@ export default function Home() {
   const sliderText = (<div className="saveTheDate">
     <div>Save</div>
     <div>The Date</div>
-    <div>-<CountDown></CountDown>-</div>
+    <div>-10.05.2020-</div>
+    <div><CountDown></CountDown></div>
   </div>);
 
   return (
