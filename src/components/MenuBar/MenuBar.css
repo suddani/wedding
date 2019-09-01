@@ -112,18 +112,23 @@
     height: 64px;
     color: #ffffff;
     text-align: center;
-    align-content: center;
-    justify-items: center;
-    display: grid;
-
-    background-color: rgba(122, 119, 119, 0.3);
-    
-    transition-property: background-color;
-    transition-duration: 1s;
-    transition-timing-function: linear;
+    background-color: transparent;
   }
 
   .MenuBar > div > div {
+    background-color: rgba(122, 119, 119, 0.479);
+    width: 64px;
+    height: 64px;
+    align-content: center;
+    justify-items: center;
+    display: grid;
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-delay: 0.25s;
+    transition-timing-function: ease-in;
+  }
+
+  .MenuBar > div > div > div {
     width: 35px;
     height: 5px;
     background-color: #ffffff;
@@ -137,9 +142,17 @@
     position: fixed;
     width: 100vw;
     height: 100vh;
+
+    transition-property: background-color;
+    transition-duration: 0.5s;
+    transition-delay: 0.5s;
+    transition-timing-function: ease-in;
   }
 
   .MenuBar.open > div > div {
+    background-color: rgba(122, 119, 119, 0);
+  }
+  .MenuBar.open > div > div > div {
     display: none;
   }
   

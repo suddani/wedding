@@ -43,15 +43,18 @@ export default function MenuBar(props) {
   }, [position, window.scrollY, props.slideIn, window.innerWidth]);
 
   function menuToggle() {
-    setMenuOpen(menuOpen === "open" ? "" : "open")
+    if (window.innerWidth < 700)
+      setMenuOpen(menuOpen === "open" ? "" : "open")
   }
 
   return (
     <nav className={['MenuBar', position, menuOpen].join(' ')} style={{top: top}}>
       <div onClick={menuToggle}>
-        <div></div>
-        <div></div>
-        <div></div>
+        <div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
       </div>
       <ul>
         {entries.map((entry, id) => {
