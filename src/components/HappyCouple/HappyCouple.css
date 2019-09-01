@@ -14,7 +14,8 @@
 }
 @media only screen and (max-width: 700px) {
   .HappyCouple {
-    width: inherit;
+    width: 80%;
+    min-width: 300px;
     grid-template: 
       'header'
       'text'
@@ -63,6 +64,13 @@
   overflow: hidden;
   display: grid;
   width: 300px;
+}
+
+@media only screen and (max-width: 700px) {
+  .HappyCouple > div {
+    min-width: 300px;
+    width: 100%;
+  }
 }
 
 .HappyCouple > div > div {

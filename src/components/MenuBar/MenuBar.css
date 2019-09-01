@@ -100,11 +100,9 @@
     right: 0px;
   }
   
-  .MenuBar.fixed {
-  }
+  .MenuBar.fixed {}
   
-  .MenuBar.relative {
-  }
+  .MenuBar.relative {}
 
   .MenuBar > div {
     position: absolute;

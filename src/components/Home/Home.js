@@ -1,10 +1,9 @@
-import React, {useState} from 'react';
+import React from 'react';
 import CountDown from './../CountDown';
 import Slider from './../Slider';
 import HappyCouple from './../HappyCouple';
 
 import './Home.css'
-import banner from './../../assets/images/IMG_0833.jpeg';
 
 export default function Home() {
   const sliderText = (<div className="saveTheDate">

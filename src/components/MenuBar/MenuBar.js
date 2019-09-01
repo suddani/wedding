@@ -43,7 +43,7 @@ export default function MenuBar(props) {
   }, [position, window.scrollY, props.slideIn, window.innerWidth]);
 
   function menuToggle() {
-    setMenuOpen(menuOpen == "open" ? "" : "open")
+    setMenuOpen(menuOpen === "open" ? "" : "open")
   }
 
   return (
@@ -55,7 +55,7 @@ export default function MenuBar(props) {
       </div>
       <ul>
         {entries.map((entry, id) => {
-          if (menuOpen == "open" && id == 3) return null
+          if (menuOpen === "open" && id === 3) return null
           return <Entry onClick={menuToggle} key={id} hasNoHeart={entry.hasNoHeart} text={entry.name} path={entry.path}/>
         })}
       </ul>
