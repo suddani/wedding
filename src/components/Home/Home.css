@@ -24,6 +24,10 @@
 }
 
 .saveTheDate > div:nth-child(4) {
+  margin-top: 8px;
   transform: rotate(10deg);
-  font-size: 25px;
+  font-size: 20px;
+  font-family: 'Share', cursive;
+  /* font-family: 'Volkhov', serif; */
+  /* font-family: 'Oswald', sans-serif; */
 }
