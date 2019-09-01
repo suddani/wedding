@@ -6,20 +6,30 @@
     width: 100%;
     justify-content: center;
     align-items: center;
-    background: #ffffff;
     grid-column: 1/2;
     grid-row: 1/2;
     z-index: 10;
     font-family: 'Oswald', sans-serif;
   }
 
+  .MenuBar.transparent {
+    background: rbga(0,0,0,0.5);
+    color: #fff;
+  }
+
+  .MenuBar.solid {
+    background: #ffffff;
+    color: #666;
+  }
+
   .MenuBar.fixed {
     position: fixed;
-    /* transition: top 1s ease-in; */
     transition-property: top;
     transition-duration: 0.5s;
     transition-timing-function: ease;
     background: #ffffff;
+    color: #666;
+    height: 80px;
   }
 
   .MenuBar.relative {
@@ -36,13 +46,14 @@
     align-items: center;
     padding: 0;
     margin: 0;
+    color: inherit;
   }
 
   .MenuBar > ul > li {
     display: flex;
     align-items: center;
     margin-right: 18px;
-    color: #666;
+    color: inherit;
     text-transform: uppercase;
     font-size: 15px;
     font-weight: bold;
@@ -62,7 +73,7 @@
 
   .MenuBar > ul > li > a:visited {
     text-decoration: none;
-    color: #666;
+    color: inherit;
   }
   .MenuBar > ul > li > a:hover {
     text-decoration: none;
@@ -70,7 +81,11 @@
   }
   .MenuBar > ul > li > a:link {
     text-decoration: none;
-    color: #666;
+    color: inherit;
+  }
+  .MenuBar > ul > li > a:link:hover {
+    text-decoration: none;
+    color: #f0394d;
   }
 }
 

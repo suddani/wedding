@@ -10,7 +10,7 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <MenuBar slideIn={true}/>
+        <MenuBar className='solid' slideIn={true}/>
         <Route exact path="/" component={Home}/>
         <Route exact path="/about" component={About}/>
       </Router>

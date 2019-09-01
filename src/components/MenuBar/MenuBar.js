@@ -22,6 +22,10 @@ export default function MenuBar(props) {
     {path: '/story', name: 'The Story', hasNoHeart: true},
     {path: '/wedding', name: 'The Wedding'}
   ];
+  let styles = [
+    'solid',
+    'transparent'
+  ];
   const [top, setTop] = useState(0);
   const [position, setPosition] = useState("relative");
   const [menuOpen, setMenuOpen] = useState("");
@@ -47,8 +51,12 @@ export default function MenuBar(props) {
       setMenuOpen(menuOpen === "open" ? "" : "open")
   }
 
+  let extraStyleClass = '';
+  let hasNoStyleIndicator = styles.map((style) => props.className.indexOf(style) != -1).filter(i => i).length <= 0;
+  if (hasNoStyleIndicator) extraStyleClass = styles[0];
+
   return (
-    <nav className={['MenuBar', position, menuOpen].join(' ')} style={{top: top}}>
+    <nav className={['MenuBar', position, menuOpen, extraStyleClass, props.className].filter(i=>i).join(' ')} style={{top: top}}>
       <div onClick={menuToggle}>
         <div>
           <div></div>
