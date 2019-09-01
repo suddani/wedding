@@ -101,9 +101,13 @@
     z-index: 10;
   }
   
-  .MenuBar.fixed {}
+  .MenuBar.fixed {
+    /* Empty on purpose */
+  }
   
-  .MenuBar.relative {}
+  .MenuBar.relative {
+    /* Empty on purpose */
+  }
 
   .MenuBar > div {
     position: absolute;
