@@ -98,6 +98,7 @@
 
   .MenuBar.open {
     right: 0px;
+    z-index: 10;
   }
   
   .MenuBar.fixed {}
@@ -109,11 +110,13 @@
     left: -64px;
     width: 64px;
     height: 64px;
-    border-radius: 64px;
     color: #ffffff;
     text-align: center;
     align-content: center;
+    justify-items: center;
     display: grid;
+
+    background-color: rgba(122, 119, 119, 0.3);
     
     transition-property: background-color;
     transition-duration: 1s;
