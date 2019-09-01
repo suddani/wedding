@@ -1,8 +1,77 @@
 .HappyCouple {
-  text-transform: uppercase;
+  width: 700px;
   display: grid;
   padding-top: 140px;
-  font-size: 35px;
   justify-items: center;
+  justify-self: center;
+  grid-template: 
+    'header header'
+    'text text'
+    'bride groom'
+    'brideText groomText'
+  ;
+
+}
+@media only screen and (max-width: 700px) {
+  .HappyCouple {
+    width: inherit;
+    grid-template: 
+      'header'
+      'text'
+      'bride'
+      'brideText'
+      'groom'
+      'groomText'
+    ;
+  }
+}
+
+.HappyCouple > h1 {
+  grid-area: header;
   font-family: 'Oswald', sans-serif;
+  font-size: 35px;
+  text-transform: uppercase;
+}
+.HappyCouple > p {
+  text-align: center;
+  font-family: 'Volkhov', serif;
+  font-size: 15px;
+  color: #6a6a6a;
+}
+
+.HappyCouple > p.introduction {
+  grid-area: text;
+}
+
+.HappyCouple > p.groomText {
+  grid-area: groomText;
+}
+
+.HappyCouple > p.brideText {
+  grid-area: brideText;
+}
+
+.HappyCouple > div.groom {
+  grid-area: groom;
+}
+
+.HappyCouple > div.bride {
+  grid-area: bride;
+}
+
+.HappyCouple > div {
+  overflow: hidden;
+  display: grid;
+  width: 300px;
+}
+
+.HappyCouple > div > img {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  transition: transform .5s ease;
+  width: 100%;
+}
+
+.HappyCouple > div:hover > img {
+  transform: scale(1.2);
 }
