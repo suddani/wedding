@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 
 import './MenuBar.css';
 import Heart from '../Heart';
-import useOnScroll from '../../hooks/useOnScroll';
+import useOnScroll from './../../hooks/useOnScroll';
 
 function Entry({text, path, hasNoHeart, onClick}) {
   let extraHeart = hasNoHeart ? null : <Heart size="8"/>;
@@ -40,7 +40,7 @@ export default function MenuBar(props) {
       setTop(0);
       setPosition("relative");
     }
-  }, [position, window.scrollY, props.slideIn, window.innerWidth]);
+  }, [position, props.slideIn]);
 
   function menuToggle() {
     if (window.innerWidth < 700)
