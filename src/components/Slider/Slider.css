@@ -20,14 +20,14 @@
   list-style-type: none;
   padding: 0;
   margin: 0;
-  position: relative;
+  position: absolute;
   height: inherit;
   width: 100%;
   overflow: hidden;
 }
 
 .slider > ul > li {
-  position: relative;
+  position: absolute;
   height: inherit;
   overflow: hidden;
   width: 100%;
@@ -35,7 +35,7 @@
 }
 
 .slider > ul > li > div {
-  position: relative;
+  position: absolute;
   height: inherit;
   width: 100%;
   background-size: cover;
