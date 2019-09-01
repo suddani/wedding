@@ -14,12 +14,16 @@ export default function HappyCouple(props) {
       </p>
       <div className="bride">
         <img src={bride}></img>
-        <div></div>
+        <div>
+          <h4>*** The bride ***</h4>
+        </div>
       </div>
       <p className="brideText"><b>Mariia Sendziuk</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices malesuada ante quis pharetra. Nullam non bibendum dolor. Ut vel turpis accumsan, efficitur dolor fermentum, tincidunt metus.</p>
       <div className="groom">
         <img src={groom}></img>
-        <div></div>
+        <div>
+          <h4>*** The groom ***</h4>
+        </div>
       </div>
       <p className="groomText"><b>Daniel Sudmann</b> Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer ultrices malesuada ante quis pharetra. Nullam non bibendum dolor. Ut vel turpis accumsan, efficitur dolor fermentum, tincidunt metus.</p>
     </section>

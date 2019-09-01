@@ -65,12 +65,37 @@
   width: 300px;
 }
 
+.HappyCouple > div > div {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  align-self: stretch;
+  margin: 8px;
+  border: 1px solid #ffffff;
+  z-index: 1;
+  transition: border-color .5s ease, background-color .5s ease;
+  display: grid;
+}
+
+.HappyCouple > div > div > h4 {
+  font-family: 'Share', cursive;
+  font-size: 20px;
+  color: #ffffff;
+  text-transform: uppercase;
+  justify-self: center;
+  align-self: end;
+}
+
 .HappyCouple > div > img {
   grid-column: 1/2;
   grid-row: 1/2;
   transition: transform .5s ease;
   width: 100%;
 }
+
+/* .HappyCouple > div:hover > div {
+  border-color: rgba(0,0,0,0.4);
+  background-color: rgba(0,0,0,0.4);
+} */
 
 .HappyCouple > div:hover > img {
   transform: scale(1.2);
