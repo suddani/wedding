@@ -1,37 +1,26 @@
 .Home {
   display: grid;
+  grid-column: 1/2;
+  grid-row: 1/2;
 }
 
-.slider {
-  /* height: 625px; */
-  /* background: red; */
-  overflow: hidden;
-  width: 100%;
+.saveTheDate {
+  font-size: 75px;
+  line-height: 50px;
+  text-align: center;
+  transform: rotate(-10deg);
+  font-family: 'Lobster', cursive;
 }
 
-.slider > ul {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-  position: relative;
-  height: inherit;
-  width: 100%;
-  overflow: hidden;
+@media only screen and (max-width: 600px) {
+  .saveTheDate {
+    font-size: 55px;
+    line-height: 30px;
+    text-align: center;
+    transform: rotate(-10deg);
+  }
 }
 
-.slider > ul > li {
-  position: relative;
-  height: inherit;
-  overflow: hidden;
-  width: 100%;
-  display: block;
-}
-
-.slider > ul > li > div {
-  position: relative;
-  height: inherit;
-  width: 100%;
-  background-size: cover;
-  background-position: center 25%;
-  background-repeat: no-repeat;
+.saveTheDate > div:nth-child(3) {
+  font-size: 25px;
 }

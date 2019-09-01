@@ -1,56 +1,187 @@
-.MenuBar {
-  list-style-type: none;
-  display: flex;
-  height: 150px;
-  width: 100%;
-  justify-content: center;
-  align-items: center;
-  background: #fff;
+@media only screen and (min-width: 700px) {
+  .MenuBar {
+    list-style-type: none;
+    display: flex;
+    height: 150px;
+    width: 100%;
+    justify-content: center;
+    align-items: center;
+    background: #ffffff;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    z-index: 1;
+    font-family: 'Oswald', sans-serif;
+  }
+
+  .MenuBar.fixed {
+    position: fixed;
+    /* transition: top 1s ease-in; */
+    transition-property: top;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+    background: #ffffff;
+  }
+
+  .MenuBar.relative {
+    position: relative;
+  }
+
+  .MenuBar > div {
+    display: none;
+  }
+
+  .MenuBar > ul {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .MenuBar > ul > li {
+    display: flex;
+    align-items: center;
+    margin-right: 18px;
+    color: #666;
+    text-transform: uppercase;
+    font-size: 15px;
+    font-weight: bold;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+
+  .MenuBar > ul > li > .heartContainer {
+    margin-right: 12px;
+    text-decoration: none;
+  }
+
+  .MenuBar > ul > li > a {
+    text-decoration: none;
+    outline: 0;
+  }
+
+  .MenuBar > ul > li > a:visited {
+    text-decoration: none;
+    color: #666;
+  }
+  .MenuBar > ul > li > a:hover {
+    text-decoration: none;
+    color: #f0394d;
+  }
+  .MenuBar > ul > li > a:link {
+    text-decoration: none;
+    color: #666;
+  }
 }
 
-.MenuBar.fixed {
-  transition: top 1s linear;
-}
+@media only screen and (max-width: 700px) {
+  .MenuBar {
+    list-style-type: none;
+    display: grid;
+    width: 200px;
+    justify-content: flex-end;
+    align-items: flex-start;
+    background: #fff;
+    justify-self: end;
+    grid-column: 1/2;
+    grid-row: 1/2;
+    z-index: 1;
+    position: fixed;
+    right: -200px;
+    height: 100vh;
+    font-family: 'Oswald', sans-serif;
 
-.MenuBar > ul {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 0;
-  margin: 0;
-}
+    transition-property: right;
+    transition-duration: 0.5s;
+    transition-timing-function: ease;
+  }
 
-.MenuBar > ul > li {
-  display: flex;
-  align-items: center;
-  margin-right: 18px;
-  color: #666;
-  text-transform: uppercase;
-  font-size: 15px;
-  padding-top: 18px;
-  padding-bottom: 18px;
-}
+  .MenuBar.open {
+    right: 0px;
+  }
+  
+  .MenuBar.fixed {
+  }
+  
+  .MenuBar.relative {
+  }
 
-.MenuBar > ul > li > .heartContainer {
-  margin-right: 12px;
-  text-decoration: none;
-}
+  .MenuBar > div {
+    position: absolute;
+    left: -64px;
+    width: 64px;
+    height: 64px;
+    border-radius: 64px;
+    color: #ffffff;
+    text-align: center;
+    align-content: center;
+    display: grid;
+    
+    transition-property: background-color;
+    transition-duration: 1s;
+    transition-timing-function: linear;
+  }
 
-.MenuBar > ul > li > a {
-  text-decoration: none;
-  outline: 0;
-}
+  .MenuBar > div > div {
+    width: 35px;
+    height: 5px;
+    background-color: #ffffff;
+    margin: 3px 0;
+  }
 
-.MenuBar > ul > li > a:visited {
-  text-decoration: none;
-  color: #666;
-}
-.MenuBar > ul > li > a:hover {
-  text-decoration: none;
-  color: #f0394d;
-}
-.MenuBar > ul > li > a:link {
-  text-decoration: none;
-  color: #666;
-}
+  .MenuBar.open > div {
+    background-color: rgba(122, 119, 119, 0.479);
+    border-radius: 0;
+    left: -200px;
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+  }
 
+  .MenuBar.open > div > div {
+    display: none;
+  }
+  
+  .MenuBar > ul {
+    display: grid;
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+  }
+  
+  .MenuBar > ul > li {
+    text-align: end;
+    margin-right: 18px;
+    color: #666;
+    text-transform: uppercase;
+    font-size: 15px;
+    padding-top: 18px;
+    padding-bottom: 18px;
+  }
+  
+  .MenuBar > ul > li > .heartContainer {
+    display: none;
+  }
+  
+  .MenuBar > ul > li > a {
+    text-decoration: none;
+    outline: 0;
+  }
+  
+  .MenuBar > ul > li > a > .heartContainer{
+    display: none;
+  }
+  
+  .MenuBar > ul > li > a:visited {
+    text-decoration: none;
+    color: #666;
+  }
+  .MenuBar > ul > li > a:hover {
+    text-decoration: none;
+    color: #f0394d;
+  }
+  .MenuBar > ul > li > a:link {
+    text-decoration: none;
+    color: #666;
+  }
+}

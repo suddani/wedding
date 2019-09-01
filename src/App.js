@@ -10,8 +10,8 @@ function App() {
   return (
     <div className="App">
       <Router>
-        <MenuBar slideIn={true} style={{gridColumn: '1/1', gridRow: '1/1'}}></MenuBar>
-        <Route exact path="/" component={Home} style={{gridColumn: '1/1', gridRow: '1/1'}}/>
+        <MenuBar slideIn={true}/>
+        <Route exact path="/" component={Home}/>
         <Route exact path="/about" component={About}/>
       </Router>
     </div>

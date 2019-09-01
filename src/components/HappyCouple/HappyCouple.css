@@ -1,0 +1,8 @@
+.HappyCouple {
+  text-transform: uppercase;
+  display: grid;
+  padding-top: 140px;
+  font-size: 35px;
+  justify-items: center;
+  font-family: 'Oswald', sans-serif;
+}
