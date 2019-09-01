@@ -24,6 +24,7 @@ export default function Slider(props) {
         </li>
       </ul>
       <div>{props.text}</div>
+      <span></span>
     </section>
   );
 }

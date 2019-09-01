@@ -48,4 +48,14 @@
   grid-column: 1/2;
   position: relative;
   color: #ffffff;
+  z-index: 2;
+}
+
+.slider > span {
+  grid-row: 1/2;
+  grid-column: 1/2;
+  justify-self: stretch;
+  align-self: stretch;
+  background-color: rgba(0,0,0,0.15);
+  z-index: 1;
 }
