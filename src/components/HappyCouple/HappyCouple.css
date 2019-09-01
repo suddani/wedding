@@ -1,5 +1,7 @@
 .HappyCouple {
-  width: 700px;
+  width: 945px;
+  /* min-width: 970px;
+  max-width: 1170px; */
   display: grid;
   padding-top: 140px;
   justify-items: center;
@@ -11,20 +13,6 @@
     'brideText groomText'
   ;
 
-}
-@media only screen and (max-width: 700px) {
-  .HappyCouple {
-    width: 80%;
-    min-width: 300px;
-    grid-template: 
-      'header'
-      'text'
-      'bride'
-      'brideText'
-      'groom'
-      'groomText'
-    ;
-  }
 }
 
 .HappyCouple > h1 {
@@ -46,10 +34,12 @@
 
 .HappyCouple > p.groomText {
   grid-area: groomText;
+  width: 400px;
 }
 
 .HappyCouple > p.brideText {
   grid-area: brideText;
+  width: 400px;
 }
 
 .HappyCouple > div.groom {
@@ -63,14 +53,7 @@
 .HappyCouple > div {
   overflow: hidden;
   display: grid;
-  width: 300px;
-}
-
-@media only screen and (max-width: 700px) {
-  .HappyCouple > div {
-    min-width: 300px;
-    width: 100%;
-  }
+  width: 400px;
 }
 
 .HappyCouple > div > div {
@@ -107,4 +90,31 @@
 
 .HappyCouple > div:hover > img {
   transform: scale(1.2);
+}
+
+@media only screen and (max-width: 945px) {
+  .HappyCouple {
+    width: 80%;
+    min-width: 300px;
+    grid-template:
+      'header'
+      'text'
+      'bride'
+      'brideText'
+      'groom'
+      'groomText'
+    ;
+  }
+  .HappyCouple > div {
+    min-width: 300px;
+    width: 100%;
+  }
+  .HappyCouple > p.groomText {
+    grid-area: groomText;
+    width: 100%;
+  }
+  .HappyCouple > p.brideText {
+    grid-area: brideText;
+    width: 100%;
+  }
 }
