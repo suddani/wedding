@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { Link } from "react-router-dom";
+import { store } from 'react-notifications-component';
 
 
 import './MenuBar.css';
@@ -47,6 +48,19 @@ export default function MenuBar(props) {
   }, [position, props.slideIn]);
 
   function menuToggle() {
+    // store.addNotification({
+    //   title: "Wonderful!",
+    //   message: "teodosii@react-notifications-component",
+    //   type: "default",
+    //   insert: "top",
+    //   container: "top-right",
+    //   animationIn: ["animated", "fadeIn"],
+    //   animationOut: ["animated", "fadeOut"],
+    //   dismiss: {
+    //     duration: 5000,
+    //     // onScreen: true
+    //   }
+    // });
     if (window.innerWidth < 700)
       setMenuOpen(menuOpen === "open" ? "" : "open")
   }
