@@ -6,25 +6,25 @@ import './Heart.css';
 
 export default function Heart(props) {
   const container = React.useRef(null);
-  const [fontSize, setFontSize] = React.useState("16px");
-  React.useLayoutEffect(() => {
-    var cs = window.getComputedStyle(container.current);
+  // const [fontSize, setFontSize] = React.useState("16px");
+  // React.useEffect(() => {
+  //   var cs = window.getComputedStyle(container.current);
 
-    // var paddingX = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
-    var paddingY = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
+  //   // var paddingX = parseFloat(cs.paddingLeft) + parseFloat(cs.paddingRight);
+  //   var paddingY = parseFloat(cs.paddingTop) + parseFloat(cs.paddingBottom);
 
-    // var borderX = parseFloat(cs.borderLeftWidth) + parseFloat(cs.borderRightWidth);
-    var borderY = parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth);
+  //   // var borderX = parseFloat(cs.borderLeftWidth) + parseFloat(cs.borderRightWidth);
+  //   var borderY = parseFloat(cs.borderTopWidth) + parseFloat(cs.borderBottomWidth);
 
-    // Element width and height minus padding and border
-    // let elementWidth = container.current.offsetWidth - paddingX - borderX;
-    let elementHeight = container.current.offsetHeight - paddingY - borderY;
+  //   // Element width and height minus padding and border
+  //   // let elementWidth = container.current.offsetWidth - paddingX - borderX;
+  //   let elementHeight = container.current.offsetHeight - paddingY - borderY;
 
-    setFontSize(`${elementHeight/3.5}px`);
-  },[props.size]);
+  //   setFontSize(`${elementHeight/3.5}px`);
+  // },[props.size]);
   let text = null;
   if (props.text) {
-    text = <span style={{fontSize: fontSize}}>{props.text}</span>;
+    text = <span style={{fontSize: `${props.size/3.5}px`}}>{props.text}</span>;
   }
   return (
     <span className={[props.className, 'heartContainer'].join(' ')}

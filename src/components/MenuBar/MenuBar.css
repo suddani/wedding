@@ -1,15 +1,15 @@
 @media only screen and (min-width: 700px) {
   .MenuBar {
     list-style-type: none;
-    display: flex;
-    height: 150px;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
     grid-column: 1/2;
     grid-row: 1/2;
+    height: 150px;
+    width: 100%;
     z-index: 10;
     font-family: 'Oswald', sans-serif;
+    display: grid;
+    justify-content: stretch;
+    align-items: center;
   }
 
   .MenuBar.transparent {
@@ -75,9 +75,10 @@
     text-decoration: none;
     color: inherit;
   }
-  .MenuBar > ul > li > a:hover {
+  .MenuBar > ul > li:hover {
     text-decoration: none;
     color: #f0394d;
+    cursor: pointer;
   }
   .MenuBar > ul > li > a:link {
     text-decoration: none;
@@ -86,6 +87,22 @@
   .MenuBar > ul > li > a:link:hover {
     text-decoration: none;
     color: #f0394d;
+  }
+
+  .MenuBar .AccountButton {
+  }
+
+  .MenuBar .AccountButton > div {
+    display: none;
+    position: absolute;
+  }
+
+  .MenuBar .AccountButton:hover > div {
+    display: block;
+  }
+
+  .MenuBar .AccountButton:focus-within > div {
+    display: block;
   }
 }
 
@@ -209,6 +226,11 @@
     text-decoration: none;
     color: #666;
   }
+  .MenuBar > ul > li:hover {
+    text-decoration: none;
+    color: #f0394d;
+    cursor: pointer;
+  }
   .MenuBar > ul > li > a:hover {
     text-decoration: none;
     color: #f0394d;
@@ -216,5 +238,23 @@
   .MenuBar > ul > li > a:link {
     text-decoration: none;
     color: #666;
+  }
+  .MenuBar > ul > li > a:link:hover {
+    text-decoration: none;
+    color: #f0394d;
+  }
+
+  .MenuBar .AccountButton {
+  }
+
+  .MenuBar .AccountButton > div {
+    display: none;
+    position: absolute;
+  }
+
+  .MenuBar .AccountButton:hover > div {
+  }
+
+  .MenuBar .AccountButton:focus-within > div {
   }
 }
