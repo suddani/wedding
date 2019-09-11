@@ -7,7 +7,6 @@ export default function About() {
     <section className="About">
       <h1 style={{display: 'none'}}>About</h1>
       <HappyCouple/>
-      <div className="spacer"></div>
     </section>
   );
 }

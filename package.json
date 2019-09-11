@@ -6,6 +6,7 @@
     "@material-ui/core": "^4.4.0",
     "@material-ui/icons": "^4.2.1",
     "eslint-utils": "^1.4.1",
+    "i18next": "^17.0.14",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-i18next": "^10.12.4",
@@ -17,7 +18,8 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "translate": "babel -f .babelrc 'src/**/*.{js,jsx,ts,tsx}'"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -34,5 +36,9 @@
       "last 1 safari version"
     ]
   },
-  "homepage_custom": "http://suddani.github.io/wedding"
+  "homepage_custom": "http://suddani.github.io/wedding",
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-i18next-extract": "^0.2.3"
+  }
 }
