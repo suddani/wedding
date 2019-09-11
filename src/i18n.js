@@ -37,6 +37,7 @@ i18n
       // optional htmlTag with lang attribute, the default is:
       htmlTag: document.documentElement
     },
+    fallbackLng: "en",
 
     keySeparator: false, // we do not use keys in form messages.welcome
 
