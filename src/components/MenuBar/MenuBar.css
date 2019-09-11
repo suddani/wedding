@@ -152,7 +152,6 @@
   }
 
   .MenuBar > div > div {
-    background-color: rgba(122, 119, 119, 0.479);
     width: 64px;
     height: 64px;
     align-content: center;
@@ -167,7 +166,7 @@
   .MenuBar > div > div > div {
     width: 35px;
     height: 5px;
-    background-color: #ffffff;
+    background-color: #f0394d;
     margin: 3px 0;
   }
 

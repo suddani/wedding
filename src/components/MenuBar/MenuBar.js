@@ -8,12 +8,12 @@ import './MenuBar.css';
 import Heart from '../Heart';
 import useOnScroll from './../../hooks/useOnScroll';
 
-function Entry({text, path, hasNoHeart, onClick}) {
+function Entry({text, path, hasNoHeart, onClick, disabled}) {
   let extraHeart = hasNoHeart ? null : <Heart size="8"/>;
   return (
     <li>
       { extraHeart }
-      { path ? <Link to={path} onClick={onClick}>{text}</Link> : text }
+      { path && !disabled ? <Link to={path} onClick={onClick}>{text}</Link> : text }
     </li>
   );
 }
@@ -40,15 +40,16 @@ function Account(props) {
 }
 
 export default function MenuBar(props) {
-  let entries = [
+  const entries = [
+    {path: '/', name: 'Home', hasNoHeart: true, hiddenOnClose: true},
     {path: '/about', name: 'About', hasNoHeart: true},
     {path: '/galery', name: 'Gallery'},
-    {path: '/story', name: 'The Story', hasNoHeart: true},
-    {path: '/', name: <Heart size={50} text="D+M"/>, hasNoHeart: true},
+    {path: '/story', name: 'The Story'},
+    {path: '/', name: <Heart size={50} text="D+M"/>, hasNoHeart: true, hiddenOnOpen: true},
     {path: '/wedding', name: 'The Wedding'},
-    {path: null, name: <Account></Account> }
+    {path: '/account', name: <Account></Account>, disabledOnOpen: true }
   ];
-  let styles = [
+  const styles = [
     'solid',
     'transparent'
   ];
@@ -105,8 +106,10 @@ export default function MenuBar(props) {
       </div>
       <ul>
         {entries.map((entry, id) => {
-          if (menuOpen === "open" && id === 3) return null
-          return <Entry onClick={menuToggle} key={id} hasNoHeart={entry.hasNoHeart} text={entry.name} path={entry.path}/>
+          if (menuOpen === "open" && entry.hiddenOnOpen) return null;
+          if (menuOpen !== "open" && entry.hiddenOnClose) return null;
+          const entryDisabled = menuOpen !== "open" && entry.disabledOnOpen;
+          return <Entry onClick={menuToggle} disabled={entryDisabled} key={id} hasNoHeart={entry.hasNoHeart} text={entry.name} path={entry.path}/>
         })}
       </ul>
     </nav>

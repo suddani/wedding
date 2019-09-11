@@ -19,14 +19,6 @@ export default function Home() {
     <section className="Home">
       <h1 style={{display: 'none'}}>Home</h1>
       <Slider text={sliderText} banner={banner} banner_small={banner_small}/>
-      <HappyCouple/>
-      <Slider text={sliderText} banner={banner} banner_small={banner_small}/>
-      <HappyCouple/>
-      <Slider text={sliderText} banner={banner} banner_small={banner_small}/>
-      <HappyCouple/>
-      <Slider text={sliderText} banner={banner} banner_small={banner_small}/>
-      <HappyCouple/>
-      <div className="spacer"></div>
     </section>
   );
 }
