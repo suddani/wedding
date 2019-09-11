@@ -18,8 +18,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "translate": "babel -f .babelrc 'src/**/*.{js,jsx,ts,tsx}'"
+    "eject": "react-scripts eject"
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -36,9 +35,5 @@
       "last 1 safari version"
     ]
   },
-  "homepage_custom": "http://suddani.github.io/wedding",
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-plugin-i18next-extract": "^0.2.3"
-  }
+  "homepage_custom": "http://suddani.github.io/wedding"
 }
