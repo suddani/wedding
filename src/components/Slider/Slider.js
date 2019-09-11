@@ -4,7 +4,7 @@ import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import './Slider.css'
 
-export default function Slider({text, height, banner, banner_small}) {
+export default function Slider({className, fullscreen, text, height, banner, banner_small}) {
   const biggerThan700 = useMediaQuery('(min-width:700px)');
 
   const container = useRef();
@@ -18,7 +18,7 @@ export default function Slider({text, height, banner, banner_small}) {
     })
   }, []);
   return (
-    <section ref={main} className='slider' style={{height: (height||625)+'px'}}>
+    <section ref={main} className={['slider', className, fullscreen ? 'full' : null].filter(i=>i).join(' ')} style={{height: (height||625)+'px'}}>
       <ul>
         <li>
           <div ref={container} style={{backgroundImage: `url(${biggerThan700 ? banner : (banner_small || banner)})`}}></div>
