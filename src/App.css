@@ -1,6 +1,6 @@
 .App {
   display: grid;
-  /* background-color: #464040; */
+  background-color: #eeeeee;
   overflow: hidden;
   grid-template-rows: 1fr;
 }
@@ -8,6 +8,12 @@
 .App > section {
   grid-column: 1/2;
   grid-row: 1/2;
+}
+
+@media only screen and (min-width: 700px) {
+  .App > section {
+    padding-top: 140px;
+  }
 }
 
 @media only screen and (max-width: 600px) {

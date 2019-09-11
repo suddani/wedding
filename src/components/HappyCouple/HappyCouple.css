@@ -1,9 +1,6 @@
 .HappyCouple {
   width: 945px;
-  /* min-width: 970px;
-  max-width: 1170px; */
   display: grid;
-  padding-top: 140px;
   justify-items: center;
   justify-self: center;
   grid-template: 
