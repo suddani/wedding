@@ -1,0 +1,7 @@
+.About {
+  display: grid;
+}
+
+.About .spacer {
+  height: 500px;
+}

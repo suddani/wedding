@@ -1,6 +1,9 @@
 .Home {
   display: grid;
 }
+.Home .spacer {
+  height: 500px;
+}
 
 .saveTheDate {
   font-size: 75px;

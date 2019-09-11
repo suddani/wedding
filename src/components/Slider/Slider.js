@@ -1,29 +1,30 @@
-import React, {useRef} from 'react';
+import React, {useRef, useEffect, useState, useLayoutEffect} from 'react';
 import useOnScroll from './../../hooks/useOnScroll'
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
 import './Slider.css'
-import banner from './../../assets/images/main.jpeg';
-import banner_small from './../../assets/images/main_small.jpeg';
 
-export default function Slider(props) {
+export default function Slider({text, height, banner, banner_small}) {
   const biggerThan700 = useMediaQuery('(min-width:700px)');
-  // const [top, setTop] = useState(0);
+
   const container = useRef();
+  const main = useRef();
+
   useOnScroll(() => {
-    // setTop(window.scrollY/2);
     window.requestAnimationFrame(() => {
-      container.current.style.top = (window.scrollY/2.0)+'px';
+      const modifier = main.current.getBoundingClientRect().top;
+      const scrollY = window.screenY;
+      container.current.style.top = (scrollY-(modifier+scrollY))/2.0+'px';
     })
   }, []);
   return (
-    <section className='slider' style={{height: (props.height||625)+'px'}}>
+    <section ref={main} className='slider' style={{height: (height||625)+'px'}}>
       <ul>
         <li>
-          <div ref={container} style={{backgroundImage: `url(${biggerThan700 ? banner : banner_small})`}}></div>
+          <div ref={container} style={{backgroundImage: `url(${biggerThan700 ? banner : (banner_small || banner)})`}}></div>
         </li>
       </ul>
-      <div>{props.text}</div>
+      <div>{text}</div>
       <span></span>
     </section>
   );

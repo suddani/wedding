@@ -37,6 +37,7 @@
 .slider > ul > li > div {
   position: absolute;
   height: inherit;
+  height: 130%;
   width: 100%;
   background-size: cover;
   background-position: center 25%;
