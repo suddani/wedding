@@ -1,10 +1,11 @@
 import React from 'react';
 import LoginMenuCard from './LoginMenuCard';
+import { withTranslation } from 'react-i18next';
 
-function Account() {
+function Account({t}) {
   return <span className="AccountButton">
-    Account
+    {t('Account')}
     <LoginMenuCard/>
   </span>
 }
-export default Account;
+export default withTranslation("menu")(Account);

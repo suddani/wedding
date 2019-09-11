@@ -31,4 +31,4 @@ function HappyCouple({t}) {
   );
 }
 
-export default withTranslation()(HappyCouple);
+export default withTranslation("happy")(HappyCouple);

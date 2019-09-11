@@ -1,30 +1,42 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-
-// the translations
-// (tip move them in a JSON file and import them)
-const resources = {
-  en: {
-    translation: {
-      "*** The bride ***": "*** The bride ***",
-      "*** The groom ***": "*** The groom ***",
-      "The happy couple": "The happy couple"
-    }
-  },
-  de: {
-    translation: {
-      "*** The bride ***": "*** Die braut ***",
-      "*** The groom ***": "*** Der bräutigam ***",
-      "The happy couple": "Das glückliche paar"
-    }
-  }
-};
+import Backend from 'i18next-xhr-backend';
+import LanguageDetector from 'i18next-browser-languagedetector';
 
 i18n
-  .use(initReactI18next) // passes i18n down to react-i18next
+  // load translation using xhr -> see /public/locales
+  // learn more: https://github.com/i18next/i18next-xhr-backend
+  .use(Backend)
+  // detect user language
+  // learn more: https://github.com/i18next/i18next-browser-languageDetector
+  .use(LanguageDetector)
+  // pass the i18n instance to react-i18next.
+  .use(initReactI18next)
   .init({
-    resources,
-    lng: "de",
+    debug: true,
+    // resources,
+    backend: {
+      loadPath: '/locales/{{lng}}/{{ns}}.json'
+    },
+    detection: {
+      debug: true,
+      // order and from where user language should be detected
+      order: ['querystring', 'cookie', 'localStorage', 'navigator', 'htmlTag', 'path', 'subdomain'],
+
+      // keys or params to lookup language from
+      lookupQuerystring: 'lang',
+      lookupCookie: 'i18next',
+      lookupLocalStorage: 'i18nextLng',
+      lookupFromPathIndex: 0,
+      lookupFromSubdomainIndex: 0,
+
+      // cache user language on
+      caches: [],
+      excludeCacheFor: [], // languages to not persist (cookie, localStorage)
+
+      // optional htmlTag with lang attribute, the default is:
+      htmlTag: document.documentElement
+    },
 
     keySeparator: false, // we do not use keys in form messages.welcome
 

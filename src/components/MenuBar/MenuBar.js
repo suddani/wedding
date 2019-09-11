@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import { store } from 'react-notifications-component';
+import { withTranslation } from 'react-i18next';
 
 import './MenuBar.css';
 import Heart from '../Heart';
@@ -7,14 +8,14 @@ import Account from './Account';
 import Entry from './Entry';
 import useOnScroll from './../../hooks/useOnScroll';
 
-export default function MenuBar(props) {
+function MenuBar({slideIn, className, t}) {
   const entries = [
-    {path: '/', name: 'Home', hasNoHeart: true, hiddenOnClose: true},
-    {path: '/about', name: 'About', hasNoHeart: true},
-    {path: '/galery', name: 'Gallery'},
-    {path: '/story', name: 'The Story'},
+    {path: '/', name: t('Home'), hasNoHeart: true, hiddenOnClose: true},
+    {path: '/about', name: t('About'), hasNoHeart: true},
+    {path: '/galery', name: t('Gallery')},
+    {path: '/story', name: t('The Story')},
     {path: '/', name: <Heart size={50} text="D+M"/>, hasNoHeart: true, hiddenOnOpen: true},
-    {path: '/wedding', name: 'The Wedding'},
+    {path: '/wedding', name: t('The Wedding')},
     {path: '/account', name: <Account></Account>, disabledOnOpen: true }
   ];
   const styles = [
@@ -25,7 +26,7 @@ export default function MenuBar(props) {
   const [position, setPosition] = useState("relative");
   const [menuOpen, setMenuOpen] = useState("");
   useOnScroll(() => {
-    if (!props.slideIn || window.innerWidth < 700) {
+    if (!slideIn || window.innerWidth < 700) {
       setTop(0);
       setPosition("relative");
       return;
@@ -39,7 +40,7 @@ export default function MenuBar(props) {
       setTop(0);
       setPosition("relative");
     }
-  }, [position, props.slideIn]);
+  }, [position, slideIn]);
 
   function menuToggle() {
     // store.addNotification({
@@ -60,11 +61,11 @@ export default function MenuBar(props) {
   }
 
   let extraStyleClass = '';
-  let hasNoStyleIndicator = styles.map((style) => props.className.indexOf(style) !== -1).filter(i => i).length <= 0;
+  let hasNoStyleIndicator = styles.map((style) => className.indexOf(style) !== -1).filter(i => i).length <= 0;
   if (hasNoStyleIndicator) extraStyleClass = styles[0];
 
   return (
-    <nav className={['MenuBar', position, menuOpen, extraStyleClass, props.className].filter(i=>i).join(' ')} style={{top: top}}>
+    <nav className={['MenuBar', position, menuOpen, extraStyleClass, className].filter(i=>i).join(' ')} style={{top: top}}>
       <div onClick={menuToggle}>
         <div>
           <div></div>
@@ -83,3 +84,5 @@ export default function MenuBar(props) {
     </nav>
   );
 }
+
+export default withTranslation("menu")(MenuBar);
