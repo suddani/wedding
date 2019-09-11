@@ -1,43 +1,11 @@
 import React, {useState} from 'react';
-import { Link } from "react-router-dom";
 import { store } from 'react-notifications-component';
-import {AccountCircle} from '@material-ui/icons';
-import { Button, Input, Card, CardContent, Grid, Icon } from '@material-ui/core';
 
 import './MenuBar.css';
 import Heart from '../Heart';
+import Account from './Account';
+import Entry from './Entry';
 import useOnScroll from './../../hooks/useOnScroll';
-
-function Entry({text, path, hasNoHeart, onClick, disabled}) {
-  let extraHeart = hasNoHeart ? null : <Heart size="8"/>;
-  return (
-    <li>
-      { extraHeart }
-      { path && !disabled ? <Link to={path} onClick={onClick}>{text}</Link> : text }
-    </li>
-  );
-}
-function Login(props) {
-  return (
-    <Card>
-      <CardContent>
-        <Grid container direction="column" spacing={2} justify='center' alignContent='center'>
-          <Grid item>Login</Grid>
-            <Grid item><Input name="username" type="username"></Input></Grid>
-            <Grid item><Input name="password" type="password"></Input></Grid>
-            <Grid item ><Button variant="contained">Login</Button></Grid>
-        </Grid>
-      </CardContent>
-    </Card>
-  );
-}
-
-function Account(props) {
-  return <span className="AccountButton">
-    Account
-    <Login/>
-  </span>
-}
 
 export default function MenuBar(props) {
   const entries = [
@@ -92,7 +60,7 @@ export default function MenuBar(props) {
   }
 
   let extraStyleClass = '';
-  let hasNoStyleIndicator = styles.map((style) => props.className.indexOf(style) != -1).filter(i => i).length <= 0;
+  let hasNoStyleIndicator = styles.map((style) => props.className.indexOf(style) !== -1).filter(i => i).length <= 0;
   if (hasNoStyleIndicator) extraStyleClass = styles[0];
 
   return (

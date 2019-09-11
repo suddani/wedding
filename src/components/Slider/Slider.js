@@ -1,4 +1,4 @@
-import React, {useRef, useEffect, useState, useLayoutEffect} from 'react';
+import React, {useRef} from 'react';
 import useOnScroll from './../../hooks/useOnScroll'
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 

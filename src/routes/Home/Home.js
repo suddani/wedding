@@ -1,7 +1,6 @@
 import React from 'react';
 import CountDown from './../../components/CountDown';
 import Slider from './../../components/Slider';
-import HappyCouple from './../../components/HappyCouple';
 import banner from './../../assets/images/main.jpeg';
 import banner_small from './../../assets/images/main_small.jpeg';
 
