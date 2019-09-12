@@ -5,6 +5,7 @@ import { HashRouter as Router, Route } from "react-router-dom";
 import ReactNotification from 'react-notifications-component'
 
 import MenuBar from './components/MenuBar';
+import FooterBar from './components/FooterBar';
 import Home from './routes/Home';
 import About from './routes/About';
 import Galery from './routes/Galery';
@@ -24,6 +25,7 @@ function App() {
         <Route exact path="/story" component={Story}/>
         <Route exact path="/wedding" component={Wedding}/>
         <Route exact path="/account" component={Account}/>
+        <FooterBar></FooterBar>
       </Router>
     </div>
   );

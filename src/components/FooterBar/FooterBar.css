@@ -1,0 +1,34 @@
+.FooterBar {
+  padding-top: 0px !important;
+  display: grid;
+  grid-template-columns: 1fr 1fr 8fr max-content;
+  column-gap: 16px;
+  padding: 0 16px 0 16px;
+  align-items: center;
+  position: absolute;
+  bottom: 0px;
+  height: 50px;
+  color: white;
+  text-shadow: 1px 1px #000000;
+  z-index: 10;
+}
+
+.FooterBar a {
+  display: flex;
+  align-items: center;
+}
+.FooterBar > a > .heartContainer {
+  margin-right: 4px;
+}
+
+@media only screen and (min-width: 700px) {
+  .FooterBar {
+    grid-row: 2/3 !important;
+
+    position: inherit;
+    bottom: inherit;
+    color: inherit;
+    text-shadow: none;
+    z-index: inherit;
+  }
+}

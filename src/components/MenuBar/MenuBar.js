@@ -15,7 +15,7 @@ function MenuBar({slideIn, className, t}) {
     {path: '/galery', name: t('Gallery')},
     {path: '/story', name: t('The Story')},
     {path: '/', name: <Heart size={50} text="D+M"/>, hasNoHeart: true, hiddenOnOpen: true},
-    {path: '/wedding', name: t('The Wedding')},
+    {path: '/wedding', name: t('The Wedding'), hasNoHeart: true},
     {path: '/account', name: <Account></Account>, disabledOnOpen: true }
   ];
   const styles = [

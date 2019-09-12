@@ -28,3 +28,20 @@ body::-webkit-scrollbar { /* WebKit */
 body::-webkit-scrollbar-thumb {
   background: #FF0000;
 }
+
+a {
+  text-decoration: none;
+  outline: 0;
+}
+a:visited {
+  text-decoration: none;
+  color: inherit;
+}
+a:link {
+  text-decoration: none;
+  color: inherit;
+}
+a:link:hover {
+  text-decoration: none;
+  color: #f0394d;
+}

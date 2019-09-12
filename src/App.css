@@ -12,6 +12,9 @@
 }
 
 @media only screen and (min-width: 700px) {
+  .App {
+    grid-template-rows: 1fr 50px;
+  }
   .App > section {
     padding-top: 150px;
   }

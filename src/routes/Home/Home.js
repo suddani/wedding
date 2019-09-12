@@ -21,7 +21,7 @@ function Home({t}) {
   return (
     <section className="Home">
       <h1 style={{display: 'none'}}>Home</h1>
-      <Slider fullscreen text={sliderText} banner={banner} banner_small={banner_small}/>
+      <Slider text={sliderText} banner={banner} banner_small={banner_small}/>
     </section>
   );
 }

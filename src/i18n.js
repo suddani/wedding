@@ -14,9 +14,12 @@ i18n
   .use(initReactI18next)
   .init({
     debug: true,
+    saveMissing: true,
     // resources,
     backend: {
-      loadPath: '/locales/{{lng}}/{{ns}}.json'
+      saveMissing: true,
+      loadPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}', //'/locales/{{lng}}/{{ns}}.json',
+      addPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}'
     },
     detection: {
       debug: true,
