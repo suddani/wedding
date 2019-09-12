@@ -3,6 +3,7 @@
   background-color: #eeeeee;
   overflow: hidden;
   grid-template-rows: 1fr;
+  min-height: 100vh;
 }
 
 .App > section {
@@ -12,7 +13,7 @@
 
 @media only screen and (min-width: 700px) {
   .App > section {
-    padding-top: 140px;
+    padding-top: 150px;
   }
 }
 
