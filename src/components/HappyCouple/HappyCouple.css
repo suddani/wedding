@@ -41,10 +41,12 @@
 
 .HappyCouple > div.groom {
   grid-area: groom;
+  align-self: start;
 }
 
 .HappyCouple > div.bride {
   grid-area: bride;
+  align-self: start;
 }
 
 .HappyCouple > div {
