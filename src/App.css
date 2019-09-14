@@ -9,6 +9,7 @@
 .App > section {
   grid-column: 1/2;
   grid-row: 1/2;
+  padding-bottom: 50px;
 }
 
 @media only screen and (min-width: 700px) {
