@@ -17,9 +17,9 @@ i18n
     saveMissing: true,
     // resources,
     backend: {
-      saveMissing: true,
-      loadPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}', //'/locales/{{lng}}/{{ns}}.json',
-      addPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}'
+      // loadPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}',
+      loadPath: '/locales/{{lng}}/{{ns}}.json',
+      // addPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}'
     },
     detection: {
       debug: true,
