@@ -8,10 +8,10 @@ function FooterBar({t}) {
 
   return (
     <section className="FooterBar">
-      <a href={weddingMailText} target="blank"><Heart size='10'/>Contact</a>
-      <a href="https://twitter.com/MDanielwedding" target="blank"><Heart size='10'/>Twitter</a>
+      <a href={weddingMailText} target="_top"><Heart size='10'/>Contact</a>
+      <a href="https://twitter.com/MDanielwedding" target="_top"><Heart size='10'/>Twitter</a>
       <div></div>
-      <a href="mailto:mail@daniel-sudmann.de" target="blank">Copyright © 2019 Daniel Sudmann</a>
+      <a href="mailto:mail@daniel-sudmann.de" target="_top">© 2019 Daniel Sudmann</a>
     </section>
   );
 }
