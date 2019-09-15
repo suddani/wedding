@@ -4,8 +4,8 @@ import Backend from 'i18next-xhr-backend';
 import LanguageDetector from 'i18next-browser-languagedetector';
 
 let backendConfig = {
-    loadPath: '/locales/{{lng}}/{{ns}}.json',
-  };
+  loadPath: '/locales/{{lng}}/{{ns}}.json',
+};
 if ( process.env.REACT_APP_STAGE === 'dev') {
   backendConfig = {
     loadPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}',
