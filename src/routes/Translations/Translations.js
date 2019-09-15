@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withTranslation } from 'react-i18next';
 import { Button, Input } from '@material-ui/core';
+import { store } from 'react-notifications-component';
 
 import './Translations.css'
 
@@ -58,7 +59,21 @@ function Translations({t}) {
           value: translation.value
         }), // body data type must match "Content-Type" header
     })
-    .then(response => response.json());
+    .then(response => response.json()).then(() => {
+      store.addNotification({
+        title: t("Updated Translation"),
+        message: `${t('Changed translation of')} "${translation.key}"`,
+        type: "default",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: {
+          duration: 5000,
+          // onScreen: true
+        }
+      });
+    });
   };
 
   const updateValue = (translation, event) => {
