@@ -1,5 +1,9 @@
 {
   "Save": "економити",
   "Updated Translation": "Оновлений переклад",
-  "Changed translation of": "Змінено переклад"
+  "Changed translation of": "Змінено переклад",
+  "Copied Text": "Текст скопійовано",
+  "Copied hint to clipboard": "Текст додано до буфера обміну",
+  "Failure": "помилка",
+  "Could not copy hint to clipboard": "Текст не вдалося додати до буфера обміну"
 }

@@ -1,5 +1,9 @@
 {
   "Save": "Speichern",
   "Updated Translation": "Übsetzung aktualisiert",
-  "Changed translation of": "Übersetzung wurde aktualisiert für"
+  "Changed translation of": "Übersetzung wurde aktualisiert für",
+  "Copied Text": "Text kopiert",
+  "Copied hint to clipboard": "Text wurde zur Zwischenablage hinzugefügt",
+  "Failure": "Fehler",
+  "Could not copy hint to clipboard": "Text konnte nicht zur Zwischenablage hinzugefügt"
 }
