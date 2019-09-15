@@ -12,6 +12,7 @@ import Galery from './routes/Galery';
 import Story from './routes/Story';
 import Wedding from './routes/Wedding';
 import Account from './routes/Account';
+import Translations from './routes/Translations';
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route exact path="/story" component={Story}/>
         <Route exact path="/wedding" component={Wedding}/>
         <Route exact path="/account" component={Account}/>
+        <Route exact path="/translations" component={Translations}/>
         <FooterBar></FooterBar>
       </Router>
     </div>

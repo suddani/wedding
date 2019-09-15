@@ -1,0 +1,38 @@
+.Translations {
+  display: grid;
+  width: 945px;
+  justify-self: center;
+  grid-template-rows: max-content;
+}
+
+.Translations .languages {
+  display: flex;
+}
+
+.Translations .languages button {
+  padding: 8px;
+  margin: 4px;
+}
+
+.Translations .namespaces .translation {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+  justify-content: space-between;
+}
+
+.Translations .namespaces .translation label{
+  align-self: center;
+  padding: 0 10px 0 0px;
+}
+
+.Translations .namespaces .translation button{
+  align-self: center;
+  margin: 0 0px 0 10px;
+}
+
+@media only screen and (max-width: 945px) {
+  .Translations {
+    width: 80%;
+    min-width: 300px;
+  }
+}
