@@ -79,12 +79,100 @@ function Translations({t}) {
   const updateValue = (translation, event) => {
     translation.value = event.target.value;
     let t = {...translations};
-    // t.forEach((e) => {
-    //   if (e.id == translation.id)
-    //     e.value = translation.value;
-    // } );
     setTranslations(t);
   };
+
+  function fallbackCopyTextToClipboard(translation) {
+    var textArea = document.createElement("textarea");
+    textArea.value = translation.hint;
+    document.body.appendChild(textArea);
+    textArea.focus();
+    textArea.select();
+  
+    try {
+      var successful = document.execCommand('copy');
+      if (successful) {
+        store.addNotification({
+          title: t("Copied Text"),
+          message: `${t('Copied hint to clipboard')}: "${translation.hint}"`,
+          type: "default",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animated", "fadeIn"],
+          animationOut: ["animated", "fadeOut"],
+          dismiss: {
+            duration: 5000,
+            // onScreen: true
+          }
+        });
+      } else {
+        store.addNotification({
+          title: t("Failure"),
+          message: `${t('Could not copy hint to clipboard')}: "${translation.hint}"`,
+          type: "danger",
+          insert: "top",
+          container: "top-right",
+          animationIn: ["animated", "fadeIn"],
+          animationOut: ["animated", "fadeOut"],
+          dismiss: {
+            duration: 5000,
+            // onScreen: true
+          }
+        });
+      }
+    } catch (err) {
+      store.addNotification({
+        title: t("Failure"),
+        message: `${t('Could not copy hint to clipboard')}: "${translation.hint}"`,
+        type: "danger",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: {
+          duration: 5000,
+          // onScreen: true
+        }
+      });
+    }
+  
+    document.body.removeChild(textArea);
+  }
+  function copyTextToClipboard(translation) {
+    if (!navigator.clipboard) {
+      fallbackCopyTextToClipboard(translation);
+      return;
+    }
+    navigator.clipboard.writeText(translation.hint).then(function() {
+      store.addNotification({
+        title: t("Copied Text"),
+        message: `${t('Copied hint to clipboard')}: "${translation.hint}"`,
+        type: "default",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: {
+          duration: 5000,
+          // onScreen: true
+        }
+      });
+    }, function(err) {
+      store.addNotification({
+        title: t("Failure"),
+        message: `${t('Could not copy hint to clipboard')}: "${translation.hint}"`,
+        type: "danger",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: {
+          duration: 5000,
+          // onScreen: true
+        }
+      });
+    });
+  }
 
   return (
     <section className="Translations">
@@ -108,7 +196,7 @@ function Translations({t}) {
             {
               (translations[key]||[]).map((translation) => (
                 <div className="translation" key={translation.id}>
-                  <label>{translation.key}</label>
+                  <label onClick={() => copyTextToClipboard(translation)}>{translation.key}</label>
                   <Input placeholder={translation.hint}
                          onChange={(event) => updateValue(translation, event)}
                          value={translation.value}></Input>
