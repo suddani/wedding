@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { withTranslation, Trans } from 'react-i18next';
-import { Button, Input, Card, CardContent, Grid } from '@material-ui/core';
+import { withTranslation } from 'react-i18next';
+import { Button, Input } from '@material-ui/core';
 
 import './Translations.css'
 
