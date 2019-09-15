@@ -1,20 +1,13 @@
 .slider {
-  /* height: 625px; */
-  /* background: red; */
   overflow: hidden;
   width: 100%;
   display: grid;
   align-items: center;
   justify-items: center;
 }
+
 .slider.full {
   height: 100vh !important;
-}
-
-@media only screen and (max-width: 700px) {
-  .slider {
-    height: 100vh !important;
-  }
 }
 
 .slider > ul {
@@ -40,10 +33,10 @@
 .slider > ul > li > div {
   position: absolute;
   height: inherit;
-  height: 130%;
+  height: 200%;
   width: 100%;
   background-size: cover;
-  background-position: center 25%;
+  background-position: center 50%;
   background-repeat: no-repeat;
 }
 
@@ -62,4 +55,17 @@
   align-self: stretch;
   background-color: rgba(0,0,0,0.15);
   z-index: 1;
+}
+
+@media only screen and (min-width: 700px) {
+}
+
+@media only screen and (max-width: 700px) {
+  .slider.fullsmall {
+    height: 100vh !important;
+  }
+  .slider > ul > li > div {
+    height: 130%;
+    background-position: center 25%;
+  }
 }

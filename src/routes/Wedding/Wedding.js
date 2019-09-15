@@ -1,9 +1,10 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 
-function Wedding() {
+function Wedding({t}) {
   return <section>
-    Wedding
+    {t('Wedding')}
   </section>;
 }
 
-export default Wedding;
+export default withTranslation("wedding")(Wedding);

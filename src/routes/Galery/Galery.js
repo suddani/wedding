@@ -1,9 +1,10 @@
 import React from 'react';
+import { withTranslation } from 'react-i18next';
 
-function Galery() {
+function Galery({t}) {
   return <section>
-    Galery
+    {t('Gallery')}
   </section>;
 }
 
-export default Galery;
+export default withTranslation("gallery")(Galery);
