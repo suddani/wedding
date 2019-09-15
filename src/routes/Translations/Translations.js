@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { withTranslation } from 'react-i18next';
-import { Button, Input } from '@material-ui/core';
+import { Button, TextField } from '@material-ui/core';
 import { store } from 'react-notifications-component';
 
 import './Translations.css'
@@ -197,9 +197,10 @@ function Translations({t}) {
               (translations[key]||[]).map((translation) => (
                 <div className="translation" key={translation.id}>
                   <label onClick={() => copyTextToClipboard(translation)}>{translation.key}</label>
-                  <Input placeholder={translation.hint}
+                  <TextField placeholder={translation.hint}
                          onChange={(event) => updateValue(translation, event)}
-                         value={translation.value}></Input>
+                         value={translation.value}
+                         multiline></TextField>
                   <Button onClick={() => updateTranslation(translation)}>{t('Save')}</Button>
                 </div>
               ))

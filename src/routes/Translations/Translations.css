@@ -23,6 +23,7 @@
 .Translations .namespaces .translation label{
   align-self: center;
   padding: 0 10px 0 0px;
+  cursor: pointer;
 }
 
 .Translations .namespaces .translation button{
