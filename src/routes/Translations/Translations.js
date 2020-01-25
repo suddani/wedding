@@ -15,7 +15,7 @@ function Translations({t}) {
 
   useEffect(() => {
     const loadGroups = async () => {
-      fetch('https://api.daniel-mariia.wedding/translation/translations/groups/wedding_page').then(
+      fetch('//api.daniel-mariia.wedding/translation/translations/groups/wedding_page').then(
         response => response.json()
       ).then((groups) => {
         setSelectedGroup(Object.keys(groups)[0]);
@@ -28,7 +28,7 @@ function Translations({t}) {
 
   useEffect(() => {
     const loadGroups = async () => {
-      fetch('https://api.daniel-mariia.wedding/translation/translations/groups/wedding_page/'+selectedGroup).then(
+      fetch('//api.daniel-mariia.wedding/translation/translations/groups/wedding_page/'+selectedGroup).then(
         response => response.json()
       ).then((groups) => {
         Object.keys(groups).forEach((i) => {
@@ -44,7 +44,7 @@ function Translations({t}) {
   }, [selectedGroup]);
 
   const updateTranslation = (translation) => {
-    fetch('https://api.daniel-mariia.wedding/translation/translations/wedding_page/'+translation.id, {
+    fetch('//api.daniel-mariia.wedding/translation/translations/wedding_page/'+translation.id, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
