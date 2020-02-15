@@ -9,8 +9,7 @@ RUN apk add --update --no-cache \
     patch \
     imagemagick \
     git \
-  && rm -rf /var/cache/apk/* \
-  && npm install -g yarn
+  && rm -rf /var/cache/apk/*
 ADD . /app
 WORKDIR /app
 

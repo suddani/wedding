@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )"
 echo Running in $(readlink -f $DIR/../)
-docker run -it --rm -v $(readlink -f $DIR/../):/app github.com/suddani/wedding-frontend:latest yarn run build
+docker run -it --rm -v $(readlink -f $DIR/../):/app github.com/suddani/wedding-frontend:latest npm run build
 bash ./scripts/push_gh_pages
 GREEN='\033[0;32m'
 echo -e "${GREEN}Published to github.io"
