@@ -12,6 +12,9 @@ import Galery from './routes/Galery';
 import Story from './routes/Story';
 import Wedding from './routes/Wedding';
 import Account from './routes/Account';
+import Rsvp from './routes/Rsvp';
+import Tips from './routes/Tips';
+import Gifts from './routes/Gifts';
 import Translations from './routes/Translations';
 
 function App() {
@@ -26,6 +29,9 @@ function App() {
         <Route exact path="/story" component={Story}/>
         <Route exact path="/wedding" component={Wedding}/>
         <Route exact path="/account" component={Account}/>
+        <Route exact path="/rsvp" component={Rsvp}/>
+        <Route exact path="/tips" component={Tips}/>
+        <Route exact path="/gifts" component={Gifts}/>
         <Route exact path="/translations" component={Translations}/>
         <FooterBar></FooterBar>
       </Router>

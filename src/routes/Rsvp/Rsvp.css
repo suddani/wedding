@@ -1,0 +1,15 @@
+.Rsvp {
+
+}
+
+.Rsvp .MuiGrid-item {
+  width: 50%;
+}
+
+.Rsvp .MuiFormControl-root {
+  width: 100%;
+}
+
+.Rsvp .Subtitle {
+  font-size: 8px;
+}

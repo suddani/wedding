@@ -1,13 +1,15 @@
 .App {
   display: grid;
-  background-color: #eeeeee;
+  /* background-color: #eeeeee; */
   overflow: hidden;
   grid-template-rows: 1fr;
+  grid-template-columns: minmax(0px, 1fr) minmax(812px, 1280px) minmax(0px, 1fr);
   min-height: 100vh;
+  color: #a0a0a0;
 }
 
 .App > section {
-  grid-column: 1/2;
+  grid-column: 2/3;
   grid-row: 1/2;
   padding-bottom: 50px;
 }

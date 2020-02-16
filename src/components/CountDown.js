@@ -3,7 +3,7 @@ import React from 'react';
 import useInterval from '../hooks/useInterval';
 
 export default function CountDown(_props) {
-  const countDownDate = new Date("5 10, 2020 08:00:00").getTime();
+  const countDownDate = Date.parse("2020-05-10T08:00:00Z");
   function generateCounter() {
     var distance = countDownDate - new Date().getTime();
 

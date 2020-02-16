@@ -1,22 +1,30 @@
 import React, {useState} from 'react';
 import { store } from 'react-notifications-component';
 import { withTranslation } from 'react-i18next';
+import { Link } from "react-router-dom";
 
 import './MenuBar.css';
 import Heart from '../Heart';
+import FlowerText from '../FlowerText';
 import Account from './Account';
 import Entry from './Entry';
 import useOnScroll from './../../hooks/useOnScroll';
 
+import top_left_img from './top_left_v10.png';
+import top_right_img from './top_right_v10.png';
+
 function MenuBar({slideIn, className, t}) {
+  const [flowerSize, setFlowerSize] = useState(200);
   const entries = [
-    {path: '/', name: t('Home'), hasNoHeart: true, hiddenOnClose: true},
-    {path: '/about', name: t('About'), hasNoHeart: true},
-    {path: '/galery', name: t('Gallery')},
-    {path: '/story', name: t('The Story')},
-    {path: '/', name: <Heart size={50} text="D+M"/>, hasNoHeart: true, hiddenOnOpen: true},
-    {path: '/wedding', name: t('The Wedding'), hasNoHeart: true},
-    {path: '/account', name: <Account></Account>, disabledOnOpen: true }
+    // {path: '/', name: t('Home'), hasNoHeart: true, hiddenOnClose: true},
+    // {path: '/about', name: t('About'), hasNoHeart: true},
+    // {path: '/galery', name: t('Gallery'), hasNoHeart: true},
+    {path: '/story', name: t('The Story'), hasNoHeart: true},
+    {path: '/wedding', name: t('The Wedding'), hasNoHeart: false},
+    {path: '/', name: <FlowerText size={flowerSize} text="D+M"/>, hasNoHeart: true, hiddenOnOpen: true},
+    {path: '/gifts', name: t('Gifts'), hasNoHeart: true},
+    {path: '/tips', name: t('Local Tips'), hasNoHeart: false},
+    // {path: '/account', name: <Account></Account>, disabledOnOpen: true }
   ];
   const styles = [
     'solid',
@@ -29,16 +37,19 @@ function MenuBar({slideIn, className, t}) {
     if (!slideIn || window.innerWidth < 700) {
       setTop(0);
       setPosition("relative");
+      setFlowerSize(200);
       return;
     };
-    if (window.scrollY >= (625) && window.scrollY <= (625+50)) {
+    if (window.scrollY >= (125) && window.scrollY <= (125+50)) {
       setTop(-150);
-    } else if (window.scrollY >= (625+50)) {
+    } else if (window.scrollY >= (125+50)) {
       setPosition("fixed");
+      setFlowerSize(120);
       setTop(0);
     } else {
       setTop(0);
       setPosition("relative");
+      setFlowerSize(200);
     }
   }, [position, slideIn]);
 
@@ -53,12 +64,8 @@ function MenuBar({slideIn, className, t}) {
 
   return (
     <nav className={['MenuBar', position, menuOpen, extraStyleClass, className].filter(i=>i).join(' ')} style={{top: top}}>
-      <div onClick={menuToggle}>
-        <div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+      <div className="top_left">
+        <img src={top_left_img}></img>
       </div>
       <ul>
         {entries.map((entry, id) => {
@@ -68,6 +75,14 @@ function MenuBar({slideIn, className, t}) {
           return <Entry onClick={menuToggle} disabled={entryDisabled} key={id} hasNoHeart={entry.hasNoHeart} text={entry.name} path={entry.path}/>
         })}
       </ul>
+      <div className="top_right">
+        <img src={top_right_img}></img>
+      </div>
+      <Link to="/rsvp" className="rsvp">
+        <div className="text">RSVP</div>
+        <div className="left"></div>
+        <div className="right"></div>
+      </Link>
     </nav>
   );
 }
