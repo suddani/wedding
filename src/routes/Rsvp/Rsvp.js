@@ -18,6 +18,8 @@ function Rsvp({t}) {
   const history = useHistory();
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
+  const [message, setMessage] = useState("");
+  const [allergies, setAllergies] = useState("");
   const [guestCount, setGuestCount] = useState(1);
   const [childrenCount, setChildrenCount] = useState(0);
   const [foodPreferences, setFoodPreferences] = useState(0);
@@ -38,13 +40,43 @@ function Rsvp({t}) {
       setAttending(invitation.attending ? 0 : 1)
       setSelectedDate(invitation.arrival_date);
       setFoodPreferences(invitation.food_preference);
+      setMessage(invitation.message);
+      setAllergies(invitation.allergies||"");
     }).catch(_=> history.push('/'));
   }, []);
 
   function onChange(setter) {
     return (_, event) => {
-      setter(event.props.value);
+      try {
+        setter(event.props.value);
+      } catch(e) {
+        console.log(e)
+      }
     }
+  }
+
+  function onType(setter) {
+    return (event) => {
+      try {
+        setter(event.target.value);
+      } catch(e) {
+        console.log(e)
+      }
+    }
+  }
+
+  function onSubmit() {
+    answerInvitation({
+      firstname: firstname,
+      lastname: lastname,
+      children: childrenCount,
+      guests: guestCount,
+      attending: attending,
+      arrival_date: selectedDate,
+      food_preference: foodPreferences,
+      message: message,
+      allergies: allergies
+    }, access_token, refresh_token, setAccessToken).catch(_=> history.push('/'));
   }
 
   return <section className="Rsvp">
@@ -58,13 +90,13 @@ function Rsvp({t}) {
           <Grid item xs={12}>
             <FormControl>
               <InputLabel id="firstname-label">{t('Firstname')}</InputLabel>
-              <Input labelid="firstname-label" name="firstname" type="text" value={firstname} onChange={onChange(setFirstname)}></Input>
+              <Input labelid="firstname-label" name="firstname" type="text" value={firstname} onChange={onType(setFirstname)}></Input>
             </FormControl>
           </Grid>
           <Grid item>
             <FormControl>
               <InputLabel id="lastname-label">{t('Lastname')}</InputLabel>
-              <Input labelid="lastname-label" name="lastname" type="text" value={lastname} onChange={onChange(setLastname)}></Input>
+              <Input labelid="lastname-label" name="lastname" type="text" value={lastname} onChange={onType(setLastname)}></Input>
             </FormControl>
           </Grid>
           <Grid item>
@@ -114,7 +146,7 @@ function Rsvp({t}) {
                 <Grid item>
                   <FormControl>
                     <InputLabel id="allergies-label">{t('Allergies')}</InputLabel>
-                    <Input labelid="allergies-label" name="allergies" type="text"></Input>
+                    <Input labelid="allergies-label" name="allergies" type="text" value={allergies} onChange={onType(setAllergies)}></Input>
                   </FormControl>
                 </Grid>
                 <Grid item>
@@ -149,9 +181,11 @@ function Rsvp({t}) {
               multiline
               rows="8"
               variant="outlined"
+              value={message}
+              onChange={onType(setMessage)}
             />
           </Grid>
-          <Grid item ><Button variant="contained">{t('Submit')}</Button></Grid>
+          <Grid item ><Button variant="contained" onClick={onSubmit}>{t('Submit')}</Button></Grid>
         </Grid>
       </CardContent>
     </Card>

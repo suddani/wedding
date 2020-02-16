@@ -27,7 +27,7 @@ export function requestInvitation(token, refresh_token, setAccessToken, user_ema
 
 export function postAnswer(token, payload, user_email) {
   return fetch(
-    `//${invitation_host}/rsvp/answer}`, {
+    `//${invitation_host}/rsvp/answer`, {
     method: "PUT",
     body: JSON.stringify({...payload}),
     headers: {
