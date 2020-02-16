@@ -1,0 +1,48 @@
+.CountDown {
+  display: grid;
+  grid-template-areas:
+  "days hours minutes seconds"
+  "days_text hours_text minutes_text seconds_text";
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  justify-items: center;
+  text-transform: uppercase;
+}
+
+.CountDown > .days {
+  grid-area: days;
+}
+
+.CountDown > .hours {
+  grid-area: hours;
+}
+
+.CountDown > .minutes {
+  grid-area: minutes;
+}
+
+.CountDown > .seconds {
+  grid-area: seconds;
+}
+
+.CountDown > .days_text {
+  grid-area: days_text;
+}
+
+.CountDown > .hours_text {
+  grid-area: hours_text;
+}
+
+.CountDown > .minutes_text {
+  grid-area: minutes_text;
+}
+
+.CountDown > .seconds_text {
+  grid-area: seconds_text;
+}
+
+.CountDown > .info_text {
+}
+
+.CountDown > .info_data {
+}
