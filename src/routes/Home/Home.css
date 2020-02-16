@@ -56,34 +56,32 @@
 .Home > .TextContainer > .SaveTheDate {
   color: #fff;
   text-shadow: 2px 2px #e2b007;
-  font-size: 150px;
+  font-size: 130px;
   grid-row: 1/3;
   grid-column: 1/3;
   display: grid;
   justify-self: stretch;
   justify-items: center;
-  align-content: center;
+  align-self: flex-start;
   font-family: 'Dancing Script', cursive;
-  grid-template-rows: 1fr 150px 1fr;
+  grid-template-rows: 1fr 70px 1fr;
+  grid-template-columns: 1fr;
 }
 
 .Home > .TextContainer > .SaveTheDate > .start {
-  padding-top: 100px;
   position: relative;
-  left: -20px;
+  left: -90px;
 }
 
 .Home > .TextContainer > .SaveTheDate > .middle {
   font-size: 70px;
-  padding-top: 20px;
   position: relative;
-  left: -20px;
+  left: -30px;
 }
 
 .Home > .TextContainer > .SaveTheDate > .end {
-  align-self: flex-start;
-  justify-self: start;
-  padding-left: 100px;
+  position: relative;
+  left: -50px;
 }
 
 .Home > .TextContainer > .date {
@@ -94,20 +92,36 @@
   font-size: 70px;
   font-family: 'Dancing Script', cursive;
   justify-self: end;
-  align-self: center;
+  align-self: flex-start;
   position: relative;
   right: 50px;
+  top: 140px;
 }
 
 .Home .Countdown {
   grid-row: 2/3;
-  grid-column: 3/5;
-  justify-self: end;
-  font-size: 40px;
+  grid-column: 1/5;
+  justify-self: center;
+  align-self: flex-end;
+  font-size: 120px;
   color: #fff;
-  text-shadow: 2px 2px #e2b007;
-  font-family: 'Dancing Script', cursive;
-  padding-right: 16px;
+  text-shadow: 2px 2px #a0a0a0;
+  font-family: 'Oswald', sans-serif;
+  column-gap: 32px;
+  grid-template-columns: repeat(4,178px);
+  grid-template-rows: 1fr 30px;
+}
+
+.Home .CountDown > .info_text {
+  font-weight: lighter;
+  font-size: 20px;
+  align-self: flex-start;
+  padding: 0px;
+  margin: 0px;
+}
+
+.Home .CountDown > .info_data {
+  align-self: flex-end;
 }
 
 /* .saveTheDate {

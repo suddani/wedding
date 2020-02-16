@@ -5,7 +5,7 @@ import CountDown from './../../components/CountDown';
 import Slider from './../../components/Slider';
 import banner from './../../assets/images/main.jpeg';
 import banner_small from './../../assets/images/main_small.jpeg';
-import main from './main3.jpg';
+import main from './main2.jpg';
 
 import './Home2.css'
 
@@ -26,8 +26,12 @@ function Home2({t}) {
         <img src={main}></img>
         <div className="fade"></div>
         <div className="content">
-          <div className="text">Save the date</div>
-          <div className="date">-10.05.2020-</div>
+          <div className="SaveTheDate">
+            <div className="start">Save</div>
+            <div className="middle">the</div>
+            <div className="end">Date</div>
+          </div>
+          <div className="date">10.05.2020</div>
           <CountDown></CountDown>
         </div>
       </div>

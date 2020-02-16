@@ -13,7 +13,7 @@ import useOnScroll from './../../hooks/useOnScroll';
 import top_left_img from './top_left_v10.png';
 import top_right_img from './top_right_v10.png';
 
-function MenuBar({slideIn, className, t}) {
+function MenuBar({slideIn, className, t, user}) {
   const [flowerSize, setFlowerSize] = useState(200);
   const entries = [
     // {path: '/', name: t('Home'), hasNoHeart: true, hiddenOnClose: true},
@@ -78,11 +78,14 @@ function MenuBar({slideIn, className, t}) {
       <div className="top_right">
         <img src={top_right_img}></img>
       </div>
-      <Link to="/rsvp" className="rsvp">
-        <div className="text">RSVP</div>
-        <div className="left"></div>
-        <div className="right"></div>
-      </Link>
+      {
+        user ? 
+        <Link to="/rsvp" className="rsvp">
+          <div className="text">RSVP</div>
+          <div className="left"></div>
+          <div className="right"></div>
+        </Link> : null
+      }
     </nav>
   );
 }

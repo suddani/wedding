@@ -1,8 +1,10 @@
 import React from 'react';
 import 'react-notifications-component/dist/theme.css'
 import './App.css';
-import { HashRouter as Router, Route } from "react-router-dom";
+import { HashRouter as Router, Route, Redirect } from "react-router-dom";
 import ReactNotification from 'react-notifications-component'
+
+import useLocalStorage from './hooks/useLocalStorage';
 
 import MenuBar from './components/MenuBar';
 import FooterBar from './components/FooterBar';
@@ -16,25 +18,62 @@ import Account from './routes/Account';
 import Rsvp from './routes/Rsvp';
 import Tips from './routes/Tips';
 import Gifts from './routes/Gifts';
+import Invite from './routes/Invite';
 import Translations from './routes/Translations';
 
+function PrivateRoute({ children, user, ...rest }) {
+  return (
+    <Route
+      {...rest}
+      render={({ location }) =>
+        user ? (
+          children
+        ) : (
+          <Redirect
+            to={{
+              pathname: "/",
+              state: { from: location }
+            }}
+          />
+        )
+      }
+    />
+  );
+}
+
 function App() {
+  const [user, setUser] = useLocalStorage("user", null);
+
   return (
     <div className="App">
       <Router>
         <ReactNotification />
-        <MenuBar className='solid' slideIn={true}/>
+        <MenuBar className='solid' slideIn={true} user={user}/>
+
         <Route exact path="/" component={Home}/>
         <Route exact path="/about" component={About}/>
-        <Route exact path="/galery" component={Galery}/>
         <Route exact path="/story" component={Story}/>
         <Route exact path="/wedding" component={Wedding}/>
-        <Route exact path="/account" component={Account}/>
-        <Route exact path="/rsvp" component={Rsvp}/>
         <Route exact path="/tips" component={Tips}/>
         <Route exact path="/gifts" component={Gifts}/>
         <Route exact path="/home2" component={Home2}/>
-        <Route exact path="/translations" component={Translations}/>
+        <Route exact path="/invite">
+          <Invite setUser={setUser}></Invite>
+        </Route>
+
+        <PrivateRoute exact path="/galery" user={user}>
+          <Galery></Galery>
+        </PrivateRoute>
+        <PrivateRoute exact path="/account" user={user}>
+          <Account></Account>
+        </PrivateRoute>
+        <PrivateRoute exact path="/rsvp" user={user}>
+          <Rsvp user={user}></Rsvp>
+        </PrivateRoute>
+        <PrivateRoute exact path="/translations" user={user}>
+          <Translations></Translations>
+        </PrivateRoute>
+
         <FooterBar></FooterBar>
       </Router>
     </div>

@@ -7,9 +7,13 @@ let backendConfig = {
   loadPath: '/locales/{{lng}}/{{ns}}.json',
 };
 if ( process.env.REACT_APP_STAGE === 'dev') {
+  // backendConfig = {
+  //   loadPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}',
+  //   addPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}'
+  // };
   backendConfig = {
-    loadPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}',
-    addPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}'
+    loadPath: '//192.168.0.253/translation/locales/wedding_page/{{lng}}/{{ns}}',
+    addPath: '//192.168.0.253/translation/locales/wedding_page/{{lng}}/{{ns}}'
   };
 }
 
