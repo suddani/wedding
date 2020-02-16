@@ -51,6 +51,15 @@ function Rsvp({t}) {
           </Grid>
           <Grid item>
             <FormControl>
+              <InputLabel id="food-label">{t('I will be attending')}</InputLabel>
+              <Select labelid="food-label" value={attending} onChange={onChange(setAttending)}>
+                <MenuItem value={0}>{t('Yes')}</MenuItem>
+                <MenuItem value={1}>{t('No')}</MenuItem>
+              </Select>
+            </FormControl>
+          </Grid>
+          <Grid item>
+            <FormControl>
               <InputLabel id="guests-label">{t('Guests')}</InputLabel>
               <Select labelid="guests-label" value={guestCount} onChange={onChange(setGuestCount)}>
                 <MenuItem value={1}>{t('You')}</MenuItem>
@@ -88,15 +97,6 @@ function Rsvp({t}) {
                 <MenuItem value={0}>{t('None')}</MenuItem>
                 <MenuItem value={1}>{t('Vegetarian')}</MenuItem>
                 <MenuItem value={2}>{t('Vegan')}</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          <Grid item>
-            <FormControl>
-              <InputLabel id="food-label">{t('I will be attending')}</InputLabel>
-              <Select labelid="food-label" value={attending} onChange={onChange(setAttending)}>
-                <MenuItem value={0}>{t('Yes')}</MenuItem>
-                <MenuItem value={1}>{t('No')}</MenuItem>
               </Select>
             </FormControl>
           </Grid>

@@ -7,6 +7,7 @@ import ReactNotification from 'react-notifications-component'
 import MenuBar from './components/MenuBar';
 import FooterBar from './components/FooterBar';
 import Home from './routes/Home';
+import Home2 from './routes/Home2';
 import About from './routes/About';
 import Galery from './routes/Galery';
 import Story from './routes/Story';
@@ -32,6 +33,7 @@ function App() {
         <Route exact path="/rsvp" component={Rsvp}/>
         <Route exact path="/tips" component={Tips}/>
         <Route exact path="/gifts" component={Gifts}/>
+        <Route exact path="/home2" component={Home2}/>
         <Route exact path="/translations" component={Translations}/>
         <FooterBar></FooterBar>
       </Router>

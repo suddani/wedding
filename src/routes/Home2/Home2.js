@@ -5,11 +5,11 @@ import CountDown from './../../components/CountDown';
 import Slider from './../../components/Slider';
 import banner from './../../assets/images/main.jpeg';
 import banner_small from './../../assets/images/main_small.jpeg';
-import main from './main.jpg';
+import main from './main3.jpg';
 
-import './Home.css'
+import './Home2.css'
 
-function Home({t}) {
+function Home2({t}) {
   const sliderText = (
     <div className="saveTheDate">
       <Trans i18nKey="savethedate" ns="home">
@@ -20,25 +20,19 @@ function Home({t}) {
     </div>);
 
   return (
-    <section className="Home">
+    <section className="Home2">
       <h1 style={{display: 'none'}}>Home</h1>
       <div className="ImageContainer">
         <img src={main}></img>
         <div className="fade"></div>
-      </div>
-      <div className="TextContainer">
-        <div className="SaveTheDate">
-          <div className="start">Save</div>
-          <div className="middle">the</div>
-          <div className="end">Date</div>
+        <div className="content">
+          <div className="text">Save the date</div>
+          <div className="date">-10.05.2020-</div>
+          <CountDown></CountDown>
         </div>
-        <div className="date">
-          <div>10.05.2020</div>
-        </div>
-        <CountDown className="Countdown"></CountDown>
       </div>
     </section>
   );
 }
 
-export default withTranslation("home")(Home);
+export default withTranslation("home")(Home2);

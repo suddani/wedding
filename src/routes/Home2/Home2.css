@@ -1,0 +1,38 @@
+.Home2 {
+  display: grid;
+  align-self: flex-start;
+}
+
+.Home2 .ImageContainer {
+  justify-self: center;
+  grid-row: 1/2;
+  grid-column: 1/2;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr;
+}
+
+.Home2 .ImageContainer img {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: end;
+  width: 80%;
+}
+
+.Home2 .ImageContainer .fade {
+  grid-column: 1/2;
+  grid-row: 1/2;
+  justify-self: end;
+  width: 80%;
+  background: radial-gradient(circle, rgba(255,255,255,0) 70%, rgba(255,255,255,0.85) 90%, rgba(255,255,255,1) 100%);
+}
+
+.Home2 .ImageContainer .content {
+  grid-column: 2/3;
+  grid-row: 1/2;
+  justify-self: stretch;
+  display: grid;
+  justify-content: center;
+  align-content: center;
+  justify-items: center;
+}

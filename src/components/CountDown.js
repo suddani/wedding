@@ -2,7 +2,7 @@ import React from 'react';
 
 import useInterval from '../hooks/useInterval';
 
-export default function CountDown(_props) {
+export default function CountDown(props) {
   const countDownDate = Date.parse("2020-05-10T08:00:00Z");
   function generateCounter() {
     var distance = countDownDate - new Date().getTime();
@@ -20,5 +20,5 @@ export default function CountDown(_props) {
 
   useInterval(() => setCounter(generateCounter()), 1000);
 
-  return <span>{counter}</span>;
+  return <span className={props.className}>{counter}</span>;
 }
