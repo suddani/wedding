@@ -28,6 +28,7 @@ function Rsvp({t}) {
   const [userData, setUser] = useLocalStorage("user", null);
   const [access_token, setAccessToken] = useLocalStorage("access_token", null);
   const [refresh_token, setRefreshToken] = useLocalStorage("refresh_token", null);
+  const [guestNames, setGuestNames] = useState([]);
 
 
 
@@ -37,6 +38,7 @@ function Rsvp({t}) {
       setLastname(invitation.lastname)
       setChildrenCount(invitation.children)
       setGuestCount(invitation.guests)
+      setGuestNames(invitation.guest_names);
       setAttending(invitation.attending ? 0 : 1)
       setSelectedDate(invitation.arrival_date);
       setFoodPreferences(invitation.food_preference);
@@ -65,6 +67,21 @@ function Rsvp({t}) {
     }
   }
 
+  function changeGuestCount(count) {
+    setGuestCount(count);
+    setGuestNames([...guestNames.slice(0, (count-1)), ...Array.from(Array(count-1-guestNames.slice(0, (count-1)).length))]);
+  }
+
+  function setGuestName(index, guestNames, setGuestNames) {
+    return (name) => {
+      if (index == 0) {
+        setGuestNames([name, ...guestNames.slice(1, guestNames.length)])
+      } else {
+        setGuestNames([...guestNames.slice(0, index), name, ...guestNames.slice(index+1, guestNames.length)])
+      }
+    };
+  }
+
   function onSubmit() {
     answerInvitation({
       firstname: firstname,
@@ -74,6 +91,7 @@ function Rsvp({t}) {
       attending: attending,
       arrival_date: selectedDate,
       food_preference: foodPreferences,
+      guest_names: guestNames,
       message: message,
       allergies: allergies
     }, access_token, refresh_token, setAccessToken).catch(_=> history.push('/'));
@@ -120,16 +138,26 @@ function Rsvp({t}) {
                 <Grid item>
                   <FormControl>
                     <InputLabel id="guests-label">{t('Guests')}</InputLabel>
-                    <Select labelid="guests-label" value={guestCount} onChange={onChange(setGuestCount)}>
+                    <Select labelid="guests-label" value={guestCount} onChange={onChange(changeGuestCount)}>
                       <MenuItem value={1}>{t('You')}</MenuItem>
                       <MenuItem value={2}>{t('You+1')}</MenuItem>
                       <MenuItem value={3}>{t('You+2')}</MenuItem>
                       <MenuItem value={4}>{t('You+3')}</MenuItem>
-                      <MenuItem value={5}>{t('You+4')}</MenuItem>
-                      <MenuItem value={6}>{t('You+5')}</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
+
+                {
+                  guestNames.map((guestName, index) => {
+                    return <Grid item xs={12} key={index}>
+                            <FormControl>
+                              <InputLabel id="guest-label">{t('Guest Name')}</InputLabel>
+                              <Input labelid="guest-label" name="guest" type="text" value={guestNames[index]} onChange={onType(setGuestName(index, guestNames, setGuestNames))}></Input>
+                            </FormControl>
+                          </Grid>
+                  })
+                }
+
                 <Grid item>
                   <FormControl>
                     <InputLabel id="children-label">{t('Children')}</InputLabel>
@@ -137,9 +165,6 @@ function Rsvp({t}) {
                       <MenuItem value={0}>{t('None')}</MenuItem>
                       <MenuItem value={1}>{t('One')}</MenuItem>
                       <MenuItem value={2}>{t('Two')}</MenuItem>
-                      <MenuItem value={3}>{t('Three')}</MenuItem>
-                      <MenuItem value={4}>{t('Four')}</MenuItem>
-                      <MenuItem value={5}>{t('Five')}</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>

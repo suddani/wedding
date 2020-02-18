@@ -5,7 +5,9 @@ import './Tips.css'
 function Tips({t}) {
   return <section className="Tips">
     <h1 style={{display: 'none'}}>Tips</h1>
-    Tips
+    <div>
+      {t('Coming Soon')}
+    </div>
   </section>;
 }
 

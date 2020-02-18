@@ -1,26 +1,12 @@
-.Story {
-  display: grid;
-  width: 945px;
-  justify-self: center;
-  grid-template-rows: max-content;
-}
-
-.Story p {
-  text-align: center;
-}
-
-.StoryMain .shark {
-  font-family: 'Lobster', cursive;
-}
-
 .StoryMain {
-  justify-self: stretch;
   display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: repeat(10,640px);
+  justify-items: stretch;
 }
 
-@media only screen and (max-width: 945px) {
-  .Story {
-    width: 80%;
-    min-width: 300px;
-  }
+
+.StoryMain img {
+  width: 100%;
+  transform: rotate(-90deg);
 }

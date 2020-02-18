@@ -1,0 +1,15 @@
+.Wedding {
+  display: grid;
+}
+
+.Wedding > .banner {
+  justify-self: stretch;
+  height: 500px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.Wedding > .text {
+  padding-top: 16px;
+  padding-bottom: 16px;
+}

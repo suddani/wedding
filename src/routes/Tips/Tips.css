@@ -1,3 +1,10 @@
 .Tips {
-  
+  display: grid;
+}
+
+.Tips > div {
+  padding-top: 120px;
+  justify-self: center;
+  font-size: 80px;
+  font-family: 'Oswald', sans-serif;
 }
