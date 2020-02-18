@@ -10,8 +10,18 @@ import useLocalStorage from '../../hooks/useLocalStorage';
 import {requestInvitation, answerInvitation} from '../../api/invitation_service';
 import { useHistory } from "react-router-dom";
 
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
-import './Rsvp.css'
+
+import './Rsvp.css';
+
+const palette = {
+  primary: { main: '#e2b007' },
+  secondary: { main: '#e2b007' }
+};
+const themeName = 'So Gold';
+
+const theme = createMuiTheme({ palette, themeName });
 
 function Rsvp({t}) {
 
@@ -98,124 +108,126 @@ function Rsvp({t}) {
   }
 
   return <section className="Rsvp">
-    <h1 style={{display: 'none'}}>RSVP</h1>
-    <MuiPickersUtilsProvider utils={DateFnsUtils}>
-    <Card>
-      <CardContent>
-        <Grid container direction="column" spacing={1} justify='center' alignContent='center'>
-          <Grid item xs={12}>{t('R.S.V.P')}</Grid>
-          <Grid item className="Subtitle">{t('Please let us know if you will be able to make it.')}</Grid>
-          <Grid item xs={12}>
-            <FormControl>
-              <InputLabel id="firstname-label">{t('Firstname')}</InputLabel>
-              <Input labelid="firstname-label" name="firstname" type="text" value={firstname} onChange={onType(setFirstname)}></Input>
-            </FormControl>
-          </Grid>
-          <Grid item>
-            <FormControl>
-              <InputLabel id="lastname-label">{t('Lastname')}</InputLabel>
-              <Input labelid="lastname-label" name="lastname" type="text" value={lastname} onChange={onType(setLastname)}></Input>
-            </FormControl>
-          </Grid>
-          <Grid item>
-            <FormControl>
-              <InputLabel id="email-label">{t('Email')}</InputLabel>
-              <Input labelid="email-label" name="email" type="email" value={userData.user.email} disabled></Input>
-            </FormControl>
-          </Grid>
-          <Grid item>
-            <FormControl>
-              <InputLabel id="attending-label">{t('I will be attending')}</InputLabel>
-              <Select labelid="attending-label" value={attending} onChange={onChange(setAttending)}>
-                <MenuItem value={0}>{t('Yes')}</MenuItem>
-                <MenuItem value={1}>{t('No')}</MenuItem>
-              </Select>
-            </FormControl>
-          </Grid>
-          {
-            attending == 0 ? (
-              <Fragment>
-                <Grid item>
-                  <FormControl>
-                    <InputLabel id="guests-label">{t('Guests')}</InputLabel>
-                    <Select labelid="guests-label" value={guestCount} onChange={onChange(changeGuestCount)}>
-                      <MenuItem value={1}>{t('You')}</MenuItem>
-                      <MenuItem value={2}>{t('You+1')}</MenuItem>
-                      <MenuItem value={3}>{t('You+2')}</MenuItem>
-                      <MenuItem value={4}>{t('You+3')}</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
+    <ThemeProvider theme={theme}>
+      <h1   style={{display: 'none'}}>RSVP</h1>
+      <MuiPickersUtilsProvider utils={DateFnsUtils}>
+      <Card>
+        <CardContent>
+          <Grid container direction="column" spacing={1} justify='center' alignContent='center'>
+            <Grid item xs={12}>{t('R.S.V.P')}</Grid>
+            <Grid item className="Subtitle">{t('Please let us know if you will be able to make it.')}</Grid>
+            <Grid item xs={12}>
+              <FormControl>
+                <InputLabel id="firstname-label">{t('Firstname')}</InputLabel>
+                <Input labelid="firstname-label" name="firstname" type="text" value={firstname} onChange={onType(setFirstname)}></Input>
+              </FormControl>
+            </Grid>
+            <Grid item>
+              <FormControl>
+                <InputLabel id="lastname-label">{t('Lastname')}</InputLabel>
+                <Input labelid="lastname-label" name="lastname" type="text" value={lastname} onChange={onType(setLastname)}></Input>
+              </FormControl>
+            </Grid>
+            <Grid item>
+              <FormControl>
+                <InputLabel id="email-label">{t('Email')}</InputLabel>
+                <Input labelid="email-label" name="email" type="email" value={userData.user.email} disabled></Input>
+              </FormControl>
+            </Grid>
+            <Grid item>
+              <FormControl>
+                <InputLabel id="attending-label">{t('I will be attending')}</InputLabel>
+                <Select labelid="attending-label" value={attending} onChange={onChange(setAttending)}>
+                  <MenuItem value={0}>{t('Yes')}</MenuItem>
+                  <MenuItem value={1}>{t('No')}</MenuItem>
+                </Select>
+              </FormControl>
+            </Grid>
+            {
+              attending == 0 ? (
+                <Fragment>
+                  <Grid item>
+                    <FormControl>
+                      <InputLabel id="guests-label">{t('Guests')}</InputLabel>
+                      <Select labelid="guests-label" value={guestCount} onChange={onChange(changeGuestCount)}>
+                        <MenuItem value={1}>{t('You')}</MenuItem>
+                        <MenuItem value={2}>{t('You+1')}</MenuItem>
+                        <MenuItem value={3}>{t('You+2')}</MenuItem>
+                        <MenuItem value={4}>{t('You+3')}</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
 
-                {
-                  guestNames.map((guestName, index) => {
-                    return <Grid item xs={12} key={index}>
-                            <FormControl>
-                              <InputLabel id="guest-label">{t('Guest Name')}</InputLabel>
-                              <Input labelid="guest-label" name="guest" type="text" value={guestNames[index]} onChange={onType(setGuestName(index, guestNames, setGuestNames))}></Input>
-                            </FormControl>
-                          </Grid>
-                  })
-                }
+                  {
+                    guestNames.map((guestName, index) => {
+                      return <Grid item xs={12} key={index}>
+                              <FormControl>
+                                <InputLabel id="guest-label">{t('Guest Name')}</InputLabel>
+                                <Input labelid="guest-label" name="guest" type="text" value={guestNames[index]} onChange={onType(setGuestName(index, guestNames, setGuestNames))}></Input>
+                              </FormControl>
+                            </Grid>
+                    })
+                  }
 
-                <Grid item>
-                  <FormControl>
-                    <InputLabel id="children-label">{t('Children')}</InputLabel>
-                    <Select labelid="children-label" value={childrenCount} onChange={onChange(setChildrenCount)}>
-                      <MenuItem value={0}>{t('None')}</MenuItem>
-                      <MenuItem value={1}>{t('One')}</MenuItem>
-                      <MenuItem value={2}>{t('Two')}</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item>
-                  <FormControl>
-                    <InputLabel id="allergies-label">{t('Allergies')}</InputLabel>
-                    <Input labelid="allergies-label" name="allergies" type="text" value={allergies} onChange={onType(setAllergies)}></Input>
-                  </FormControl>
-                </Grid>
-                <Grid item>
-                  <FormControl>
-                    <InputLabel id="food-label">{t('Food preferences')}</InputLabel>
-                    <Select labelid="food-label" value={foodPreferences} onChange={onChange(setFoodPreferences)}>
-                      <MenuItem value={0}>{t('None')}</MenuItem>
-                      <MenuItem value={1}>{t('Vegetarian')}</MenuItem>
-                      <MenuItem value={2}>{t('Vegan')}</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item>
-                  <TextField
-                    id="date"
-                    label={t('Arrival Date')}
-                    type="date"
-                    value={selectedDate}
-                    onChange={onChange(setSelectedDate)}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                  />
-                </Grid>
-              </Fragment>
-            ) : null
-          }
-          <Grid item>
-            <TextField
-              id="message"
-              label={t('Short Message for the couple')}
-              multiline
-              rows="8"
-              variant="outlined"
-              value={message}
-              onChange={onType(setMessage)}
-            />
+                  <Grid item>
+                    <FormControl>
+                      <InputLabel id="children-label">{t('Children')}</InputLabel>
+                      <Select labelid="children-label" value={childrenCount} onChange={onChange(setChildrenCount)}>
+                        <MenuItem value={0}>{t('None')}</MenuItem>
+                        <MenuItem value={1}>{t('One')}</MenuItem>
+                        <MenuItem value={2}>{t('Two')}</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+                  <Grid item>
+                    <FormControl>
+                      <InputLabel id="allergies-label">{t('Allergies')}</InputLabel>
+                      <Input labelid="allergies-label" name="allergies" type="text" value={allergies} onChange={onType(setAllergies)}></Input>
+                    </FormControl>
+                  </Grid>
+                  <Grid item>
+                    <FormControl>
+                      <InputLabel id="food-label">{t('Food preferences')}</InputLabel>
+                      <Select labelid="food-label" value={foodPreferences} onChange={onChange(setFoodPreferences)}>
+                        <MenuItem value={0}>{t('None')}</MenuItem>
+                        <MenuItem value={1}>{t('Vegetarian')}</MenuItem>
+                        <MenuItem value={2}>{t('Vegan')}</MenuItem>
+                      </Select>
+                    </FormControl>
+                  </Grid>
+                  <Grid item>
+                    <TextField
+                      id="date"
+                      label={t('Arrival Date')}
+                      type="date"
+                      value={selectedDate}
+                      onChange={onChange(setSelectedDate)}
+                      InputLabelProps={{
+                        shrink: true,
+                      }}
+                    />
+                  </Grid>
+                </Fragment>
+              ) : null
+            }
+            <Grid item>
+              <TextField
+                id="message"
+                label={t('Short Message for the couple')}
+                multiline
+                rows="8"
+                variant="outlined"
+                value={message}
+                onChange={onType(setMessage)}
+              />
+            </Grid>
+            <Grid item ><Button variant="contained" onClick={onSubmit}>{t('Submit')}</Button></Grid>
           </Grid>
-          <Grid item ><Button variant="contained" onClick={onSubmit}>{t('Submit')}</Button></Grid>
-        </Grid>
-      </CardContent>
-    </Card>
-    </MuiPickersUtilsProvider>
-  </section>;
+        </CardContent>
+      </Card>
+      </MuiPickersUtilsProvider>
+    </ThemeProvider>
+  </section>
 }
 
 
