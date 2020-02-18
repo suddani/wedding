@@ -60,6 +60,7 @@ function App() {
         <Route exact path="/invite">
           <Invite setUser={setUser}></Invite>
         </Route>
+        <Route exact path="/translations" component={Translations}/>
 
         <PrivateRoute exact path="/galery" user={user}>
           <Galery></Galery>
@@ -69,9 +70,6 @@ function App() {
         </PrivateRoute>
         <PrivateRoute exact path="/rsvp" user={user}>
           <Rsvp user={user}></Rsvp>
-        </PrivateRoute>
-        <PrivateRoute exact path="/translations" user={user}>
-          <Translations></Translations>
         </PrivateRoute>
 
         <FooterBar></FooterBar>
