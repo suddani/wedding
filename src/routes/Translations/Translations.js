@@ -5,6 +5,8 @@ import { store } from 'react-notifications-component';
 
 import './Translations.css'
 
+const translations_host = '192.168.0.253';
+
 function Translations({t}) {
 
   const [groups, setGroups] = useState({});
@@ -15,7 +17,7 @@ function Translations({t}) {
 
   useEffect(() => {
     const loadGroups = async () => {
-      fetch('//api.daniel-mariia.wedding/translation/translations/groups/wedding_page').then(
+      fetch(`//${translations_host}/translation/translations/groups/wedding_page`).then(
         response => response.json()
       ).then((groups) => {
         setSelectedGroup(Object.keys(groups)[0]);
@@ -28,7 +30,7 @@ function Translations({t}) {
 
   useEffect(() => {
     const loadGroups = async () => {
-      fetch('//api.daniel-mariia.wedding/translation/translations/groups/wedding_page/'+selectedGroup).then(
+      fetch(`//${translations_host}/translation/translations/groups/wedding_page/${selectedGroup}`).then(
         response => response.json()
       ).then((groups) => {
         Object.keys(groups).forEach((i) => {
@@ -44,7 +46,7 @@ function Translations({t}) {
   }, [selectedGroup]);
 
   const updateTranslation = (translation) => {
-    fetch('//api.daniel-mariia.wedding/translation/translations/wedding_page/'+translation.id, {
+    fetch(`//${translations_host}/translation/translations/wedding_page/${translation.id}`, {
         method: 'POST', // *GET, POST, PUT, DELETE, etc.
         mode: 'cors', // no-cors, *cors, same-origin
         cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
