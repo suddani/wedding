@@ -51,13 +51,13 @@ function App() {
         <ReactNotification />
         <MenuBar className='solid' slideIn={true} user={user}/>
 
-        <Route exact path="/" component={Home}/>
+        <Route exact path="/" component={Home2}/>
         <Route exact path="/about" component={About}/>
         <Route exact path="/story" component={Story}/>
         <Route exact path="/wedding" component={Wedding}/>
         <Route exact path="/tips" component={Tips}/>
         <Route exact path="/gifts" component={Gifts}/>
-        <Route exact path="/home2" component={Home2}/>
+        <Route exact path="/home2" component={Home}/>
         <Route exact path="/home3" component={Home3}/>
         <Route exact path="/invite">
           <Invite setUser={setUser}></Invite>
