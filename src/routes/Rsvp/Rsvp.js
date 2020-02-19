@@ -29,6 +29,7 @@ function Rsvp({t}) {
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
   const [message, setMessage] = useState("");
+  const [email, setEmail] = useState("");
   const [allergies, setAllergies] = useState("");
   const [guestCount, setGuestCount] = useState(1);
   const [childrenCount, setChildrenCount] = useState(0);
@@ -39,6 +40,7 @@ function Rsvp({t}) {
   const [access_token, setAccessToken] = useLocalStorage("access_token", null);
   const [refresh_token, setRefreshToken] = useLocalStorage("refresh_token", null);
   const [guestNames, setGuestNames] = useState([]);
+  const [answered, setAnswered] = useState(false);
 
 
 
@@ -46,6 +48,7 @@ function Rsvp({t}) {
     requestInvitation(access_token, refresh_token, setAccessToken).then(invitation => {
       setFirstname(invitation.firstname)
       setLastname(invitation.lastname)
+      setEmail(invitation.email)
       setChildrenCount(invitation.children)
       setGuestCount(invitation.guests)
       setGuestNames(invitation.guest_names);
@@ -54,6 +57,7 @@ function Rsvp({t}) {
       setFoodPreferences(invitation.food_preference);
       setMessage(invitation.message);
       setAllergies(invitation.allergies||"");
+      setAnswered(invitation.answered);
     }).catch(_=> history.push('/'));
   }, []);
 
@@ -92,8 +96,19 @@ function Rsvp({t}) {
     };
   }
 
+  function willAttend() {
+    setAnswered(true)
+    setAttending(0);
+  }
+
+  function willNotAttend() {
+    setAnswered(true)
+    setAttending(1)
+  }
+
   function onSubmit() {
     answerInvitation({
+      email: email,
       firstname: firstname,
       lastname: lastname,
       children: childrenCount,
@@ -131,17 +146,21 @@ function Rsvp({t}) {
             <Grid item>
               <FormControl>
                 <InputLabel id="email-label">{t('Email')}</InputLabel>
-                <Input labelid="email-label" name="email" type="email" value={userData.user.email} disabled></Input>
+                <Input labelid="email-label" name="email" type="email" value={email} onChange={onType(setEmail)}></Input>
               </FormControl>
             </Grid>
             <Grid item>
-              <FormControl>
-                <InputLabel id="attending-label">{t('I will be attending')}</InputLabel>
-                <Select labelid="attending-label" value={attending} onChange={onChange(setAttending)}>
-                  <MenuItem value={0}>{t('Yes')}</MenuItem>
-                  <MenuItem value={1}>{t('No')}</MenuItem>
-                </Select>
-              </FormControl>
+              <Grid container direction="row" justify="space-around" alignItems="center">
+                <Button variant={answered && attending == 0 ? "contained" : "outlined"} onClick={willAttend} color="primary">{t('I will attend')}</Button>
+                <Button variant={answered && attending != 0 ? "contained" : "outlined"} onClick={willNotAttend}>{t('I will Not attend')}</Button>
+                {/* <FormControl>
+                  <InputLabel id="attending-label">{t('I will be attending')}</InputLabel>
+                  <Select labelid="attending-label" value={attending} onChange={onChange(setAttending)}>
+                    <MenuItem value={0}>{t('Yes')}</MenuItem>
+                    <MenuItem value={1}>{t('No')}</MenuItem>
+                  </Select>
+                </FormControl> */}
+              </Grid>
             </Grid>
             {
               attending == 0 ? (
@@ -210,18 +229,22 @@ function Rsvp({t}) {
                 </Fragment>
               ) : null
             }
-            <Grid item>
-              <TextField
-                id="message"
-                label={t('Short Message for the couple')}
-                multiline
-                rows="8"
-                variant="outlined"
-                value={message}
-                onChange={onType(setMessage)}
-              />
-            </Grid>
-            <Grid item ><Button variant="contained" onClick={onSubmit}>{t('Submit')}</Button></Grid>
+            { answered ? (
+              <Fragment>
+                <Grid item>
+                  <TextField
+                    id="message"
+                    label={t('Short Message for the couple')}
+                    multiline
+                    rows="8"
+                    variant="outlined"
+                    value={message}
+                    onChange={onType(setMessage)}
+                  />
+                </Grid>
+                <Grid item ><Button variant="contained" onClick={onSubmit}>{t('Submit')}</Button></Grid>
+              </Fragment>
+            ) : null}
           </Grid>
         </CardContent>
       </Card>
