@@ -4,7 +4,7 @@
   "Firstname": "\nІм'я",
   "Lastname": "Прізвище",
   "Email": "\nЕлектронна пошта",
-  "Guests": "Guests",
+  "Guests": "Гості",
   "You": "Поодинці",
   "You+1": "+1",
   "You+2": "+2",
@@ -28,5 +28,5 @@
   "Arrival Date": "Дата прибуття",
   "Short Message for the couple": "Коротке повідомлення для пари",
   "Submit": "Надіслати",
-  "Guest Name": "Guest Name"
+  "Guest Name": "Гостьове ім'я"
 }
