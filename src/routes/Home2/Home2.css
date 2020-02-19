@@ -58,6 +58,8 @@
   font-family: 'Liu Jian Mao Cao', cursive;
   grid-template-rows: 1fr 80px 1fr;
   grid-template-columns: 1fr;
+  position: relative;
+  top: 80px;
 }
 
 .Home2 > .ImageContainer .content > .SaveTheDate > .start {
