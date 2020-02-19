@@ -126,10 +126,10 @@ function Rsvp({t}) {
     <ThemeProvider theme={theme}>
       <h1   style={{display: 'none'}}>RSVP</h1>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
-      <Card>
-        <CardContent>
+      {/* <Card> */}
+        {/* <CardContent> */}
           <Grid container direction="column" spacing={1} justify='center' alignContent='center'>
-            <Grid item xs={12}>{t('R.S.V.P')}</Grid>
+            <Grid item xs={12} className="Title">{t('R.S.V.P')}</Grid>
             <Grid item className="Subtitle">{t('Please let us know if you will be able to make it.')}</Grid>
             <Grid item xs={12}>
               <FormControl>
@@ -246,8 +246,8 @@ function Rsvp({t}) {
               </Fragment>
             ) : null}
           </Grid>
-        </CardContent>
-      </Card>
+        {/* </CardContent> */}
+      {/* </Card> */}
       </MuiPickersUtilsProvider>
     </ThemeProvider>
   </section>
