@@ -24,7 +24,7 @@
   grid-row: 1/2;
   justify-self: end;
   width: 80%;
-  background: radial-gradient(circle, rgba(255,255,255,0) 70%, rgba(255,255,255,0.85) 90%, rgba(255,255,255,1) 100%);
+  /* background: radial-gradient(circle, rgba(255,255,255,0) 70%, rgba(255,255,255,0.85) 90%, rgba(255,255,255,1) 100%); */
 }
 
 .Home2 .ImageContainer .content {
@@ -38,11 +38,12 @@
   align-content: center;
   justify-items: center;
   grid-template-rows: max-content 1fr max-content;
+  grid-template-columns: max-content 60px;
 }
 
 .Home2 > .ImageContainer .content > .SaveTheDate {
   color: #e2b007;
-  text-shadow: 2px 2px rgb(131, 131, 131);
+  /* text-shadow: 2px 2px rgb(131, 131, 131); */
   font-size: 80px;
   grid-row: 1/2;
   grid-column: 1/2;
@@ -50,8 +51,12 @@
   justify-self: stretch;
   justify-items: center;
   align-self: flex-start;
-  font-family: 'Dancing Script', cursive;
-  grid-template-rows: 1fr 40px 1fr;
+  /* font-family: 'Dancing Script', cursive; */
+  /* font-family: 'Rock Salt', cursive; */
+  /* font-family: 'Nothing You Could Do', cursive; */
+  /* font-family: 'Dawning of a New Day', cursive; */
+  font-family: 'Liu Jian Mao Cao', cursive;
+  grid-template-rows: 1fr 80px 1fr;
   grid-template-columns: 1fr;
 }
 
@@ -61,7 +66,7 @@
 }
 
 .Home2 > .ImageContainer .content > .SaveTheDate > .middle {
-  font-size: 30px;
+  /* font-size: 30px; */
   position: relative;
   left: -30px;
 }
@@ -73,21 +78,32 @@
 
 
 .Home2 > .ImageContainer .content > .date {
-  align-self: center;
+  align-self: flex-end;
+  justify-self: end;
   color: #e2b007;
-  text-shadow: 2px 2px rgb(131, 131, 131);
-  font-size: 50px;
+  /* text-shadow: 2px 2px rgb(131, 131, 131); */
+  font-size: 35px;
+  grid-column: 1/2;
 }
 
 .Home2 .ImageContainer .content .CountDown {
-  align-self: center;
-  grid-template-columns: repeat(4, 80px);
-  column-gap: 16px;
+  align-self: flex-start;
+  justify-self: end;
+  grid-template-columns: repeat(4, 38px);
+  column-gap: 4px;
   color: #e2b007;
-  text-shadow: 2px 2px rgb(131, 131, 131);
-  font-size: 70px;
+  /* text-shadow: 2px 2px rgb(131, 131, 131); */
+  font-size: 30px;
+  grid-column: 1/2;
 }
 
 .Home2 .ImageContainer .content .CountDown .info_text {
   font-size: 8px;
+}
+
+.Home2 .ImageContainer .content .color {
+  align-self: flex-end;
+  grid-column: 2/3;
+  grid-row: 2/4;
+  width: 100%;
 }
