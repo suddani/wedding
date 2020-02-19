@@ -10,6 +10,7 @@ import MenuBar from './components/MenuBar';
 import FooterBar from './components/FooterBar';
 import Home from './routes/Home';
 import Home2 from './routes/Home2';
+import Home3 from './routes/Home3';
 import About from './routes/About';
 import Galery from './routes/Galery';
 import Story from './routes/Story';
@@ -57,6 +58,7 @@ function App() {
         <Route exact path="/tips" component={Tips}/>
         <Route exact path="/gifts" component={Gifts}/>
         <Route exact path="/home2" component={Home2}/>
+        <Route exact path="/home3" component={Home3}/>
         <Route exact path="/invite">
           <Invite setUser={setUser}></Invite>
         </Route>
