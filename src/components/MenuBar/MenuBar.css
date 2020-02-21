@@ -59,7 +59,7 @@
 }
 
 .MenuBar.solid {
-  background: #ffffff;
+  background-color: #ffffff;
   color: #666;
 }
 
@@ -68,7 +68,7 @@
   transition-property: top;
   transition-duration: 0.5s;
   transition-timing-function: ease;
-  background: #ffffff;
+  background-color: #ffffff;
   color: #666;
   height: 80px;
   grid-template-rows: 80px;

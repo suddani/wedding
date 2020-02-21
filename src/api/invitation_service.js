@@ -1,6 +1,6 @@
 import { requestAccessKey } from './auth_service';
 
-const invitation_host = process.env.REACT_APP_STAGE === 'dev' ? '192.168.0.253' : 'api.daniel-mariia.wedding'
+const invitation_host = process.env.REACT_APP_STAGE === 'dev' ? (process.env.REACT_APP_API_ENDPOINT || '192.168.0.253') : 'api.daniel-mariia.wedding'
 
 export function fetchInvitation(token, user_email){
   return fetch(

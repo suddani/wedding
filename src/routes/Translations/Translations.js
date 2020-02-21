@@ -5,7 +5,7 @@ import { store } from 'react-notifications-component';
 
 import './Translations.css'
 
-const translations_host = '192.168.0.253';
+const translations_host = process.env.REACT_APP_API_ENDPOINT || '192.168.0.253';
 
 function Translations({t}) {
 

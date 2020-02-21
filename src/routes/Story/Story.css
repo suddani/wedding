@@ -1,12 +1,97 @@
 .StoryMain {
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: repeat(10,640px);
+  grid-template-columns: 1fr;
   justify-items: stretch;
 }
 
 
 .StoryMain img {
+  /* width: 100%;
+  transform: rotate(-90deg); */
+}
+
+.StoryMain .year {
+  display: grid;
+  grid-template-columns: 1fr;
+  row-gap: 0.5em;
+  /* justify-items: stretch; */
+}
+
+.StoryMain .year > h1 {
+  grid-column: 1/2;
+  justify-self: center;
+  font-size: 2em;
+  font-weight: bold;
+}
+
+.StoryMain .year > .entry {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.StoryMain .year > .entry .date {
+  grid-column: 1/2;
+  grid-row: 1/2;
+}
+
+.StoryMain .year > .entry img {
   width: 100%;
-  transform: rotate(-90deg);
+  grid-column: 1/2;
+  grid-row: 1/2;
+  border-radius: 0.5em;
+  opacity: 0;
+  /* filter: opacity(0.8); */
+}
+
+.StoryMain .year > .entry .text {
+  color: rgb(255, 255, 255);
+  /* text-shadow: 1px 1px 1px black; */
+  grid-column: 1/2;
+  grid-row: 1/2;
+  border-radius: 0.5em;
+  padding: 0.5em;
+  align-self: start;
+  position: relative;
+  left: 15em;
+  top: 12.5em;
+
+  background-color: rgba(0, 0, 0, 0.233);
+  /* box-shadow: 2px 2px 2px 1px rgba(0, 0, 0, 0.2),
+              -2px -2px 2px 1px rgb(255, 255, 255); */
+}
+
+.StoryMain .year > .entry .right {
+  grid-column: 2/3;
+}
+
+.StoryMain .year > .entry img.right {
+  justify-self: end;
+}
+
+.StoryMain .year > .entry .text.right {
+  position: relative;
+  left: -15em;
+  top: 12.5em;
+}
+
+@keyframes slide-in {
+  0%   {
+    transform: translateX(-200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes slide-in-right {
+  0%   {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+  100% {
+    transform: translateX(0);
+    opacity: 1;
+  }
 }
