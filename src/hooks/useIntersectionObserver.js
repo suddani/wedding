@@ -8,7 +8,7 @@ export default function useIntersectionObserver(callback, elements, dependencies
     console.log("CREATE INTERSECTION OBSERVER")
     console.log(elements)
     elements.forEach(element => {
-      observer.observe(element.current.querySelector('img'));
+      observer.observe(element.current);
     });
     return () => observer.disconnect()
   }, dependencies);

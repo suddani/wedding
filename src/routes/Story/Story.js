@@ -9,19 +9,16 @@ import u6 from './u6.jpg'
 import firstOktoberfest from './firstOktoberfest.jpg'
 
 
-function Entry(img, month, title, text, reference) {
-  Object.defineProperties(this, {
-    reference: {
-      get: _ => reference
-    }
-  });
+function Entry(img, month, title, text) {
+  this.reference = useRef(null);
+  this.textReference = useRef(null);
 
-  this.render = (index, t) => {
-    const imagePos = index == 0 ? '' : (index%2!=0 ? 'right' : '');
-    const textPos = index == 0 ? 'text right' : (index%2!=0 ? 'text' : 'text right');
-    return <div ref={reference} className="entry" key={index}>
-            <img className={imagePos} src={img}></img>
-            <div className={textPos}>
+  this.render = (index, t, left, right) => {
+    const imagePos = index == 0 ? left : (index%2!=0 ? right : left);
+    const textPos = index == 0 ? ['text', right].join(' ') : (index%2!=0 ? ['text', left].join(' ') : ['text', right].join(' '));
+    return <div className="entry" key={index}>
+            <img ref={this.reference} className={imagePos} src={img}></img>
+            <div ref={this.textReference} className={textPos}>
               <div className="date">{t(month)}</div>
               <h2>{t(title)}</h2>
               <p>{text}</p>
@@ -30,16 +27,23 @@ function Entry(img, month, title, text, reference) {
   }
 }
 
-function Year(year, entries) {
+function Year(year, entries, reverse) {
   Object.defineProperties(this, {
     entries: {
       get: _ => entries
+    },
+    left: {
+      get: _ => reverse ? 'right' : ''
+    },
+    right: {
+      get: _ => reverse ? '' : 'right'
     }
   });
+  
   this.render = (index, t) => {
     return <div className="year" key={index}>
             <h1>{year}</h1>
-            {entries.map((entry, index) => entry.render(index, t))}
+            {entries.map((entry, index) => entry.render(index, t, this.left, this.right))}
           </div>
   }
 }
@@ -48,121 +52,57 @@ function Story({t}) {
   const story = [
     new Year(2015, 
       [
-        new Entry(u6, 'December', 'Let the story begin', <Trans i18nKey="theStory1" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(nuernberg, 'December', 'Let the story begin', <Trans i18nKey="theStory2" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(miami, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(firstOktoberfest, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(u6, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null))
+        new Entry(u6, '', 'Let the story begin ...', <Trans i18nKey="theStoryBegin" ns="story">When a company Xmas was in full swing, Mariia has decided to leave since a day after had to be a workig day. Already while waiting for U-bahn, it got obvious that she was not the only one leaving earlier and her reason apparently was not that serious - a few more guys were moving to a different party. Amoung faces she knew from the office, there was one, which she had never seen before. After "Hey, I'm Daniel" she immediately understood who is that: a "genious dev guy; student, that appears and disappears in the office time to time; author of the most of code that others called "magic" and a new member of her team from the next month". But at that evening she just answered "Mariia, nice to meet you" and the conversetion about nothing was going until she exited on her stop...</Trans>)
       ]),
     new Year(2016, 
       [
-        new Entry(nuernberg, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(u6, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(firstOktoberfest, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(miami, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(nuernberg, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(u6, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null))
-      ]),
+        new Entry(nuernberg, '', 'Time to start a great project', <Trans i18nKey="theStoryDrinks" ns="story">From the first Daniel's day in the company they were working together. Regardless was it a huge projects planning, bugfixes until the late night or just long talks about life after a few drinks in the Tower - everything was fun as loong as we were doing it together.</Trans>)
+      ], true),
     new Year(2017, 
       [
-        new Entry(u6, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(nuernberg, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(firstOktoberfest, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(miami, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(u6, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(nuernberg, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null))
+        new Entry(u6, '', 'How about beeing a friends? Or maybe more?', <Trans i18nKey="theStoryMaybeMore" ns="story">It took us quite some time to realize and admit that whatever is goign on there is not filling anymore in the definition of "good collegue" or "nice team member". Not even in "friend". It was more. And we were trying out how much by very slowly and carefuly extending the borders from work to personal life: it's hard to explain Mariia's amazement when she saw in real life fraternity that before she knew only from american movies. Or Daniel's confusion when he was sarounded by Ukrainians that were talking the "weird language he can't understand".</Trans>)
       ]),
     new Year(2018, 
       [
-        new Entry(miami, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(u6, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(nuernberg, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(firstOktoberfest, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(miami, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null))
-      ]),
+        new Entry(miami, '', "It's called love", <Trans i18nKey="theStoryLove" ns="story">Step by step we were getting closer. From the weekly schedule of 8/5 we have been moving to 24/7. Vacations, families intros, Mariia's first real ski vacation (when there was actually skiing not only spa :)) and Daniel's Ukrainian probation test by 60% home made vodka - at some point we realized that the life won't make sense without each other.</Trans>)
+      ], true),
     new Year(2019, 
       [
-        new Entry(nuernberg, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(firstOktoberfest, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(miami, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(nuernberg, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null))
+        new Entry(nuernberg, '', 'She said yes', <Trans i18nKey="theStoryYes" ns="story">When during the dinner right before the vacation Mariia said "Finally we can relax", Daniel anwered "Not yet". Super confusing, na? In a few days it totally made sense and was logical: Daniel proposed her. It was on a ship, at the place, where they went to their first vacation as a couple. Let the details stay only for us.</Trans>),
+        new Entry(firstOktoberfest, '', 'Germany said yes as well', <Trans i18nKey="theStoryReallyYes" ns="story">Starting the process, we were aware of all the bureaucracy issues and were expecting the date in 2020. Surpricevly, it took us only a bit longer than a month (my Ukraininan friends keep asking HOW?) and 16th of October we officially created family Sudmann. We were happy to share this day with the closest people!</Trans>)
       ]),
     new Year(2020, 
       [
-        new Entry(u6, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(nuernberg, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(firstOktoberfest, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(nuernberg, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(miami, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(u6, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(firstOktoberfest, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(u6, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(firstOktoberfest, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(miami, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(nuernberg, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null)),
-        new Entry(u6, 'December', 'Let the story begin', <Trans i18nKey="theStory3" ns="story">Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</Trans>, useRef(null))
+        new Entry(u6, '', 'But the bigger event is coming...', <Trans i18nKey="theStoryBigEvent" ns="story">For us besides the civil wedding, there are 2 more very important events: get married in the eyes of God and share our promices with each other. We would like to share this with you and celebrate it on a big scale! Pls join us on the most important day!<br></br>10.05.2020</Trans>)
       ]
     )
   ];
-  const entryRefs = story.map(year => year.entries.map(entry => entry.reference)).flat();
+  const imageRefs = story.map(year => year.entries.map(entry => entry.reference)).flat();
+  const textRefs = story.map(year => year.entries.map(entry => entry.textReference)).flat();
 
   useIntersectionObserver((entries) => {
     entries.forEach( element => {
       if (element.isIntersecting && element.intersectionRatio > 0.4) {
         const direction = element.target.className == "right" ? 'slide-in-right' : 'slide-in'
-        element.target.style.animation = `${direction} 2s forwards ease-out`;
+        element.target.style.animation = `${direction} 1s forwards ease-out`;
       } else if (!element.isIntersecting) {
         // element.target.style.animation = 'none';
       }
     })
-  }, entryRefs, entryRefs);
+  }, imageRefs, imageRefs);
+
+  useIntersectionObserver((entries) => {
+    entries.forEach( element => {
+      if (element.isIntersecting && element.intersectionRatio > 0.4) {
+        element.target.style.animation = `slide-in-bottom 1s forwards ease-out`;
+      } else if (!element.isIntersecting) {
+        // element.target.style.animation = 'none';
+      }
+    })
+  }, textRefs, textRefs);
 
   return (<section className="StoryMain">
-    {/* <Trans i18nKey="theStory" ns="story">
-      <section className="Story">
-        <p>Daniel Sudmann is a beautiful, handsome and helpful software engineer from Europe. His life is going nowhere until he meets Mariia Sendziuk, a smart, sexy woman with a passion for playing games.
-        <br/>Daniel takes an instant disliking to Mariia and the selfish and hungry ways she learnt during her years in Ukraine.
-        <br/>However, when a shark tries to hurt Daniel, Mariia springs to the rescue. Daniel begins to notices that Mariia is actually rather generous at heart.</p>
-      </section>
-        <Slider text={<div className="shark">"The Shark"</div>} height='300' banner={shark}/>
-      <section className="Story">
-        <p>But, the pressures of Mariia's job as a product manager leave her blind to Daniel's affections and Daniel takes up peotry to try an distract herself.
-        <br/>Finally, when wild , Brad DeVito, threatens to come between them, Mariia has to act fast. But will they ever find the sensational love that they deserve?</p>
-      </section>
-    </Trans> */}
-
     {story.map((year, index) => year.render(index, t))}
-
-    {/* <div className="year">
-      <h1>2015</h1>
-      <div className="entry">
-        <img src={u6}></img>
-        <div className="text right">
-        <div className="date">{t('December')}</div>
-          <h2>Let the story begin</h2>
-          <p>Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</p>
-        </div>
-      </div>
-      <div className="entry">
-        <img className="right" src={u6}></img>
-        <div className="text">
-          <div className="date"></div>
-          <h2>Let the story begin</h2>
-          <p>Laboris aute reprehenderit nulla elit. Officia elit eiusmod est non incididunt adipisicing ex. Elit dolor eu dolore tempor incididunt commodo dolor deserunt. Sunt ut pariatur elit enim minim eu est amet. Aute minim amet enim mollit mollit aute ex.</p>
-        </div>
-      </div>
-    </div> */}
-
-    {/* <img src={miami}></img>
-    <div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div>
-    <div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div>
-    <img src={nuernberg}></img>
-    <img src={nuernberg}></img>
-    <div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div>
-    <div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div>
-    <img src={nuernberg}></img>
-    <img src={nuernberg}></img>
-    <div>Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</div> */}
   </section>);
 }
 

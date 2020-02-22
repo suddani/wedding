@@ -106,6 +106,10 @@ function Rsvp({t}) {
     setAttending(1)
   }
 
+  function solvedChallange(key) {
+    debugger
+  }
+
   function onSubmit() {
     answerInvitation({
       email: email,
@@ -153,13 +157,6 @@ function Rsvp({t}) {
               <Grid container direction="row" justify="space-around" alignItems="center">
                 <Button variant={answered && attending == 0 ? "contained" : "outlined"} onClick={willAttend} color="primary">{t('I will attend')}</Button>
                 <Button variant={answered && attending != 0 ? "contained" : "outlined"} onClick={willNotAttend}>{t('I will Not attend')}</Button>
-                {/* <FormControl>
-                  <InputLabel id="attending-label">{t('I will be attending')}</InputLabel>
-                  <Select labelid="attending-label" value={attending} onChange={onChange(setAttending)}>
-                    <MenuItem value={0}>{t('Yes')}</MenuItem>
-                    <MenuItem value={1}>{t('No')}</MenuItem>
-                  </Select>
-                </FormControl> */}
               </Grid>
             </Grid>
             {
@@ -242,6 +239,7 @@ function Rsvp({t}) {
                     onChange={onType(setMessage)}
                   />
                 </Grid>
+                {/* <Grid item><div class="g-recaptcha" data-sitekey={process.env.REACT_APP_RECAPTCHA_PUB} data-callback={solvedChallange}></div></Grid> */}
                 <Grid item ><Button variant="contained" onClick={onSubmit}>{t('Submit')}</Button></Grid>
               </Fragment>
             ) : null}

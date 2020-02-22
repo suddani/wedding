@@ -1,5 +1,5 @@
 
-const auth_host = process.env.REACT_APP_STAGE === 'dev' ? (process.env.REACT_APP_API_ENDPOINT || '192.168.0.253') : 'api.daniel-mariia.wedding'
+const auth_host = process.env.REACT_APP_STAGE === 'dev' ? process.env.REACT_APP_API_ENDPOINT : 'api.daniel-mariia.wedding'
 
 export function requestUser(token, user_id) {
   return fetch(

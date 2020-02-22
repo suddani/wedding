@@ -47,6 +47,7 @@ function App() {
 
   return (
     <div className="App">
+      <div class="statusBar"></div>
       <Router>
         <ReactNotification />
         <MenuBar className='solid' slideIn={true} user={user}/>
