@@ -2,7 +2,7 @@ import React from 'react';
 import 'react-notifications-component/dist/theme.css'
 import './App.css';
 import { HashRouter as Router, Route, Redirect } from "react-router-dom";
-import ReactNotification from 'react-notifications-component'
+import ReactNotification from 'react-notifications-component';
 
 import useLocalStorage from './hooks/useLocalStorage';
 
@@ -10,7 +10,6 @@ import MenuBar from './components/MenuBar';
 import FooterBar from './components/FooterBar';
 import Home from './routes/Home';
 import Home2 from './routes/Home2';
-import Home3 from './routes/Home3';
 import About from './routes/About';
 import Galery from './routes/Galery';
 import Story from './routes/Story';
@@ -21,6 +20,8 @@ import Tips from './routes/Tips';
 import Gifts from './routes/Gifts';
 import Invite from './routes/Invite';
 import Translations from './routes/Translations';
+import NavBar from './components/NavBar';
+import StatusBar from './components/StatusBar';
 
 function PrivateRoute({ children, user, ...rest }) {
   return (
@@ -47,11 +48,11 @@ function App() {
 
   return (
     <div className="App">
-      <div class="statusBar"></div>
       <Router>
         <ReactNotification />
+        <StatusBar></StatusBar>
         <MenuBar className='solid' slideIn={true} user={user}/>
-
+        
         <Route exact path="/" component={Home2}/>
         <Route exact path="/about" component={About}/>
         <Route exact path="/story" component={Story}/>
@@ -59,12 +60,12 @@ function App() {
         <Route exact path="/tips" component={Tips}/>
         <Route exact path="/gifts" component={Gifts}/>
         <Route exact path="/home2" component={Home}/>
-        <Route exact path="/home3" component={Home3}/>
         <Route exact path="/invite">
           <Invite setUser={setUser}></Invite>
         </Route>
         <Route exact path="/translations" component={Translations}/>
 
+        {/* Protected Routes */}
         <PrivateRoute exact path="/galery" user={user}>
           <Galery></Galery>
         </PrivateRoute>
@@ -75,6 +76,7 @@ function App() {
           <Rsvp user={user}></Rsvp>
         </PrivateRoute>
 
+        <NavBar></NavBar>
         <FooterBar></FooterBar>
       </Router>
     </div>

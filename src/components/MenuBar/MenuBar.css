@@ -185,6 +185,10 @@
   color: #e2b007;
 }
 
+.MenuBar > ul > li > a.current {
+  color: #e2b007;
+}
+
 .MenuBar .AccountButton {
 }
 

@@ -8,7 +8,7 @@ import {
 } from '@material-ui/pickers';
 import useLocalStorage from '../../hooks/useLocalStorage';
 import {requestInvitation, answerInvitation} from '../../api/invitation_service';
-import { useHistory } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 
@@ -25,9 +25,14 @@ const theme = createMuiTheme({ palette, themeName });
 
 function Rsvp({t}) {
 
+  const location = useLocation();
+
+  console.log(location)
+
   const history = useHistory();
   const [firstname, setFirstname] = useState("");
   const [lastname, setLastname] = useState("");
+  const [name, setName] = useState("");
   const [message, setMessage] = useState("");
   const [email, setEmail] = useState("");
   const [allergies, setAllergies] = useState("");
@@ -48,6 +53,7 @@ function Rsvp({t}) {
     requestInvitation(access_token, refresh_token, setAccessToken).then(invitation => {
       setFirstname(invitation.firstname)
       setLastname(invitation.lastname)
+      setName(invitation.invitation_name)
       setEmail(invitation.email)
       setChildrenCount(invitation.children)
       setGuestCount(invitation.guests)
@@ -115,6 +121,7 @@ function Rsvp({t}) {
       email: email,
       firstname: firstname,
       lastname: lastname,
+      invitation_name: name,
       children: childrenCount,
       guests: guestCount,
       attending: attending,
@@ -135,22 +142,10 @@ function Rsvp({t}) {
           <Grid container direction="column" spacing={1} justify='center' alignContent='center'>
             <Grid item xs={12} className="Title">{t('R.S.V.P')}</Grid>
             <Grid item className="Subtitle">{t('Please let us know if you will be able to make it.')}</Grid>
-            <Grid item xs={12}>
-              <FormControl>
-                <InputLabel id="firstname-label">{t('Firstname')}</InputLabel>
-                <Input labelid="firstname-label" name="firstname" type="text" value={firstname} onChange={onType(setFirstname)}></Input>
-              </FormControl>
-            </Grid>
             <Grid item>
               <FormControl>
-                <InputLabel id="lastname-label">{t('Lastname')}</InputLabel>
-                <Input labelid="lastname-label" name="lastname" type="text" value={lastname} onChange={onType(setLastname)}></Input>
-              </FormControl>
-            </Grid>
-            <Grid item>
-              <FormControl>
-                <InputLabel id="email-label">{t('Email')}</InputLabel>
-                <Input labelid="email-label" name="email" type="email" value={email} onChange={onType(setEmail)}></Input>
+                <InputLabel id="name-label">{t('Name')}</InputLabel>
+                <Input labelid="name-label" name="name" type="text" value={name} onChange={onType(setName)}></Input>
               </FormControl>
             </Grid>
             <Grid item>
@@ -162,6 +157,12 @@ function Rsvp({t}) {
             {
               attending == 0 ? (
                 <Fragment>
+                  <Grid item>
+                    <FormControl>
+                      <InputLabel id="email-label">{t('Email')}</InputLabel>
+                      <Input labelid="email-label" name="email" type="email" value={email} onChange={onType(setEmail)}></Input>
+                    </FormControl>
+                  </Grid>
                   <Grid item>
                     <FormControl>
                       <InputLabel id="guests-label">{t('Guests')}</InputLabel>

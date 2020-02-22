@@ -16,8 +16,8 @@ function Invite({t, setUser}) {
   }) : [];
   const key = queryParameters.filter( e => e[0] == 'key')[0];
 
-  const [access_token, setAccessToken] = useLocalStorage('access_token', null);
-  const [refresh_token, setRefreshToken] = useLocalStorage('refresh_token', null);
+  const [_access_token, setAccessToken] = useLocalStorage('access_token', null);
+  const [_refresh_token, setRefreshToken] = useLocalStorage('refresh_token', null);
 
   useEffect(_ => {
     if (!key) return history.push('/');

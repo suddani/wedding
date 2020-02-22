@@ -55,7 +55,10 @@
 }
 
 .StoryMain .year > .entry img.right {
+  width: 110%;
   justify-self: start;
+  position: relative;
+  left: -20%;
 }
 
 .StoryMain .year > .entry .text.right {
@@ -130,7 +133,9 @@
   }
   
   .StoryMain .year > .entry img.right {
+    width: 100%;
     justify-self: center;
+    left: 0;
   }
 
   .StoryMain .year > .entry .text {

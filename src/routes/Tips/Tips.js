@@ -6,7 +6,9 @@ function Tips({t}) {
   return <section className="Tips">
     <h1 style={{display: 'none'}}>Tips</h1>
     <div>
-      {t('Coming Soon')}
+      <h4>Wedding location</h4>
+      <h4>Food</h4>
+      <h4>Stuff to do in Ukraine</h4>
     </div>
   </section>;
 }

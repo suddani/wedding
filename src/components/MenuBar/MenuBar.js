@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { store } from 'react-notifications-component';
 import { withTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 import './MenuBar.css';
 import Heart from '../Heart';
@@ -14,6 +15,7 @@ import top_left_img from './top_left_v10.png';
 import top_right_img from './top_right_v10.png';
 
 function MenuBar({slideIn, className, t, user}) {
+  const location = useLocation();
   const [flowerSize, setFlowerSize] = useState(200);
   const entries = [
     // {path: '/', name: t('Home'), hasNoHeart: true, hiddenOnClose: true},
@@ -72,7 +74,7 @@ function MenuBar({slideIn, className, t, user}) {
           if (menuOpen === "open" && entry.hiddenOnOpen) return null;
           if (menuOpen !== "open" && entry.hiddenOnClose) return null;
           const entryDisabled = menuOpen !== "open" && entry.disabledOnOpen;
-          return <Entry onClick={menuToggle} disabled={entryDisabled} key={id} hasNoHeart={entry.hasNoHeart} text={entry.name} path={entry.path}/>
+          return <Entry onClick={menuToggle} disabled={entryDisabled} key={id} hasNoHeart={entry.hasNoHeart} text={entry.name} path={entry.path} currentPath={location.pathname}/>
         })}
       </ul>
       <div className="top_right">
