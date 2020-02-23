@@ -15,16 +15,13 @@ function Home({t}) {
         <img src={color} className="color"></img>
         <img className="couple" src={main}></img>
         <div className="fade"></div>
-        <div className="content">
-          <div className="SaveTheDate">
-            <div className="start">Let the</div>
-            <div className="middle">Countdown</div>
-            <div className="end">begin</div>
-          </div>
-          <div className="date">10.05.2020</div>
-          <CountDown></CountDown>
-          <img src={color} className="color"></img>
+        <div className="SaveTheDate">
+          <div className="start">Let the</div>
+          <div className="middle">Countdown</div>
+          <div className="end">Begin</div>
         </div>
+        <CountDown></CountDown>
+        <img src={color} className="color"></img>
       </div>
     </section>
   );

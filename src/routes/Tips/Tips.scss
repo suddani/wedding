@@ -2,7 +2,7 @@
 
 section.Tips {
   display: grid;
-  background-position: 20% center !important;
+  background-position: 8em center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   grid-template-columns: 1fr 1fr;
@@ -27,7 +27,7 @@ section.Tips {
   /* font-family: 'Trade Winds'; */
 }
 
-@media only screen and (orientation: portrait) {
+@media only screen and (orientation: portrait) and (max-width: 755px) {
   section.Tips {
     background: none !important;
   }
@@ -42,3 +42,33 @@ section.Tips {
     align-self: stretch;
   }
 }
+
+@media only screen and (max-width: 960px) {
+  section.Tips {
+    background-position: 2em center !important;
+  }
+}
+
+@media only screen and (max-width: 910px) {
+  section.Tips {
+    background-position: -5em center !important;
+  }
+}
+
+@media only screen and (max-width: 790px) {
+  section.Tips {
+    background-position: -10em center !important;
+  }
+}
+
+@media only screen and (min-width: 755px) {
+  .Tips div {
+    background-color: rgba(255, 255, 255, 0.726);
+  }
+}
+
+// @media only screen and (min-width: 1280px) and (orientation: landscape) {
+//   section.Tips {
+//     background-position: -15em center !important;
+//   }
+// }

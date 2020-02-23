@@ -24,7 +24,7 @@ function MenuBar({slideIn, className, t, user}) {
     {path: '/story', name: t('The Story'), hasNoHeart: true},
     {path: '/wedding', name: t('The Wedding'), hasNoHeart: false},
     {path: '/', name: <FlowerText size={flowerSize} text="D+M"/>, hasNoHeart: true, hiddenOnOpen: true},
-    {path: '/gifts', name: t('Gifts'), hasNoHeart: true},
+    {path: '/gallery', name: t('Gallery'), hasNoHeart: true},
     {path: '/tips', name: t('Local Tips'), hasNoHeart: false},
     // {path: '/account', name: <Account></Account>, disabledOnOpen: true }
   ];

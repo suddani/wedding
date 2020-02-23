@@ -13,7 +13,7 @@ function NavBar({t}) {
     {path: '/story', icon: 'explore', name: t('Story')},
     {path: '/wedding', icon: 'favorite', name: t('Wedding')},
     // {path: '/', icon: 'home', name: t('Home')},
-    {path: '/gallery', icon: 'card_giftcard', name: t('Gallery')},
+    // {path: '/gallery', icon: 'card_giftcard', name: t('Gallery')},
     {path: '/tips', icon: 'thumb_up', name: t('Tips')},
   ];
   const scroll = useViewportScroll();
