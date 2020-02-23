@@ -24,8 +24,8 @@ function StatusBar({t, user}) {
 
   return (
   <div className="StatusBar">
-    <i className="material-icons">{location.state?.icon}</i>
-    <h1>{title}</h1>
+    {/* <i className="material-icons">home</i> */}
+    <h1>M&D</h1>
     {user ? <Button variant="outlined">
       <Link replace={true} to={
           {
