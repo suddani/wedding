@@ -1,5 +1,6 @@
 .Rsvp {
   margin-bottom: 32px;
+  width: 100%;
 }
 
 .Rsvp .MuiFormControl-root {
@@ -15,6 +16,9 @@
   color: rgba(0, 0, 0, 0.87);
 }
 
-/* .Rsvp .MuiGrid-item {
-  width: 50%;
-} */
+
+@media only screen and (min-width: 755px) {
+  .Rsvp .MuiGrid-item {
+    width: 80%;
+  }
+}
