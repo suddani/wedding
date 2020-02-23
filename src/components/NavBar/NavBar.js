@@ -19,8 +19,8 @@ function NavBar({t}) {
   return (
   <nav className="NavBar">
     {
-      entries.map (entry => {
-        return <Link replace={true} className={location.pathname == entry.path ? 'current' : ''} to={
+      entries.map ((entry, index) => {
+        return <Link key={index} replace={true} className={location.pathname == entry.path ? 'current' : ''} to={
           {
             pathname: entry.path,
             state: { icon: entry.icon, title: entry.name }

@@ -1,10 +1,36 @@
-.Tips {
+section.Tips {
   display: grid;
+  /* background-color: aquamarine; */
+  background-position: center center;
+  background-repeat: no-repeat !important;
+  background-size: cover !important;
+  grid-template-columns: 1fr 1fr;
 }
 
-.Tips > div {
-  padding-top: 120px;
-  justify-self: center;
+.Tips div {
+  background-color: #fff;
+  justify-self: stretch;
   font-size: 5em;
-  font-family: 'Oswald', sans-serif;
+  font-family: 'Dancing Script';
+  padding-left: 8px;
+  align-self: center;
+}
+
+.Tips div h4 {
+  font-size: 0.3em;
+  /* font-family: 'Trade Winds'; */
+}
+
+.Tips div p {
+  font-size: 0.25em;
+  /* font-family: 'Trade Winds'; */
+}
+
+@media only screen and (max-width: 755px) {
+  section.Tips {
+    grid-template-columns: 1fr;
+  }
+  .Tips div {
+    align-self: stretch;
+  }
 }
