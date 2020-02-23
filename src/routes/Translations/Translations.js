@@ -5,7 +5,7 @@ import { store } from 'react-notifications-component';
 
 import './Translations.scss'
 
-const translations_host = process.env.REACT_APP_API_ENDPOINT || 'api.daniel-mariia.wedding';
+const translations_host = process.env.REACT_APP_TRANSLATION_API_ENDPOINT || process.env.REACT_APP_API_ENDPOINT || 'api.daniel-mariia.wedding';
 
 function Translations({t}) {
 

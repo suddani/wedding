@@ -8,8 +8,8 @@ let backendConfig = {
 };
 // if ( process.env.REACT_APP_STAGE === 'dev') {
   backendConfig = {
-    loadPath: `//${process.env.REACT_APP_API_ENDPOINT}/translation/locales/wedding_page/{{lng}}/{{ns}}`,
-    addPath: `//${process.env.REACT_APP_API_ENDPOINT}/translation/locales/wedding_page/{{lng}}/{{ns}}`
+    loadPath: `//${process.env.REACT_APP_TRANSLATION_API_ENDPOINT || process.env.REACT_APP_API_ENDPOINT}/translation/locales/wedding_page/{{lng}}/{{ns}}`,
+    addPath: `//${process.env.REACT_APP_TRANSLATION_API_ENDPOINT || process.env.REACT_APP_API_ENDPOINT}/translation/locales/wedding_page/{{lng}}/{{ns}}`
   };
 // }
 
