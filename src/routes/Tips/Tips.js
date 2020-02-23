@@ -6,10 +6,22 @@ import './Tips.scss'
 import tipPicture from './tips.jpg';
 
 function Tips({t}) {
+
+  const weddingMailText = `mailto:info@daniel-mariia.wedding?subject=${t('Question about your wedding')}&body=${t('Hey Mariia and Daniel,%0d%0a%0d%0aGreetings')}`;
+
   return (
     <section className="Tips" style={{background: "url("+tipPicture+")"}}>
       <h1 style={{display: 'none'}}>Tips</h1>
       <div>
+        <h2>Gifts</h2>
+        <p>
+          There is no registry.
+          When you want to bring a gift, we would appreciate a contribution to our honeymoon trip that we plan to do right after the wedding.
+        </p>
+        <h2>Dresscode</h2>
+        <p>
+          Besides the braidsmaids and the bestmen there is no special dresscode.
+        </p>
         <h2>Travel in Ukraine</h2>
         <p>
           Please check the location of the chruch wedding and the venue <Link to={'/wedding'}>here</Link>.
@@ -30,7 +42,7 @@ function Tips({t}) {
             <li>
               Kyiv
               <p>
-                There is a direct sleep train to the town but it takes 12hrs(2:30pm - 2:40am).
+                There is a direct sleep train to the town but it takes 12hrs (2:30pm - 2:40am).
               </p>
             </li>
             <li>
@@ -61,14 +73,29 @@ function Tips({t}) {
         </p>
         <h3>Food</h3>
         <p>
-          The restaurant we are staying at has a restaurant where you can buy food before and after the weeding party (In case you can still eat afterwards).
+          The venue we are staying at has a restaurant where you can buy food before and after the weeding party (In case you can still eat afterwards).          
         </p>
         <h3>Paypal</h3>
         <p>
-          Paypal is not available in UKraine. It can not be used for Uber or BlaBlaCar for example.
+          Paypal is not available in Ukraine. It can not be used for Uber or BlaBlaCar for example.
         </p>
         <h2>Stuff to do in Ukraine</h2>
-        <p>Amet mollit cillum quis non sunt laborum duis Lorem. Commodo reprehenderit irure fugiat anim Lorem esse enim culpa sunt adipisicing amet. Esse et ex ipsum proident labore. Id consequat aliquip sint nisi proident esse ad magna elit elit. Quis ad velit tempor ad enim sunt. Cillum sint eu commodo esse id.</p>
+        <p>
+          If you want to travel a little bit through Ukraine we can recommend some cities depending on what you are interessted in.<br></br>
+          For that please contact us but here is short list of cities and locations to consider.
+          <ul>
+            <li>Lviv</li>
+            <li>Kviv</li>
+            <li>Odessa</li>
+            <li>Chernivtsi</li>
+            <li>Bukovel - Mountains</li>
+          </ul>
+        </p>
+        <h2>Anything else?</h2>
+        <p>
+          If you have any questions, need any help or advise, please feel free to <a href={weddingMailText} target="_top">write</a> or call us.
+        </p>
+        <h3>We are looking forward to seeing you.<i className="material-icons">favorite</i></h3>
         <img src={tipPicture}></img>
       </div>
     </section>);
