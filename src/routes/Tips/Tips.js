@@ -24,9 +24,25 @@ function Tips({t}) {
                 There is a direct sleep train to the town but it takes 12hrs(2:30pm - 2:40am).
               </p>
             </li>
-            <li>Lviv</li>
-            <li>Chernivtsi</li>
+            <li>
+              Lviv
+              <p>
+                There is a direct bus connection to the town.
+                However it takes 6hrs and the last bus leaves before 3pm
+                Bus tickets can be <a href="http://ticket.bus.com.ua/order/forming_bn?point_from=UA4610100000&point_to=UA6122010100&date=01.03.20&date_add=1&fn=round_search" target="_blank">bought</a> 1 week in advance.
+                <br></br>Otherwise the trip has to be done via Ternopil or Chernivtsi (there is a train connection from Lviv) and then by bus.
+              </p>
+            </li>
+            <li>
+              Chernivtsi
+              <p>
+                It is only 40km away from the venue. There are a lot of bus connections as well as one train that goes once a day.
+              </p>
+            </li>
           </ul>
+          Train tickets are available 45 days before departure and we strongly recommend to book them as soon as they are available.
+          On the other hand bus tickets can be easily bought a few days before departure.
+          As an alternative to both you can use BlaBlaCar since it is very popular in Ukraine.
         </p>
         <h2>Food</h2>
         <p>Ad excepteur incididunt eu aute sint velit consectetur Lorem nisi aliqua nisi. Elit qui commodo elit pariatur sit est voluptate laboris id consequat reprehenderit sunt amet consequat. Sunt minim duis incididunt aliqua ullamco ullamco enim ullamco in minim exercitation irure qui nulla. Elit aute do in eiusmod qui voluptate reprehenderit. Ad aliqua esse dolor ex aliqua.</p>
