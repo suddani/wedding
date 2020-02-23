@@ -6,16 +6,12 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 let backendConfig = {
   loadPath: '/locales/{{lng}}/{{ns}}.json',
 };
-if ( process.env.REACT_APP_STAGE === 'dev') {
-  // backendConfig = {
-  //   loadPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}',
-  //   addPath: '//api.daniel-mariia.wedding/translation/locales/wedding_page/{{lng}}/{{ns}}'
-  // };
+// if ( process.env.REACT_APP_STAGE === 'dev') {
   backendConfig = {
     loadPath: `//${process.env.REACT_APP_API_ENDPOINT}/translation/locales/wedding_page/{{lng}}/{{ns}}`,
     addPath: `//${process.env.REACT_APP_API_ENDPOINT}/translation/locales/wedding_page/{{lng}}/{{ns}}`
   };
-}
+// }
 
 i18n
   // load translation using xhr -> see /public/locales
