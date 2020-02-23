@@ -10,9 +10,18 @@ function Tips({t}) {
     <section className="Tips" style={{background: "url("+tipPicture+")"}}>
       <h1 style={{display: 'none'}}>Tips</h1>
       <div>
-        <h2>Wedding location</h2>
+        <h2>Travel in Ukraine</h2>
         <p>
           Please check the location of the chruch wedding and the venue <Link to={'/wedding'}>here</Link>.
+        </p>
+        <h3>Sleeping in Ukraine</h3>
+        <p>
+          Booking.com and Airbnb are both available in Ukraine.
+        </p>
+        <h3>Weeding accommodations in Zalishchyky</h3>
+        <p>
+          We are providing the hotel for the night after the wedding (the night from Sunday to Monday).
+          In case you want to stay longer or come earlier please let us know and we will support you with booking a hotel.
         </p>
         <h3>How to get here from Germany</h3>
         <p>
@@ -43,10 +52,21 @@ function Tips({t}) {
           Train tickets are available 45 days before departure and we strongly recommend to book them as soon as they are available.
           On the other hand bus tickets can be easily bought a few days before departure.
           As an alternative to both you can use BlaBlaCar since it is very popular in Ukraine.
+          For short trips, for exmaple from the airport to the train station you can also use Uber.
         </p>
-        <h2>Food</h2>
-        <p>Ad excepteur incididunt eu aute sint velit consectetur Lorem nisi aliqua nisi. Elit qui commodo elit pariatur sit est voluptate laboris id consequat reprehenderit sunt amet consequat. Sunt minim duis incididunt aliqua ullamco ullamco enim ullamco in minim exercitation irure qui nulla. Elit aute do in eiusmod qui voluptate reprehenderit. Ad aliqua esse dolor ex aliqua.</p>
-        <p>Anim esse commodo enim qui elit. Nisi et sunt adipisicing aliqua officia laborum. Consequat mollit proident adipisicing aliqua veniam officia irure elit aliqua eiusmod amet. Voluptate excepteur sunt mollit excepteur irure aliquip voluptate veniam irure consequat nisi. Minim eu enim culpa est sit. Reprehenderit ullamco magna magna et tempor. Nostrud tempor ullamco eiusmod nulla aliquip deserunt Lorem officia voluptate est esse magna.</p>
+        <h3>Visa</h3>
+        <p>
+          EU citizens do not require a VISA to travel to Ukraine.
+          However you need to show a valid international passport.
+        </p>
+        <h3>Food</h3>
+        <p>
+          The restaurant we are staying at has a restaurant where you can buy food before and after the weeding party (In case you can still eat afterwards).
+        </p>
+        <h3>Paypal</h3>
+        <p>
+          Paypal is not available in UKraine. It can not be used for Uber or BlaBlaCar for example.
+        </p>
         <h2>Stuff to do in Ukraine</h2>
         <p>Amet mollit cillum quis non sunt laborum duis Lorem. Commodo reprehenderit irure fugiat anim Lorem esse enim culpa sunt adipisicing amet. Esse et ex ipsum proident labore. Id consequat aliquip sint nisi proident esse ad magna elit elit. Quis ad velit tempor ad enim sunt. Cillum sint eu commodo esse id.</p>
         <img src={tipPicture}></img>

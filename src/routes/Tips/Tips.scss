@@ -2,10 +2,11 @@
 
 section.Tips {
   display: grid;
-  background-position: 8em center !important;
+  background-position: 0em center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1.5fr 1fr;
+  margin-right: 8em;
 }
 
 .Tips div {
@@ -59,12 +60,23 @@ section.Tips {
   }
 }
 
+@media only screen and (max-width: 1250px) {
+  .Tips div {
+    margin-left: 2em;
+  }
+  section.Tips {
+    background-position: -10em center !important;
+    margin-right: 2em;
+  }
+}
+
 @media only screen and (max-width: 960px) {
   .Tips div {
     margin-left: 2em;
   }
   section.Tips {
-    background-position: 2em center !important;
+    background-position: -20em center !important;
+    margin-right: 2em;
   }
 }
 
@@ -73,7 +85,8 @@ section.Tips {
     margin-left: 2em;
   }
   section.Tips {
-    background-position: -5em center !important;
+    background-position: -30em center !important;
+    margin-right: 2em;
   }
 }
 
@@ -82,13 +95,15 @@ section.Tips {
     margin-left: 2em;
   }
   section.Tips {
-    background-position: -10em center !important;
+    background-position: -40em center !important;
+    margin-right: 2em;
   }
 }
 
 @media only screen and (min-width: 755px) {
   .Tips div {
-    background-color: rgba(255, 255, 255, 0.726);
+    color: $white-text;
+    background-color: rgba(255, 255, 255, 0.826);
   }
   .Tips div img {
     display: none;
