@@ -13,6 +13,7 @@ const toPartMake = (data) => atob(data)
 function Wedding({t}) {
   return <section className="Wedding">
     <div className="event">
+      <h2>The Church</h2>
       <img src={church}></img>
       <div className="agenda">
         <p>We are getting married</p>
@@ -25,6 +26,7 @@ function Wedding({t}) {
       </div>
     </div>
     <div className="event">
+      <h2>The Restaurant</h2>
       <img src={restaurant}></img>
       <div className="agenda">
         <p>Our afternoon programm</p>

@@ -56,6 +56,19 @@
   height: 100%; 
 }
 
+@media only screen and (min-width: 755px) {
+  .Wedding .event {
+    grid-template-rows: min-content 1fr;
+  }
+  .Wedding .event img {
+    grid-row: 2/3;
+  }
+  
+  .Wedding .event .agenda {
+    grid-row: 2/3;
+  }
+}
+
 @media only screen and (max-width: 755px) {
   .Wedding .event {
     display: grid;
