@@ -1,7 +1,7 @@
 section.Tips {
   display: grid;
   /* background-color: aquamarine; */
-  background-position: center center;
+  background-position: 20% center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
   grid-template-columns: 1fr 1fr;
@@ -26,8 +26,15 @@ section.Tips {
   /* font-family: 'Trade Winds'; */
 }
 
+@media only screen and (orientation: portrait) {
+  section.Tips {
+    background: none !important;
+  }
+}
+
 @media only screen and (max-width: 755px) {
   section.Tips {
+    background: none !important;
     grid-template-columns: 1fr;
   }
   .Tips div {

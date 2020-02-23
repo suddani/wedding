@@ -11,7 +11,7 @@ import FooterBar from './components/FooterBar';
 import Home from './routes/Home';
 import Home2 from './routes/Home2';
 import About from './routes/About';
-import Galery from './routes/Galery';
+import Gallery from './routes/Gallery';
 import Story from './routes/Story';
 import Wedding from './routes/Wedding';
 import Account from './routes/Account';
@@ -60,15 +60,13 @@ function App() {
         <Route exact path="/tips" component={Tips}/>
         <Route exact path="/gifts" component={Gifts}/>
         <Route exact path="/home2" component={Home}/>
+        <Route exact path="/gallery" component={Gallery} user={user}/>
         <Route exact path="/invite">
           <Invite setUser={setUser}></Invite>
         </Route>
         <Route exact path="/translations" component={Translations}/>
 
         {/* Protected Routes */}
-        <PrivateRoute exact path="/galery" user={user}>
-          <Galery></Galery>
-        </PrivateRoute>
         <PrivateRoute exact path="/account" user={user}>
           <Account></Account>
         </PrivateRoute>

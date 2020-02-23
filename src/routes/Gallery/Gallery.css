@@ -1,0 +1,10 @@
+.Gallery {
+  display: grid;
+}
+
+.Gallery > div {
+  padding-top: 120px;
+  justify-self: center;
+  font-size: 5em;
+  font-family: 'Oswald', sans-serif;
+}
