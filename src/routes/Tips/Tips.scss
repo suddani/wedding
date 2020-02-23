@@ -2,7 +2,6 @@
 
 section.Tips {
   display: grid;
-  /* background-color: aquamarine; */
   background-position: 20% center !important;
   background-repeat: no-repeat !important;
   background-size: cover !important;
@@ -10,7 +9,7 @@ section.Tips {
 }
 
 .Tips div {
-  background-color: #fff;
+  background-color: $background-color;
   justify-self: stretch;
   font-size: 5em;
   font-family: 'Dancing Script';
