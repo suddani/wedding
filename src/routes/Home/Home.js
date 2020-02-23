@@ -16,9 +16,11 @@ function Home({t}) {
         <img className="couple" src={main}></img>
         <div className="fade"></div>
         <div className="SaveTheDate">
-          <div className="start">Let the</div>
-          <div className="middle">Countdown</div>
-          <div className="end">Begin</div>
+          <Trans i18nKey="Countdown" ns="home">
+            <div className="start">Let the</div>
+            <div className="middle">Countdown</div>
+            <div className="end">Begin</div>
+          </Trans>
         </div>
         <CountDown></CountDown>
         <img src={color} className="color"></img>
