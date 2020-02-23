@@ -10,6 +10,8 @@ import useLocalStorage from '../../hooks/useLocalStorage';
 import {requestInvitation, answerInvitation} from '../../api/invitation_service';
 import { useHistory, useLocation } from "react-router-dom";
 
+import { store } from 'react-notifications-component';
+
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
 import { palette } from '../../styles/colors';
 
@@ -126,7 +128,23 @@ function Rsvp({t}) {
       guest_names: guestNames,
       message: message,
       allergies: allergies
-    }, access_token, refresh_token, setAccessToken).catch(_=> history.push('/'));
+    }, access_token, refresh_token, setAccessToken).then(
+      _=> {
+        store.addNotification({
+          title: t("Thank you"),
+          message: attending == 0 ? t('Your Answer was received and we are looking forward to seeing you') : t('Your Answer was received.'),
+          type: "default",
+          insert: "top",
+          className: "TEST",
+          container: "top-right",
+          animationIn: ["animated", "fadeIn"],
+          animationOut: ["animated", "fadeOut"],
+          dismiss: {
+            duration: 5000
+          }
+        });
+      }
+    ).catch(_=> history.push('/'));
   }
 
   return <section className="Rsvp">

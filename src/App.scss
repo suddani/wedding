@@ -16,6 +16,12 @@
   padding-top: 44px;
 }
 
+
+.notification-item {
+  background-color: $primary;
+  border-left-color: $primary-dark;
+}
+
 @supports (-webkit-touch-callout: none) {
   .App > section {
     padding: 44px

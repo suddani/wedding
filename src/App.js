@@ -21,26 +21,7 @@ import Translations from './routes/Translations';
 import NavBar from './components/NavBar';
 import StatusBar from './components/StatusBar';
 import ScrollToTop from './components/ScrollToTop';
-
-function PrivateRoute({ children, user, ...rest }) {
-  return (
-    <Route
-      {...rest}
-      render={({ location }) =>
-        user ? (
-          children
-        ) : (
-          <Redirect
-            to={{
-              pathname: "/",
-              state: { from: location }
-            }}
-          />
-        )
-      }
-    />
-  );
-}
+import PrivateRoute from './components/PrivateRoute';
 
 function App() {
   const [user, setUser] = useLocalStorage("user", null);
