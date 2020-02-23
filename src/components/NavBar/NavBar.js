@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import { useHistory, useLocation } from 'react-router-dom';
 import { useViewportScroll } from 'framer-motion';
 
-import './NavBar.css';
+import './NavBar.scss';
 
 function NavBar({t}) {
   const location = useLocation();
@@ -12,7 +12,7 @@ function NavBar({t}) {
   const entries = [
     {path: '/story', icon: 'explore', name: t('Story')},
     {path: '/wedding', icon: 'favorite', name: t('Wedding')},
-    {path: '/', icon: 'home', name: t('Home')},
+    // {path: '/', icon: 'home', name: t('Home')},
     {path: '/gallery', icon: 'card_giftcard', name: t('Gallery')},
     {path: '/tips', icon: 'thumb_up', name: t('Tips')},
   ];

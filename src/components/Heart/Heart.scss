@@ -1,24 +1,24 @@
-.flowerTextContainer {
+@import '../../styles/colors.scss';
+
+.heartContainer {
   display: grid;
   grid-template-rows: max-content;
   grid-template-columns: max-content;
 }
 
-.flowerTextContainer > img {
+.heartContainer > img {
   grid-row: 1/2;
   grid-column: 1/2;
   align-self: stretch;
   justify-self: stretch;
-  transform: translate(0,-15%);
 }
-.flowerTextContainer > span {
+.heartContainer > span {
   grid-row: 1/2;
   grid-column: 1/2;
   align-self: center;
   justify-self: center;
-  font-family: 'Parisienne', cursive;
-  font-weight: initial;
-  color: #e2b007;
+  font-weight: bold;
+  color: #ffffff;
   position: relative;
   top: -5%;
 }

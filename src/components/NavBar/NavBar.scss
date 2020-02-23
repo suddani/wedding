@@ -1,5 +1,7 @@
+@import '../../styles/colors.scss';
+
 .NavBar {
-  background-color: #e2b007;
+  background-color: $primary;
   height: 56px;
   width: 100%;
   position: fixed;

@@ -1,7 +1,7 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 
-import './HappyCouple.css';
+import './HappyCouple.scss';
 
 import bride from './../../assets/images/bride.jpg';
 import groom from './../../assets/images/groom.jpg';

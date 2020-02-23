@@ -11,14 +11,10 @@ import {requestInvitation, answerInvitation} from '../../api/invitation_service'
 import { useHistory, useLocation } from "react-router-dom";
 
 import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { palette } from '../../styles/colors';
 
+import './Rsvp.scss';
 
-import './Rsvp.css';
-
-const palette = {
-  primary: { main: '#e2b007' },
-  secondary: { main: '#e2b007' }
-};
 const themeName = 'So Gold';
 
 const theme = createMuiTheme({ palette, themeName });
@@ -239,7 +235,7 @@ function Rsvp({t}) {
                 />
               </Grid>
               {/* <Grid item><div class="g-recaptcha" data-sitekey={process.env.REACT_APP_RECAPTCHA_PUB} data-callback={solvedChallange}></div></Grid> */}
-              <Grid item ><Button variant="contained" onClick={onSubmit}>{t('Submit')}</Button></Grid>
+              <Grid item ><Button variant="contained" onClick={onSubmit} color="secondary">{t('Submit')}</Button></Grid>
             </Fragment>
           ) : null}
         </Grid>

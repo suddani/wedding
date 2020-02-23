@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { withTranslation, Trans } from 'react-i18next';
-import './Tips.css'
+import './Tips.scss'
 
 import tipPicture from './tips.jpg';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import HappyCouple from './../../components/HappyCouple';
-import './About.css';
+import './About.scss';
 
 export default function About() {
   return (

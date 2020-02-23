@@ -5,7 +5,7 @@ import CountDown from './../../components/CountDown';
 import main from './main3.png';
 import color from './color.png';
 
-import './Home2.css'
+import './Home2.scss'
 
 function Home2({t}) {
   return (

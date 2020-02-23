@@ -1,8 +1,10 @@
-.Gallery {
+@import '../../styles/colors.scss';
+
+.Gifts {
   display: grid;
 }
 
-.Gallery > div {
+.Gifts > div {
   padding-top: 120px;
   justify-self: center;
   font-size: 5em;

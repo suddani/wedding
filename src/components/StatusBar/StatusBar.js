@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
 import { Button } from '@material-ui/core';
 
-import './StatusBar.css';
+import './StatusBar.scss';
 
 function cap(path) {
   return path[0].toUpperCase() + path.slice(1); 
@@ -25,7 +25,7 @@ function StatusBar({t, user}) {
   return (
   <div className="StatusBar">
     {/* <i className="material-icons">home</i> */}
-    <h1>M&D</h1>
+    <h1><Link replace={true} to="/">M&D</Link></h1>
     {user ? <Button variant="outlined">
       <Link replace={true} to={
           {

@@ -1,7 +1,7 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 
-import './Gallery.css'
+import './Gallery.scss'
 
 function Gallery({t}) {
   return <section className="Gallery">

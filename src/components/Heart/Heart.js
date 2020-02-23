@@ -2,7 +2,7 @@ import React from 'react';
 
 import heart from './heart.svg';
 
-import './Heart.css';
+import './Heart.scss';
 
 export default function Heart(props) {
   const container = React.useRef(null);

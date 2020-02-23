@@ -1,6 +1,8 @@
+@import '../../styles/colors.scss';
+
 .StatusBar {
   color: #fff;
-  background-color: #e2b007;
+  background-color: $primary;
   width: 100%;
   height: 44px;
   position: fixed;

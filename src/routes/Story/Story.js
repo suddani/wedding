@@ -1,7 +1,7 @@
 import React, { useEffect, useCallback, useRef } from 'react';
 import { withTranslation, Trans } from 'react-i18next';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
-import './Story.css';
+import './Story.scss';
 
 import firstOktoberfest from './firstOktoberfest.jpg'
 import firstSelfie from './firstSelfie.jpg';

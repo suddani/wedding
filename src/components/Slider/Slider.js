@@ -2,7 +2,7 @@ import React, {useRef} from 'react';
 import useOnScroll from './../../hooks/useOnScroll'
 import useMediaQuery from '@material-ui/core/useMediaQuery';
 
-import './Slider.css'
+import './Slider.scss'
 
 export default function Slider({className, fullscreen, fullscreenMobile, text, height, banner, banner_small}) {
   const biggerThan700 = useMediaQuery('(min-width:700px)');

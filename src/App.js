@@ -1,6 +1,6 @@
 import React from 'react';
 import 'react-notifications-component/dist/theme.css'
-import './App.css';
+import './App.scss';
 import { HashRouter as Router, Route, Redirect } from "react-router-dom";
 import ReactNotification from 'react-notifications-component';
 

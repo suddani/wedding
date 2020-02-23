@@ -2,7 +2,7 @@ import React from 'react';
 
 import useInterval from '../../hooks/useInterval';
 
-import './CountDown.css';
+import './CountDown.scss';
 
 export default function CountDown(props) {
   const countDownDate = Date.parse("2020-05-10T12:30:00Z");

@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 import { withTranslation, Trans } from 'react-i18next';
-import './Gifts.css'
+import './Gifts.scss'
 
 function Gifts({t}) {
   return <section className="Gifts">

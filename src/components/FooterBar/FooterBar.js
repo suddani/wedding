@@ -1,5 +1,5 @@
 import React from 'react';
-import './FooterBar.css';
+import './FooterBar.scss';
 import Heart from '../Heart/Heart';
 
 function FooterBar({t}) {

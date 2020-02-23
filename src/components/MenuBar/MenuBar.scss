@@ -1,3 +1,5 @@
+@import '../../styles/colors.scss';
+
 .MenuBar {
   list-style-type: none;
   grid-column: 2/3;
@@ -39,17 +41,17 @@
   justify-self: stretch;
   align-self: stretch;
   text-align: center;
-  background-color: #e2b007;
+  background-color: $primary;
   padding-top: 4px;
 }
 
 .MenuBar > .rsvp .left{
-  border-top: 16px solid #e2b007;
+  border-top: 16px solid $primary;
   border-right: 20px solid transparent;
 }
 
 .MenuBar > .rsvp .right{
-  border-top: 16px solid #e2b007;
+  border-top: 16px solid $primary;
   border-left: 20px solid transparent;
 }
 
@@ -141,7 +143,7 @@
   /* padding-bottom: 18px; */
   overflow: hidden;
 
-  color: #a0a0a0;
+  color: $white-text;
 }
 
 .MenuBar.fixed > ul > li {
@@ -173,7 +175,7 @@
 }
 .MenuBar > ul > li:hover {
   text-decoration: none;
-  color: #e2b007;
+  color: $white-text-hover;
   cursor: pointer;
 }
 .MenuBar > ul > li > a:link {
@@ -182,11 +184,11 @@
 }
 .MenuBar > ul > li > a:link:hover {
   text-decoration: none;
-  color: #e2b007;
+  color: $white-text-hover;
 }
 
 .MenuBar > ul > li > a.current {
-  color: #e2b007;
+  color: $white-text-current;
 }
 
 .MenuBar .AccountButton {

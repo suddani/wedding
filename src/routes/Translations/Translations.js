@@ -3,7 +3,7 @@ import { withTranslation } from 'react-i18next';
 import { Button, TextField } from '@material-ui/core';
 import { store } from 'react-notifications-component';
 
-import './Translations.css'
+import './Translations.scss'
 
 const translations_host = process.env.REACT_APP_API_ENDPOINT;
 

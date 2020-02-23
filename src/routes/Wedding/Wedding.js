@@ -1,7 +1,7 @@
 import React from 'react';
 import { withTranslation } from 'react-i18next';
 
-import './Wedding.css';
+import './Wedding.scss';
 
 import restaurant from './restaurant.jpeg';
 import church from './church.jpg';

@@ -4,7 +4,7 @@ import { withTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-import './MenuBar.css';
+import './MenuBar.scss';
 import Heart from '../Heart';
 import FlowerText from '../FlowerText';
 import Account from './Account';

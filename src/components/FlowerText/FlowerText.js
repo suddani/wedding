@@ -1,6 +1,6 @@
 import React from 'react';
 
-import './FlowerText.css';
+import './FlowerText.scss';
 import under_monogram from './under_monogram.png';
 
 export default function FlowerText(props) {
