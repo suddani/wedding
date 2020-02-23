@@ -2,12 +2,12 @@
 
 .App {
   display: grid;
-  background-color: #ffffff;
+  background-color: $background-color;
   overflow: hidden;
   grid-template-rows: 1fr;
   grid-template-columns: minmax(0px, 8px) 1fr minmax(0px, 8px);
   min-height: 100vh;
-  color: #a0a0a0;
+  color: $white-text;
 }
 
 .App > section {

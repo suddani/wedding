@@ -9,8 +9,6 @@ import useLocalStorage from './hooks/useLocalStorage';
 import MenuBar from './components/MenuBar';
 import FooterBar from './components/FooterBar';
 import Home from './routes/Home';
-import Home2 from './routes/Home2';
-import About from './routes/About';
 import Gallery from './routes/Gallery';
 import Story from './routes/Story';
 import Wedding from './routes/Wedding';
@@ -53,8 +51,7 @@ function App() {
         <StatusBar user={user}></StatusBar>
         <MenuBar className='solid' slideIn={true} user={user}/>
         
-        <Route exact path="/" component={Home2}/>
-        <Route exact path="/about" component={About}/>
+        <Route exact path="/" component={Home}/>
         <Route exact path="/story" component={Story}/>
         <Route exact path="/wedding" component={Wedding}/>
         <Route exact path="/tips" component={Tips}/>

@@ -19,7 +19,7 @@
   position: absolute;
   top: 0px;
   right: 220px;
-  color: #fff;
+  color: $primary-text;
   width: 40px;
   height: 50px;
   display: grid;
@@ -33,7 +33,7 @@
 }
 .MenuBar > .rsvp a:link:hover {
   text-decoration: none;
-  color: #a0a0a0;
+  color: $primary-text-light;
 }
 
 .MenuBar > .rsvp .text{
@@ -57,12 +57,12 @@
 
 .MenuBar.transparent {
   background: rbga(0,0,0,0.5);
-  color: #fff;
+  color: $white-text;
 }
 
 .MenuBar.solid {
-  background-color: #ffffff;
-  color: #666;
+  background-color: $background-color;
+  color: $white-text;
 }
 
 .MenuBar.fixed {
@@ -70,8 +70,8 @@
   transition-property: top;
   transition-duration: 0.5s;
   transition-timing-function: ease;
-  background-color: #ffffff;
-  color: #666;
+  background-color: $background-color;
+  color: $white-text;
   height: 80px;
   grid-template-rows: 80px;
 }
