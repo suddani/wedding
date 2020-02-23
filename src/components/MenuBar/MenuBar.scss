@@ -175,7 +175,7 @@
 }
 .MenuBar > ul > li:hover {
   text-decoration: none;
-  color: $white-text-hover;
+  color: $primary;
   cursor: pointer;
 }
 .MenuBar > ul > li > a:link {
@@ -184,11 +184,11 @@
 }
 .MenuBar > ul > li > a:link:hover {
   text-decoration: none;
-  color: $white-text-hover;
+  color: $primary;
 }
 
 .MenuBar > ul > li > a.current {
-  color: $white-text-current;
+  color: $primary;
 }
 
 .MenuBar .AccountButton {
