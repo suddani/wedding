@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import { withTranslation } from 'react-i18next';
 import { Link } from "react-router-dom";
 import { useHistory, useLocation } from "react-router-dom";
+import { Button } from '@material-ui/core';
 
 import './StatusBar.css';
 
@@ -14,7 +15,7 @@ function namify(t, path) {
   return t(path.split('/')[1].split(/[_-]/).map(s => cap(s)).join(' '))
 }
 
-function StatusBar({t}) {
+function StatusBar({t, user}) {
   const location = useLocation();
   const history = useHistory();
 
@@ -25,6 +26,14 @@ function StatusBar({t}) {
   <div className="StatusBar">
     <i className="material-icons">{location.state?.icon}</i>
     <h1>{title}</h1>
+    {user ? <Button variant="outlined">
+      <Link replace={true} to={
+          {
+            pathname: "/rsvp",
+            state: { icon: "receipt", title: "R.S.V.P" }
+          }}>RSVP
+      </Link>
+    </Button> : null }
   </div>);
 }
 

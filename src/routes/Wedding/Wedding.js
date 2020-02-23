@@ -12,25 +12,31 @@ const partyMap = "aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9tYXBzL2VtYmVkL3YxL3BsYWNlP3E9cG
 const toPartMake = (data) => atob(data)
 function Wedding({t}) {
   return <section className="Wedding">
-    <div className="ceremony">
+    <div className="event">
       <img src={church}></img>
       <div className="agenda">
+        <p>We are getting married</p>
         <ul>
           <li>12:30pm Church Wedding</li>
         </ul>
+        <div className="embed-container">
+          <iframe className="map" width="100%" height="450" frameborder="0" src={toPartMake(churchMap)} allowfullscreen></iframe>
+        </div>
       </div>
-      <iframe className="map" width="1280" height="450" frameborder="0" src={toPartMake(churchMap)} allowfullscreen></iframe>
     </div>
-    <div className="Reception">
+    <div className="event">
       <img src={restaurant}></img>
       <div className="agenda">
+        <p>Our afternoon programm</p>
         <ul>
           <li>15:30pm Aperatives</li>
           <li>16:30pm Ceremony</li>
           <li>17:30pm Reception</li>
         </ul>
+        <div className="embed-container">
+          <iframe className="map" width="1280" height="450" frameborder="0" src={toPartMake(partyMap)} allowfullscreen></iframe>
+        </div>
       </div>
-      <iframe className="map" width="1280" height="450" frameborder="0" src={toPartMake(partyMap)} allowfullscreen></iframe>
     </div>
     {/* <div className="banner" style={{backgroundImage: `url(${restaurant})`}}></div>
     <div className="text">

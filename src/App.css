@@ -11,14 +11,21 @@
 .App > section {
   grid-column: 2/3;
   grid-row: 1/2;
-  padding-bottom: 44px;
+  padding-bottom: 56px;
   padding-top: 44px;
 }
 
 @supports (-webkit-touch-callout: none) {
+  .App > section {
+    padding: 44px
+             env(safe-area-inset-right)
+             56px
+             env(safe-area-inset-left);
+  }
   @media only screen and (display-mode: standalone) {
-    .App {
-      padding-top: 80px;
+    .App > section {
+      padding-top: 88px; /* +44 */
+      padding-bottom: 83px; /* +27 */
     }
   }
 }

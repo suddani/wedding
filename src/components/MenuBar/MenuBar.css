@@ -218,6 +218,18 @@
   }
 }
 
+@media only screen and (max-width: 890px) {
+  .MenuBar > .top_left > img {
+    height: 55%;
+    top: 71px;
+    left: -30px;
+  }
+  .MenuBar > .top_right > img {
+    height: 55%;
+    top: 80px;
+  }
+}
+
 @media only screen and (max-width: 755px) {
   .MenuBar {
     display: none;

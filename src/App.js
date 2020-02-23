@@ -50,7 +50,7 @@ function App() {
     <div className="App">
       <Router>
         <ReactNotification />
-        <StatusBar></StatusBar>
+        <StatusBar user={user}></StatusBar>
         <MenuBar className='solid' slideIn={true} user={user}/>
         
         <Route exact path="/" component={Home2}/>

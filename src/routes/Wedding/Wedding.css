@@ -1,15 +1,78 @@
 .Wedding {
   display: grid;
+  max-width: 100%;
+  row-gap: 1em;
 }
 
-/* .Wedding > .banner {
-  justify-self: stretch;
-  height: 500px;
-  background-repeat: no-repeat;
-  background-position: center;
+.Wedding .event {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 100%;
 }
 
-.Wedding > .text {
-  padding-top: 16px;
-  padding-bottom: 16px;
-} */
+.Wedding .event img {
+  max-width: 100%;
+}
+
+.Wedding .event .agenda {
+  display: grid;
+  grid-template-rows: 50px 1fr 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+  grid-template-areas:
+    'a a a a a'
+    '. . . . .'
+    '. . m m m'
+    '. . m m m';
+}
+
+.Wedding .event .agenda ul {
+  grid-row: 2/5;
+  grid-column: 1/6;
+  margin: 0;
+}
+
+.Wedding .event .agenda p {
+  grid-area: a;
+  padding-left: 8px;
+  margin: 0;
+  align-self: center;
+}
+
+.Wedding .event .agenda .embed-container {
+  grid-area: m;
+  position: relative; 
+  padding-bottom: 56.25%; /* ratio 16x9 */
+  height: 0; 
+  overflow: hidden; 
+  width: 100%;
+  height: auto;
+}
+.Wedding .event .agenda .embed-container iframe {
+
+  position: absolute; 
+  top: 0; 
+  left: 0; 
+  width: 100%; 
+  height: 100%; 
+}
+
+@media only screen and (max-width: 755px) {
+  .Wedding .event {
+    display: grid;
+    grid-template-columns: 1fr;
+    max-width: 100%;
+  }
+  .Wedding .event .agenda {
+    display: grid;
+    grid-template-rows: 50px 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-areas:
+      'a a a a a'
+      '. . . . .'
+      'm m m m m'
+      'm m m m m';
+  }
+  .Wedding .event .agenda .embed-container {
+    top: -20%;
+  }
+}
