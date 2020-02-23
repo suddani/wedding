@@ -7,7 +7,7 @@ function Gallery({t}) {
   return <section className="Gallery">
     <h1 style={{display: 'none'}}>{t('Gallery')}</h1>
     <div>
-      {t('Coming Soon')}
+      {t('Here we will post photos and videos from the wedding')}
     </div>
   </section>;
 }

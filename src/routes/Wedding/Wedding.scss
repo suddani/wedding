@@ -4,6 +4,15 @@
   display: grid;
   max-width: 100%;
   row-gap: 1em;
+
+  font-family: 'Dancing Script';
+  font-family: 'Roboto';
+  font-style: italic;
+}
+
+.Wedding > h2 {
+  font-size: 1.3em;
+  justify-self: center;
 }
 
 .Wedding .event {
@@ -14,6 +23,7 @@
 
 .Wedding .event img {
   max-width: 100%;
+  border-radius: 0.5em;
 }
 
 .Wedding .event .agenda {
@@ -22,9 +32,9 @@
   grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
   grid-template-areas:
     'a a a a a'
-    '. . . . .'
-    '. . m m m'
-    '. . m m m';
+    'a a a a a'
+    '. m m m m'
+    '. m m m m';
 }
 
 .Wedding .event .agenda ul {
@@ -37,7 +47,7 @@
   grid-area: a;
   padding-left: 8px;
   margin: 0;
-  align-self: center;
+  align-self: start;
 }
 
 .Wedding .event .agenda .embed-container {
@@ -49,8 +59,8 @@
   width: 100%;
   height: auto;
 }
-.Wedding .event .agenda .embed-container iframe {
 
+.Wedding .event .agenda .embed-container iframe {
   position: absolute; 
   top: 0; 
   left: 0; 
@@ -58,7 +68,23 @@
   height: 100%; 
 }
 
+.Wedding .event h2 {
+  font-family: 'Dancing Script';
+}
+
+@supports not (-webkit-touch-callout: none) {
+  @media only screen and (min-width: 755px) {
+    .Wedding {
+      padding-left: 8em;
+      padding-right: 8em;
+    }
+  }
+}
+
 @media only screen and (min-width: 755px) {
+  .Wedding {
+    grid-template-rows: 1.5em min-content min-content;
+  }
   .Wedding .event {
     grid-template-rows: min-content 1fr;
   }
@@ -68,6 +94,10 @@
   
   .Wedding .event .agenda {
     grid-row: 2/3;
+  }
+  .Wedding .event h2 {
+    grid-column: 1/3;
+    justify-self: start;
   }
 }
 

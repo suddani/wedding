@@ -11,29 +11,37 @@ section.Tips {
 .Tips div {
   background-color: $background-color;
   justify-self: stretch;
-  font-size: 5em;
   font-family: 'Dancing Script';
   padding-left: 8px;
+  margin-left: 8em;
   align-self: center;
 }
 
 .Tips div h4 {
-  font-size: 0.3em;
+  font-size: 1.5em;
   /* font-family: 'Trade Winds'; */
 }
 
 .Tips div p {
-  font-size: 0.25em;
+  font-size: 1em;
+  font-family: 'Roboto';
+  font-style: italic;
   /* font-family: 'Trade Winds'; */
 }
 
 @media only screen and (orientation: portrait) and (max-width: 755px) {
+  .Tips div {
+    margin-left: unset;
+  }
   section.Tips {
     background: none !important;
   }
 }
 
 @media only screen and (max-width: 755px) {
+  .Tips div {
+    margin-left: unset;
+  }
   section.Tips {
     background: none !important;
     grid-template-columns: 1fr;
@@ -44,18 +52,27 @@ section.Tips {
 }
 
 @media only screen and (max-width: 960px) {
+  .Tips div {
+    margin-left: 2em;
+  }
   section.Tips {
     background-position: 2em center !important;
   }
 }
 
 @media only screen and (max-width: 910px) {
+  .Tips div {
+    margin-left: 2em;
+  }
   section.Tips {
     background-position: -5em center !important;
   }
 }
 
 @media only screen and (max-width: 790px) {
+  .Tips div {
+    margin-left: 2em;
+  }
   section.Tips {
     background-position: -10em center !important;
   }

@@ -16,6 +16,8 @@
   font-size: 2em;
   font-weight: bold;
   text-align: center;
+
+  font-family: 'Dancing Script';
 }
 
 .StoryMain .year > .entry {
@@ -50,6 +52,13 @@
   left: 15%;
   top: 12.5%;
   opacity: 0;
+  font-family: 'Roboto';
+  font-style: italic;
+  // font-weight: 300;
+}
+
+.StoryMain .year > .entry .text h2 {
+  font-family: 'Dancing Script';
 }
 
 .StoryMain .year > .entry .right {

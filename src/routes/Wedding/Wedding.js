@@ -1,5 +1,5 @@
 import React from 'react';
-import { withTranslation } from 'react-i18next';
+import { withTranslation, Trans } from 'react-i18next';
 
 import './Wedding.scss';
 
@@ -12,29 +12,29 @@ const partyMap = "aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9tYXBzL2VtYmVkL3YxL3BsYWNlP3E9cG
 const toPartMake = (data) => atob(data)
 function Wedding({t}) {
   return <section className="Wedding">
+    <h2>
+      <Trans i18nKey="ourWeddingHeader" ns="wedding">Our wedding will take place on May, 10th in Zalishchyky, Ukraine.</Trans>
+    </h2>
     <div className="event">
-      <h2>The Church</h2>
+      <h2>{t('The Church')}</h2>
       <img src={church}></img>
       <div className="agenda">
-        <p>We are getting married</p>
-        <ul>
-          <li>12:30pm Church Wedding</li>
-        </ul>
+        <p><Trans i18nKey="churchAgenda" ns="wedding">We will get married in a greek catholic church at <b>12:30pm</b>.</Trans></p>
         <div className="embed-container">
           <iframe className="map" width="100%" height="450" frameborder="0" src={toPartMake(churchMap)} allowfullscreen></iframe>
         </div>
       </div>
     </div>
     <div className="event">
-      <h2>The Restaurant</h2>
+      <h2>{t('The Venue')}</h2>
       <img src={restaurant}></img>
       <div className="agenda">
-        <p>Our afternoon programm</p>
-        <ul>
-          <li>15:30pm Aperatives</li>
-          <li>16:30pm Ceremony</li>
-          <li>17:30pm Reception</li>
-        </ul>
+        <p>
+          <Trans i18nKey="venueAgenda" ns="wedding">
+            Our celebration program will start at <b>3:30pm</b> with some aperatives in front of the venue if the weather allows it.<br></br>
+            In <b>ca. an hour</b> we will have a short ceremony that will follow with reception and party.
+          </Trans>
+        </p>
         <div className="embed-container">
           <iframe className="map" width="1280" height="450" frameborder="0" src={toPartMake(partyMap)} allowfullscreen></iframe>
         </div>
