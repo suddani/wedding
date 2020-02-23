@@ -17,9 +17,13 @@ section.Tips {
   align-self: center;
 }
 
-.Tips div h4 {
-  font-size: 1.5em;
-  /* font-family: 'Trade Winds'; */
+// .Tips div h4 {
+//   font-size: 1.5em;
+//   /* font-family: 'Trade Winds'; */
+// }
+
+.Tips div a {
+  text-decoration: underline;
 }
 
 .Tips div p {
@@ -27,6 +31,10 @@ section.Tips {
   font-family: 'Roboto';
   font-style: italic;
   /* font-family: 'Trade Winds'; */
+}
+
+.Tips div img {
+  width: 100%;
 }
 
 @media only screen and (orientation: portrait) and (max-width: 755px) {
@@ -81,6 +89,9 @@ section.Tips {
 @media only screen and (min-width: 755px) {
   .Tips div {
     background-color: rgba(255, 255, 255, 0.726);
+  }
+  .Tips div img {
+    display: none;
   }
 }
 
