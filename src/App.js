@@ -20,6 +20,7 @@ import Invite from './routes/Invite';
 import Translations from './routes/Translations';
 import NavBar from './components/NavBar';
 import StatusBar from './components/StatusBar';
+import ScrollToTop from './components/ScrollToTop';
 
 function PrivateRoute({ children, user, ...rest }) {
   return (
@@ -47,6 +48,7 @@ function App() {
   return (
     <div className="App">
       <Router>
+        <ScrollToTop></ScrollToTop>
         <ReactNotification />
         <StatusBar user={user}></StatusBar>
         <MenuBar className='solid' slideIn={true} user={user}/>
