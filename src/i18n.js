@@ -27,7 +27,12 @@ i18n
     saveMissing: process.env.REACT_APP_STAGE === 'dev',
     saveMissingTo: 'current',
     saveMissingPlurals: true,
-    fallbackLng: process.env.REACT_APP_STAGE === 'dev' ? false : "en",
+    fallbackLng: process.env.REACT_APP_STAGE === 'dev' ? false : {
+      'uk-UA': ['uk', 'en'],
+      'de-DE': ['de', 'en'],
+      'de': ['de-DE', 'en'],
+      'default': ['en']
+    },
     load: "currentOnly",
 
     // resources,
