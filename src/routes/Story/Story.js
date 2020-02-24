@@ -57,59 +57,72 @@ function Story({t}) {
     new Year(2015, 
       [
         new Entry(firstSelfie, '', 'Let the story begin ...', (<Trans i18nKey="theStoryBegin" ns="story">
-          When a company Xmas was in full swing, Mariia has decided to leave since a day after had to be a workig day.
-          Already while waiting for U-bahn, it got obvious that she was not the only one leaving earlier and her reason apparently was not that serious - a few more guys were moving to a different party.
-          Amoung faces she knew from the office, there was one, which she had never seen before.
-          After "Hey, I'm Daniel" she immediately understood who is that: a "genious dev guy;
-          student, that appears and disappears in the office time to time;
-          author of the most of code that others called "magic" and a new member of her team from the next month".
-          But at that evening she just answered "Mariia, nice to meet you"
-          and the conversetion about nothing was going until she exited on her stop...
+          When the company’s Christmas party was still in full swing, Mariia decided to leave early since she had to work the day after.
+          When Mariia was already waiting for U-Bahn, it got obvious that she was not the only one leaving earlier that night and, apparently, her reason was not that legitimate:
+          a few more guys were only beginning their night as they were moving to a different party.
+          Whereas she knew most of the faces from the office, there was one that she had never seen before.
+          After “Hey, I’m Daniel”, she immediately understood who that was: the “genius dev guy”,
+          “student who appears and disappears in the office every once in while”,
+          the author of the most of the code that others called “magic” and a new member of her team beginning from the following month.
+          That evening, though, she just answered: “Mariia, nice to meet you”.
+          Their conversation that night was limited to just a small talk on the U-Bahn and was interrupted when Mariia had to exit at her station....
           </Trans>))
       ]),
     new Year(2016, 
       [
         new Entry(greatProject, '', 'Time to start a great project', (<Trans i18nKey="theStoryDrinks" ns="story">
-          From the first Daniel's day in the company they were working together.
-          Regardless was it a huge projects planning, 
-          bugfixes until the late night or just long talks about life after a few drinks in the Tower - everything was fun as loong as we were doing it together.
+          They have been working together since Daniel’s first day in the company.
+          Regardless whether it was a huge project planning,
+          late night bugfixing or just long conversations about life after a few drinks in the Tower,
+          everything was fun as long as they were doing it together.
           </Trans>))
       ], true),
     new Year(2017, 
       [
-        new Entry(justFriends, '', 'How about beeing a friends? Or maybe more?', (<Trans i18nKey="theStoryMaybeMore" ns="story">
-          It took us quite some time to realize and admit that whatever is goign on there is not filling anymore in the definition of "good collegue" or "nice team member".
-          Not even in "friend". It was more.
-          And we were trying out how much by very slowly and carefuly extending the borders from work to personal life:
-          it's hard to explain Mariia's amazement when she saw in real life fraternity that before she knew only from american movies.
-          Or Daniel's confusion when he was sarounded by Ukrainians that were talking the "weird language he can't understand".</Trans>))
+        new Entry(justFriends, '', 'How about being a friends? Or maybe more?', (<Trans i18nKey="theStoryMaybeMore" ns="story">
+          It took us quite some time to realise and admit that whatever was going on between us did not fit in the definition of “good colleague”,
+          “nice team member” or even “friend”.
+          There was more to our relationship than that.
+          The question was – how much more? We tried to figure it out by slowly and carefully extending the borders of our relationship:
+          from the office to personal lives:
+          it’s hard to describe Mariia’s astonishment when she saw a real-life fraternity for the first time after having only known about them only from American films.
+          It’s even harder to describe Daniel’s confusion when he experienced being surrounded by Ukrainians “speaking the weird language he can’t understand” for the first time.
+          </Trans>))
       ]),
     new Year(2018, 
       [
         new Entry(itsLove, '', "It's called love", (<Trans i18nKey="theStoryLove" ns="story">
-          Step by step we were getting closer. From the weekly schedule of 8/5 we have been moving to 24/7.
-          Vacations, families intros, Mariia's first real ski vacation (when there was actually skiing not only spa :))
-          and Daniel's Ukrainian probation test by 60% home made vodka - at some point we realized that the life won't make sense without each other.
+          Step by step we were getting closer – starting when we spent time together according to the office 8/5 schedule,
+          we gradually moved to the point when the schedule of having each other 24/7 made us both happier.
+          Holidays together, Mariia’s first legit ski trip (when there was actual skiing instead of just spa :) ) ,
+          Daniel’s probation test by 60% home-made vodka in Ukraine  - at some point,
+          we realised that life won’t make sense if we are not beside each other.
           </Trans>))
       ], true),
     new Year(2019, 
       [
         new Entry(sheYes, '', 'She said yes', (<Trans i18nKey="theStoryYes" ns="story">
-          When during the dinner right before the vacation Mariia said "Finally we can relax", Daniel anwered "Not yet".
-          Super confusing, na? In a few days it totally made sense and was logical: Daniel proposed her.
-          It was on a ship, at the place, where they went to their first vacation as a couple.
-          Let the details stay only for us.</Trans>)),
+          During a dinner right before a vacation together,
+          Mariia sighed with relief: “Finally we can relax”.
+          Daniel answered: “Not yet”.
+          Super confusing, eh?
+          It totally made sense and became logical a few days after: Daniel proposed to Mariia.
+          It was on a ship, at a place where we first went on a holiday as a couple.
+          Let us keep the details to ourselves.
+          </Trans>)),
         new Entry(germanyYes, '', 'Germany said yes as well', (<Trans i18nKey="theStoryReallyYes" ns="story">
-          Starting the process, we were aware of all the bureaucracy issues and were expecting the date in 2020.
-          Surpricevly, it took us only a bit longer than a month (our Ukrainian friends keep asking HOW?) and 16th of October we officially created family Sudmann.
-          We were happy to share this day with the closest people!
+          Starting the process, we were aware of all the bureaucracy issues and expected to legalize our family in 2020.
+          Surprisingly, it only took us a little over a month (our Ukrainians friends keep asking HOW?) and we officially created family Sudmann.
+          We were happy to share that day with the closest people!
           </Trans>))
       ]),
     new Year(2020, 
       [
         new Entry(bigEvent, '', 'But the bigger event is coming...', (<Trans i18nKey="theStoryBigEvent" ns="story">
-          For us besides the civil wedding, there are 2 more very important events: get married in the eyes of God and share our promices with each other.
-          We would like to share this with you and celebrate it on a big scale! Pls join us on the most important day!<br></br>10.05.2020
+          Apart from the civil wedding, there are two events that are utterly significant to us:
+          get married in the eyes of God and share out promises with each other.
+          We would like to share our joy and happiness with you and celebrate it in a big way.
+          Please join us on the most important day!<br></br><b>10.05.2020</b>
           </Trans>))
       ]
     )
