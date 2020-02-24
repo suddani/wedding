@@ -13,7 +13,6 @@
   align-items: center;
   grid-template-columns: minmax(0px, 236px) 1fr minmax(0px, 236px);
   grid-template-rows: 150px;
-  overflow: hidden;
 }
 
 .MenuBar > .rsvp {
@@ -127,6 +126,7 @@
   margin: 0;
   color: inherit;
   height: 150px;
+  overflow: hidden;
 }
 
 .MenuBar.fixed > ul {
