@@ -6,12 +6,12 @@ import LanguageDetector from 'i18next-browser-languagedetector';
 let backendConfig = {
   loadPath: '/locales/{{lng}}/{{ns}}.json',
 };
-// if ( process.env.REACT_APP_STAGE === 'dev') {
+if ( process.env.REACT_APP_STAGE === 'dev' || process.env.REACT_APP_TRANSLATION_SERVER === 'true') {
   backendConfig = {
     loadPath: `//${process.env.REACT_APP_TRANSLATION_API_ENDPOINT || process.env.REACT_APP_API_ENDPOINT}/translation/locales/wedding_page/{{lng}}/{{ns}}`,
     addPath: `//${process.env.REACT_APP_TRANSLATION_API_ENDPOINT || process.env.REACT_APP_API_ENDPOINT}/translation/locales/wedding_page/{{lng}}/{{ns}}`
   };
-// }
+}
 
 i18n
   // load translation using xhr -> see /public/locales
