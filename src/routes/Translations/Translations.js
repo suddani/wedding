@@ -2,10 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { withTranslation } from 'react-i18next';
 import { Button, TextField } from '@material-ui/core';
 import { store } from 'react-notifications-component';
+import useLocalStorage  from './../../hooks/useLocalStorage';
+import translationService from './../../api/translation_service';
 
 import './Translations.scss'
-
-const translations_host = process.env.REACT_APP_TRANSLATION_API_ENDPOINT || process.env.REACT_APP_API_ENDPOINT || 'api.daniel-mariia.wedding';
 
 function Translations({t}) {
 
@@ -15,53 +15,38 @@ function Translations({t}) {
 
   const [translations, setTranslations] = useState({});
 
+  const [access_token, setAccessToken] = useLocalStorage("access_token", null);
+  const [refresh_token, setRefreshToken] = useLocalStorage("refresh_token", null);
+
   useEffect(() => {
-    const loadGroups = async () => {
-      fetch(`//${translations_host}/translation/translations/groups/wedding_page`).then(
-        response => response.json()
-      ).then((groups) => {
+    const loader = async () => {
+      translationService.loadGroups().then((groups) => {
         setSelectedGroup(Object.keys(groups)[0]);
         setGroups(groups);
       });
     }
 
-    loadGroups();
+    loader();
   }, []);
 
   useEffect(() => {
-    const loadGroups = async () => {
-      fetch(`//${translations_host}/translation/translations/groups/wedding_page/${selectedGroup}`).then(
-        response => response.json()
-      ).then((groups) => {
-        Object.keys(groups).forEach((i) => {
-          groups[i].forEach((a) => {
+    const loader = async () => {
+      translationService.loadTranslations(selectedGroup).then((translations) => {
+        Object.keys(translations).forEach((i) => {
+          translations[i].forEach((a) => {
             if (!a.value) a.value = '';
           })
         })
-        setTranslations(groups);
+        setTranslations(translations);
       });
     }
 
-    loadGroups();
+    loader();
   }, [selectedGroup]);
 
   const updateTranslation = (translation) => {
-    fetch(`//${translations_host}/translation/translations/wedding_page/${translation.id}`, {
-        method: 'POST', // *GET, POST, PUT, DELETE, etc.
-        mode: 'cors', // no-cors, *cors, same-origin
-        cache: 'no-cache', // *default, no-cache, reload, force-cache, only-if-cached
-        credentials: 'same-origin', // include, *same-origin, omit
-        headers: {
-            'Content-Type': 'application/json',
-            // 'Content-Type': 'application/x-www-form-urlencoded',
-        },
-        redirect: 'follow', // manual, *follow, error
-        referrer: 'no-referrer', // no-referrer, *client
-        body: JSON.stringify({
-          value: translation.value
-        }), // body data type must match "Content-Type" header
-    })
-    .then(response => response.json()).then(() => {
+    translationService.updateTranslation(translation, access_token, refresh_token, setAccessToken)
+    .then(() => {
       store.addNotification({
         title: t("Updated Translation"),
         message: `${t('Changed translation of')} "${translation.key}"`,
