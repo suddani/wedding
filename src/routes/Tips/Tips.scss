@@ -60,7 +60,17 @@ section.Tips {
     margin-left: 2em;
   }
   section.Tips {
-    background-position: -10em center !important;
+    background-position: -15em center !important;
+    // margin-right: 2em;
+  }
+}
+
+@media only screen and (max-width: 1060px) {
+  .Tips div {
+    margin-left: 2em;
+  }
+  section.Tips {
+    background-position: -25em center !important;
     // margin-right: 2em;
   }
 }
@@ -70,7 +80,7 @@ section.Tips {
     margin-left: 2em;
   }
   section.Tips {
-    background-position: -20em center !important;
+    background-position: -30em center !important;
     // margin-right: 2em;
   }
 }
