@@ -1,0 +1,38 @@
+@import '../../styles/colors.scss';
+
+.LoadingFullscreen {
+  display: grid;
+  height: 100vh;
+  width: 100%;
+  background-color: $primary;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  grid-template-areas: 
+    '. . .'
+    '. heart .'
+    '. . .';
+}
+
+.LoadingFullscreen i, .LoadingFullscreen .heart {
+  grid-area: heart;
+  justify-self: center;
+  align-self: center;
+  color: $primary-dark;
+  animation: pulse 1s ease 0s infinite alternate;
+}
+
+.LoadingFullscreen p {
+  grid-area: heart;
+  justify-self: center;
+  align-self: flex-end;
+  color: $primary-dark;
+}
+
+@keyframes pulse {
+  from {
+    font-size: 1em;
+  }
+  to {
+    font-size: 5em;
+  }
+}
