@@ -9,7 +9,7 @@
   top: 0px;
   z-index: 12;
   display: grid;
-  grid-template-columns: 44px 1fr min-content;
+  grid-template-columns: 1fr min-content 8px;
   align-items: center;
 }
 
@@ -32,9 +32,8 @@
 }
 
 .StatusBar button {
-  grid-column: 3/4;
+  grid-column: 2/3;
   grid-row: 1/2;
-  margin-right: 8px;
   color: $primary-text;
   border-color: $primary-text;
 }
