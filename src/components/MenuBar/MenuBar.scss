@@ -84,12 +84,16 @@
   display: grid;
   height: 100%;
   align-self: stretch;
+  grid-column: 1/2;
+  grid-row: 1/2;
 }
 
 .MenuBar > .top_right {
   display: grid;
   height: 100%;
   align-self: stretch;
+  grid-column: 3/4;
+  grid-row: 1/2;
 }
 
 .MenuBar > .top_left > img {
@@ -109,7 +113,8 @@
   transform: rotate(20deg);
   position: relative;
   top: -30px;
-  right: -40px;
+  // right: -40px;
+  justify-self: flex-end;
 }
 
 .MenuBar.fixed > .top_right > img {
@@ -118,7 +123,7 @@
 
 .MenuBar > ul {
   grid-row: 1/2;
-  grid-column: 2/3;
+  grid-column: 1/4;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -212,12 +217,12 @@
   .MenuBar > .top_right > img {
     height: 100%;
     top: 30px;
-    right: -10px;
+    // right: -10px;
   }
 
   .MenuBar.fixed > .top_right > img {
     top: 15px;
-    right: -40px;
+    // right: -40px;
   }
 }
 
