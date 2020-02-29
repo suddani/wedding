@@ -33,28 +33,6 @@ section.Tips {
   width: 100%;
 }
 
-@media only screen and (orientation: portrait) and (max-width: 755px) {
-  .Tips div {
-    margin-left: unset;
-  }
-  section.Tips {
-    background: none !important;
-  }
-}
-
-@media only screen and (max-width: 755px) {
-  .Tips div {
-    margin-left: unset;
-  }
-  section.Tips {
-    background: none !important;
-    grid-template-columns: 1fr;
-  }
-  .Tips div {
-    align-self: stretch;
-  }
-}
-
 @media only screen and (max-width: 1250px) {
   .Tips div {
     margin-left: 2em;
@@ -105,10 +83,22 @@ section.Tips {
   }
 }
 
-@media only screen and (min-width: 755px) {
+@media only screen and (orientation: portrait) and (max-width: 755px) {
+  section.Tips {
+    background: none !important;
+  }
+}
+
+@media only screen and (max-width: 755px) {
   .Tips div {
+    margin-left: unset;
+    align-self: stretch;
     color: $white-text;
     background-color: rgba(255, 255, 255, 0.826);
+  }
+  section.Tips {
+    background: none !important;
+    grid-template-columns: 1fr;
   }
   .Tips div img {
     display: none;
