@@ -26,7 +26,7 @@ function MenuBar({slideIn, className, t, user}) {
     {path: '/', name: <FlowerText size={flowerSize} text="D+M"/>, hasNoHeart: true, hiddenOnOpen: true},
     {path: '/gallery', name: t('Gallery'), hasNoHeart: true},
     {path: '/tips', name: t('Local Tips'), hasNoHeart: false},
-    {path: '/account', name: t('Account'), disabledOnOpen: true, loggedIn: true }
+    {path: '/account', name: t('Account'), loggedIn: true }
   ];
   const styles = [
     'solid',

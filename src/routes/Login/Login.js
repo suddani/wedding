@@ -12,14 +12,7 @@ import { useHistory, useLocation } from "react-router-dom";
 
 import { store } from 'react-notifications-component';
 
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { palette } from '../../styles/colors';
-
 import './Login.scss';
-
-const themeName = 'So Gold';
-
-const theme = createMuiTheme({ palette, themeName });
 
 function Login({t, user, setUser}) {
   const [_access_token, setAccessToken] = useLocalStorage('access_token', null);
@@ -60,7 +53,6 @@ function Login({t, user, setUser}) {
   }
 
   return <section className="Login">
-    <ThemeProvider theme={theme}>
       <Card className="content">
         <CardContent>
           <Grid container direction="column" spacing={2} justify='center' alignContent='center'>
@@ -81,7 +73,6 @@ function Login({t, user, setUser}) {
           </Grid>
         </CardContent>
       </Card>
-    </ThemeProvider>
   </section>
 }
 

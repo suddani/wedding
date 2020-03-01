@@ -12,14 +12,7 @@ import { useHistory, useLocation } from "react-router-dom";
 
 import { store } from 'react-notifications-component';
 
-import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
-import { palette } from '../../styles/colors';
-
 import './Rsvp.scss';
-
-const themeName = 'So Gold';
-
-const theme = createMuiTheme({ palette, themeName });
 
 function Rsvp({t}) {
 
@@ -148,7 +141,6 @@ function Rsvp({t}) {
   }
 
   return <section className="Rsvp">
-    <ThemeProvider theme={theme}>
       <h1   style={{display: 'none'}}>RSVP</h1>
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Grid container direction="column" spacing={1} justify='center' alignContent='center'>
@@ -258,7 +250,6 @@ function Rsvp({t}) {
           ) : null}
         </Grid>
       </MuiPickersUtilsProvider>
-    </ThemeProvider>
   </section>
 }
 

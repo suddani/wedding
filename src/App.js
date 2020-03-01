@@ -24,44 +24,54 @@ import ScrollToTop from './components/ScrollToTop';
 import Login from './routes/Login';
 import PrivateRoute from './components/PrivateRoute';
 
+import { createMuiTheme, ThemeProvider } from '@material-ui/core/styles';
+import { palette } from './styles/colors';
+
+const themeName = 'So Gold';
+
+const theme = createMuiTheme({ palette, themeName });
+
 function App() {
   const [user, setUser] = useLocalStorage("user", null);
 
   return (
-    <div className="App">
-      <Router>
-        <ScrollToTop></ScrollToTop>
-        <ReactNotification />
-        <StatusBar user={user}></StatusBar>
-        <MenuBar className='solid' slideIn={true} user={user}/>
-        
-        <Route exact path="/" component={Login}/>
-        <Route exact path="/login">
-          <Login user={user} setUser={setUser}></Login>
-        </Route>
-        <Route exact path="/story" component={Story}/>
-        <Route exact path="/wedding" component={Wedding}/>
-        <Route exact path="/tips" component={Tips}/>
-        <Route exact path="/gifts" component={Gifts}/>
-        <Route exact path="/home2" component={Home}/>
-        <Route exact path="/gallery" component={Gallery} user={user}/>
-        <Route exact path="/invite">
-          <Invite setUser={setUser}></Invite>
-        </Route>
-        <Route exact path="/translations" component={Translations}/>
+    <ThemeProvider theme={theme}>
+      <div className="App">
+        <Router>
+          <ScrollToTop></ScrollToTop>
+          <ReactNotification />
+          <StatusBar user={user}></StatusBar>
+          <MenuBar className='solid' slideIn={true} user={user}/>
 
-        {/* Protected Routes */}
-        <PrivateRoute exact path="/account" user={user}>
-          <Account user={user} setUser={setUser}></Account>
-        </PrivateRoute>
-        <PrivateRoute exact path="/rsvp" user={user}>
-          <Rsvp user={user}></Rsvp>
-        </PrivateRoute>
+          <Route exact path="/" component={Home}/>
+          <Route exact path="/login">
+            <Login user={user} setUser={setUser}></Login>
+          </Route>
+          <Route exact path="/story" component={Story}/>
+          <Route exact path="/wedding" component={Wedding}/>
+          <Route exact path="/tips" component={Tips}/>
+          <Route exact path="/gifts" component={Gifts}/>
+          <Route exact path="/invite">
+            <Invite setUser={setUser}></Invite>
+          </Route>
+          <Route exact path="/translations" component={Translations}/>
 
-        <NavBar user={user}></NavBar>
-        <FooterBar></FooterBar>
-      </Router>
-    </div>
+          {/* Protected Routes */}
+          <PrivateRoute exact path="/gallery" user={user}>
+            <Gallery user={user}></Gallery>
+          </PrivateRoute>
+          <PrivateRoute exact path="/account" user={user}>
+            <Account user={user} setUser={setUser}></Account>
+          </PrivateRoute>
+          <PrivateRoute exact path="/rsvp" user={user}>
+            <Rsvp user={user}></Rsvp>
+          </PrivateRoute>
+
+          <NavBar user={user}></NavBar>
+          <FooterBar></FooterBar>
+        </Router>
+      </div>
+    </ThemeProvider>
   );
 }
 
