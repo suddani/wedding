@@ -30,3 +30,21 @@ export function requestAccessKey(token, type) {
     response => response.json(), e => console.log(e)
   );
 }
+
+export function login(username, password) {
+  return fetch(
+    `//${auth_host}/auth/authenticate`, {
+    method: "POST",
+    body: JSON.stringify({
+      type: 'password',
+      email: username,
+      password: password
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    credentials: "same-origin"
+  }).then(
+    response => response.json()
+  );
+}

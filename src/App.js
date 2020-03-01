@@ -21,6 +21,7 @@ import Translations from './routes/Translations';
 import NavBar from './components/NavBar';
 import StatusBar from './components/StatusBar';
 import ScrollToTop from './components/ScrollToTop';
+import Login from './routes/Login';
 import PrivateRoute from './components/PrivateRoute';
 
 function App() {
@@ -34,7 +35,10 @@ function App() {
         <StatusBar user={user}></StatusBar>
         <MenuBar className='solid' slideIn={true} user={user}/>
         
-        <Route exact path="/" component={Home}/>
+        <Route exact path="/" component={Login}/>
+        <Route exact path="/login">
+          <Login user={user} setUser={setUser}></Login>
+        </Route>
         <Route exact path="/story" component={Story}/>
         <Route exact path="/wedding" component={Wedding}/>
         <Route exact path="/tips" component={Tips}/>
@@ -48,13 +52,13 @@ function App() {
 
         {/* Protected Routes */}
         <PrivateRoute exact path="/account" user={user}>
-          <Account></Account>
+          <Account user={user} setUser={setUser}></Account>
         </PrivateRoute>
         <PrivateRoute exact path="/rsvp" user={user}>
           <Rsvp user={user}></Rsvp>
         </PrivateRoute>
 
-        <NavBar></NavBar>
+        <NavBar user={user}></NavBar>
         <FooterBar></FooterBar>
       </Router>
     </div>

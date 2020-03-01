@@ -59,7 +59,7 @@ function Rsvp({t}) {
       setAttending(invitation.attending ? 0 : 1)
       setSelectedDate(invitation.arrival_date);
       setFoodPreferences(invitation.food_preference);
-      setMessage(invitation.message);
+      setMessage(invitation.message || "");
       setAllergies(invitation.allergies||"");
       setAnswered(invitation.answered);
     }).catch(_=> history.push('/'));

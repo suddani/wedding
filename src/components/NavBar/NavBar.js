@@ -6,7 +6,7 @@ import { useViewportScroll } from 'framer-motion';
 
 import './NavBar.scss';
 
-function NavBar({t}) {
+function NavBar({t, user}) {
   const location = useLocation();
   const history = useHistory();
   const entries = [
@@ -15,6 +15,7 @@ function NavBar({t}) {
     // {path: '/', icon: 'home', name: t('Home')},
     // {path: '/gallery', icon: 'card_giftcard', name: t('Gallery')},
     {path: '/tips', icon: 'thumb_up', name: t('Tips')},
+    {path: '/account', icon: 'account_box', name: t('Account'), loggedIn: true}
   ];
   const scroll = useViewportScroll();
 
@@ -22,6 +23,7 @@ function NavBar({t}) {
   <nav className="NavBar" style={{animation: scroll.scrollYProgress < 0.1 ? 'slide-in-bottom 1s forwards ease-out' : 'none'}}>
     {
       entries.map ((entry, index) => {
+        if (entry.loggedIn && !user) return null;
         return <Link key={index} replace={true} className={location.pathname == entry.path ? 'current' : ''} to={
           {
             pathname: entry.path,

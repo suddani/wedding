@@ -19,14 +19,14 @@ function StatusBar({t, user}) {
   const location = useLocation();
   const history = useHistory();
 
-
+  const showRsvpButton = true || user;
   const title = location.state?.title || namify(t, location.pathname);
 
   return (
   <div className="StatusBar">
     {/* <i className="material-icons">home</i> */}
     <h1><Link replace={true} to="/">M&D</Link></h1>
-    {user ? <Button variant="outlined">
+    {showRsvpButton ? <Button variant="outlined">
       <Link replace={true} to={
           {
             pathname: "/rsvp",

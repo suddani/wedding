@@ -26,7 +26,7 @@ function MenuBar({slideIn, className, t, user}) {
     {path: '/', name: <FlowerText size={flowerSize} text="D+M"/>, hasNoHeart: true, hiddenOnOpen: true},
     {path: '/gallery', name: t('Gallery'), hasNoHeart: true},
     {path: '/tips', name: t('Local Tips'), hasNoHeart: false},
-    // {path: '/account', name: <Account></Account>, disabledOnOpen: true }
+    {path: '/account', name: t('Account'), disabledOnOpen: true, loggedIn: true }
   ];
   const styles = [
     'solid',
@@ -64,6 +64,8 @@ function MenuBar({slideIn, className, t, user}) {
   let hasNoStyleIndicator = styles.map((style) => className.indexOf(style) !== -1).filter(i => i).length <= 0;
   if (hasNoStyleIndicator) extraStyleClass = styles[0];
 
+  const showRsvpButton = true || user;
+
   return (
     <nav className={['MenuBar', position, menuOpen, extraStyleClass, className].filter(i=>i).join(' ')} style={{top: top}}>
       <div className="top_left">
@@ -73,6 +75,7 @@ function MenuBar({slideIn, className, t, user}) {
         {entries.map((entry, id) => {
           if (menuOpen === "open" && entry.hiddenOnOpen) return null;
           if (menuOpen !== "open" && entry.hiddenOnClose) return null;
+          if (entry.loggedIn && !user) return null;
           const entryDisabled = menuOpen !== "open" && entry.disabledOnOpen;
           return <Entry onClick={menuToggle} disabled={entryDisabled} key={id} hasNoHeart={entry.hasNoHeart} text={entry.name} path={entry.path} currentPath={location.pathname}/>
         })}
@@ -81,7 +84,7 @@ function MenuBar({slideIn, className, t, user}) {
         <img src={top_right_img}></img>
       </div>
       {
-        user ? 
+        showRsvpButton ? 
         <Link to="/rsvp" className="rsvp">
           <div className="text">RSVP</div>
           <div className="left"></div>
