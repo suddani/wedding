@@ -7,7 +7,7 @@ import {
   KeyboardDatePicker,
 } from '@material-ui/pickers';
 import useLocalStorage from '../../hooks/useLocalStorage';
-import { login, requestUser } from '../../api/auth_service';
+import { login, requestUser, forgotPassword } from '../../api/auth_service';
 import { useHistory, useLocation } from "react-router-dom";
 
 import { store } from 'react-notifications-component';
@@ -19,6 +19,7 @@ function Login({t, user, setUser}) {
   const [_refresh_token, setRefreshToken] = useLocalStorage('refresh_token', null);
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [forgot, setForgot] = useState(false);
   const location = useLocation();
   const history = useHistory();
 
@@ -26,6 +27,12 @@ function Login({t, user, setUser}) {
 
   function set(setter) {
     return (event) => setter(event.target.value)
+  }
+
+  function doForgot() {
+    forgotPassword(username).then(
+      _ => setForgot(true)
+    )
   }
 
   function doLogin() {
@@ -42,7 +49,6 @@ function Login({t, user, setUser}) {
       message: t('Your Username or Password is wrong'),
       type: "danger",
       insert: "top",
-      className: "TEST",
       container: "top-right",
       animationIn: ["animated", "fadeIn"],
       animationOut: ["animated", "fadeOut"],
@@ -53,6 +59,7 @@ function Login({t, user, setUser}) {
   }
 
   return <section className="Login">
+    { forgot ? t('Please check your Email (Do not forget the Spam Folder)') :
       <Card className="content">
         <CardContent>
           <Grid container direction="column" spacing={2} justify='center' alignContent='center'>
@@ -70,9 +77,11 @@ function Login({t, user, setUser}) {
               </FormControl>
             </Grid>
             <Grid item ><Button variant="contained" onClick={doLogin} color="secondary">{t('Login')}</Button></Grid>
+            <Grid item ><Button variant="contained" onClick={doForgot} color="secondary">{t('Forgot Password')}</Button></Grid>
           </Grid>
         </CardContent>
       </Card>
+    }
   </section>
 }
 

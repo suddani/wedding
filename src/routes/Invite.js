@@ -22,15 +22,17 @@ function Invite({t, setUser}) {
   useEffect(_ => {
     if (!key) return history.push('/');
     requestAccessKey(key).then(access_data => {
-      requestAccessKey(access_data.access_token, 'key').then(
-        access_data => {
-          setAccessToken(access_data.access_token);
-          setRefreshToken(access_data.refresh_token);
-          requestUser(access_data.access_token).then(user => setUser(user)).then(
-            _=> history.push('/')
-          );
-        }
-      )
+      if (access_data) {
+        requestAccessKey(access_data.access_token, 'key').then(
+          access_data => {
+            setAccessToken(access_data.access_token);
+            setRefreshToken(access_data.refresh_token);
+            requestUser(access_data.access_token).then(user => setUser(user)).then(
+              _=> history.push('/')
+            );
+          }
+        )
+      } else history.push('/')
     })
   }, [location.search]);
 

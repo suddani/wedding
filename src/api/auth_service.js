@@ -48,3 +48,20 @@ export function login(username, password) {
     response => response.json()
   );
 }
+
+export function forgotPassword(email) {
+  return fetch(
+    `//${auth_host}/auth/authenticate`, {
+    method: "POST",
+    body: JSON.stringify({
+      type: 'email',
+      email: email
+    }),
+    headers: {
+      "Content-Type": "application/json"
+    },
+    credentials: "same-origin"
+  }).then(
+    response => response.json()
+  );
+}
