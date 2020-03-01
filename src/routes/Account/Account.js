@@ -37,7 +37,7 @@ function Account({t, user, setUser}) {
     store.addNotification({
       title: t("Good bye"),
       message: t('You have been logged out'),
-      type: "danger",
+      type: "default",
       insert: "top",
       container: "top-right",
       animationIn: ["animated", "fadeIn"],
@@ -82,8 +82,8 @@ function Account({t, user, setUser}) {
           <Input labelid="password-label" name="password" type="password" value={password} onChange={onType(setPassword)}></Input>
         </FormControl>
       </Grid>
-      <Grid item ><Button variant="contained" onClick={onSubmit} color="secondary">{t('Update')}</Button></Grid>
-      <Grid item ><Button variant="contained" onClick={onLogout} color="danger">{t('Logout')}</Button></Grid>
+      <Grid item ><Button variant="contained" onClick={onSubmit} color="primary">{t('Update')}</Button></Grid>
+      <Grid item ><Button variant="contained" onClick={onLogout} color="secondary">{t('Logout')}</Button></Grid>
     </Grid>
   </section>;
 }

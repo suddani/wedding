@@ -47,7 +47,7 @@ function Login({t, user, setUser}) {
     ).catch( _ => store.addNotification({
       title: t("Failed"),
       message: t('Your Username or Password is wrong'),
-      type: "danger",
+      type: "default",
       insert: "top",
       container: "top-right",
       animationIn: ["animated", "fadeIn"],
@@ -76,8 +76,8 @@ function Login({t, user, setUser}) {
                 <Input labelid="password-label" name="password" type="password" onChange={set(setPassword)}></Input>
               </FormControl>
             </Grid>
-            <Grid item ><Button variant="contained" onClick={doLogin} color="secondary">{t('Login')}</Button></Grid>
-            <Grid item ><Button variant="contained" onClick={doForgot} color="secondary">{t('Forgot Password')}</Button></Grid>
+            <Grid item ><Button variant="contained" onClick={doLogin} color="primary">{t('Login')}</Button></Grid>
+            <Grid item ><Button variant="contained" onClick={doForgot}>{t('Forgot Password')}</Button></Grid>
           </Grid>
         </CardContent>
       </Card>

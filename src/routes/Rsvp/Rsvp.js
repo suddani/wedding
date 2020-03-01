@@ -112,7 +112,7 @@ function Rsvp({t}) {
       store.addNotification({
         title: t("We need your Email"),
         message: t('Please enter a valid email'),
-        type: "danger",
+        type: "default",
         insert: "top",
         container: "top-right",
         animationIn: ["animated", "fadeIn"],
@@ -156,7 +156,7 @@ function Rsvp({t}) {
       store.addNotification({
         title: t("We could not record your answer"),
         message: t('Please try again. Maybe your email was invalid or our server is down'),
-        type: "danger",
+        type: "default",
         insert: "top",
         container: "top-right",
         animationIn: ["animated", "fadeIn"],

@@ -96,7 +96,7 @@ function Translations({t}) {
         store.addNotification({
           title: t("Failure"),
           message: `${t('Could not copy hint to clipboard')}: "${translation.hint}"`,
-          type: "danger",
+          type: "default",
           insert: "top",
           container: "top-right",
           animationIn: ["animated", "fadeIn"],
@@ -111,7 +111,7 @@ function Translations({t}) {
       store.addNotification({
         title: t("Failure"),
         message: `${t('Could not copy hint to clipboard')}: "${translation.hint}"`,
-        type: "danger",
+        type: "default",
         insert: "top",
         container: "top-right",
         animationIn: ["animated", "fadeIn"],
@@ -148,7 +148,7 @@ function Translations({t}) {
       store.addNotification({
         title: t("Failure"),
         message: `${t('Could not copy hint to clipboard')}: "${translation.hint}"`,
-        type: "danger",
+        type: "default",
         insert: "top",
         container: "top-right",
         animationIn: ["animated", "fadeIn"],
