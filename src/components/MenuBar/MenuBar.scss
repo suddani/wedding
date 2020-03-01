@@ -27,6 +27,7 @@
   grid-template-rows: 2fr 1fr;
   cursor: pointer;
   transition: height 0.2s ease-out;
+  z-index: 12;
 }
 .MenuBar > .rsvp:hover {
   height: 60px;
