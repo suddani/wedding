@@ -108,6 +108,21 @@ function Rsvp({t}) {
   }
 
   function onSubmit() {
+    if (!email || email == "") {
+      store.addNotification({
+        title: t("We need your Email"),
+        message: t('Please enter a valid email'),
+        type: "danger",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: {
+          duration: 10000
+        }
+      });
+      return;
+    }
     answerInvitation({
       email: email,
       firstname: firstname,
@@ -137,7 +152,20 @@ function Rsvp({t}) {
           }
         });
       }
-    ).catch(_=> history.push('/'));
+    ).catch(_=> {
+      store.addNotification({
+        title: t("We could not record your answer"),
+        message: t('Please try again. Maybe your email was invalid or our server is down'),
+        type: "danger",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: {
+          duration: 10000
+        }
+      });
+    });
   }
 
   return <section className="Rsvp">
@@ -173,8 +201,6 @@ function Rsvp({t}) {
                     <Select labelid="guests-label" value={guestCount} onChange={onChange(changeGuestCount)}>
                       <MenuItem value={1}>{t('You')}</MenuItem>
                       <MenuItem value={2}>{t('You+1')}</MenuItem>
-                      <MenuItem value={3}>{t('You+2')}</MenuItem>
-                      <MenuItem value={4}>{t('You+3')}</MenuItem>
                     </Select>
                   </FormControl>
                 </Grid>
