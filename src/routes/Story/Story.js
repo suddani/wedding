@@ -136,7 +136,7 @@ function Story({t}) {
         const direction = element.target.className == "right" ? 'slide-in-right' : 'slide-in'
         element.target.style.animation = `${direction} 1s forwards ease-out`;
       } else if (!element.isIntersecting) {
-        // element.target.style.animation = 'none';
+        element.target.style.animation = 'none';
       }
     })
   }, imageRefs, imageRefs);
