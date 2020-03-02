@@ -30,9 +30,24 @@ function Login({t, user, setUser}) {
   }
 
   function doForgot() {
-    forgotPassword(username).then(
-      _ => setForgot(true)
-    )
+    if (!username || username == "") {
+      store.addNotification({
+        title: t("Failed"),
+        message: t('Your Username or Password is wrong'),
+        type: "default",
+        insert: "top",
+        container: "top-right",
+        animationIn: ["animated", "fadeIn"],
+        animationOut: ["animated", "fadeOut"],
+        dismiss: {
+          duration: 500
+        }
+      })
+    } else {
+      forgotPassword(username).then(
+        _ => setForgot(true)
+      )
+    }
   }
 
   function doLogin() {

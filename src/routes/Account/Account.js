@@ -33,7 +33,6 @@ function Account({t, user, setUser}) {
     setUser(null);
     setAccessToken(null);
     setRefreshToken(null);
-    history.push('/');
     store.addNotification({
       title: t("Good bye"),
       message: t('You have been logged out'),
@@ -43,9 +42,10 @@ function Account({t, user, setUser}) {
       animationIn: ["animated", "fadeIn"],
       animationOut: ["animated", "fadeOut"],
       dismiss: {
-        duration: 10000
+        duration: 2000
       }
     });
+    history.push('/');
   }
 
   function onSubmit() {
