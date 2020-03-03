@@ -54,7 +54,7 @@ function Year(year, entries, reverse) {
 
 function Story({t}) {
   const story = [
-    new Year(2015, 
+    new Year(null,
       [
         new Entry(firstSelfie, '', 'Let the story begin ...', (<Trans i18nKey="theStoryBegin" ns="story">
           When the company’s Christmas party was still in full swing, Mariia decided to leave early since she had to work the day after.
@@ -68,7 +68,7 @@ function Story({t}) {
           Their conversation that night was limited to just a small talk on the U-Bahn and was interrupted when Mariia had to exit at her station....
           </Trans>))
       ]),
-    new Year(2016, 
+    new Year(null,
       [
         new Entry(greatProject, '', 'Time to start a great project', (<Trans i18nKey="theStoryDrinks" ns="story">
           They have been working together since Daniel’s first day in the company.
@@ -77,7 +77,7 @@ function Story({t}) {
           everything was fun as long as they were doing it together.
           </Trans>))
       ], true),
-    new Year(2017, 
+    new Year(null,
       [
         new Entry(justFriends, '', 'How about being a friends? Or maybe more?', (<Trans i18nKey="theStoryMaybeMore" ns="story">
           It took us quite some time to realise and admit that whatever was going on between us did not fit in the definition of “good colleague”,
@@ -89,7 +89,7 @@ function Story({t}) {
           It’s even harder to describe Daniel’s confusion when he experienced being surrounded by Ukrainians “speaking the weird language he can’t understand” for the first time.
           </Trans>))
       ]),
-    new Year(2018, 
+    new Year(null,
       [
         new Entry(itsLove, '', "It's called love", (<Trans i18nKey="theStoryLove" ns="story">
           Step by step we were getting closer – starting when we spent time together according to the office 8/5 schedule,
@@ -99,7 +99,7 @@ function Story({t}) {
           we realised that life won’t make sense if we are not beside each other.
           </Trans>))
       ], true),
-    new Year(2019, 
+    new Year(null,
       [
         new Entry(sheYes, '', 'She said yes', (<Trans i18nKey="theStoryYes" ns="story">
           During a dinner right before a vacation together,
@@ -116,7 +116,7 @@ function Story({t}) {
           We were happy to share that day with the closest people!
           </Trans>))
       ]),
-    new Year(2020, 
+    new Year(null,
       [
         new Entry(bigEvent, '', 'But the bigger event is coming...', (<Trans i18nKey="theStoryBigEvent" ns="story">
           Apart from the civil wedding, there are two events that are utterly significant to us:
