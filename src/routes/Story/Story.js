@@ -74,7 +74,7 @@ function Story({t}) {
           They have been working together since Daniel’s first day in the company.
           Regardless whether it was a huge project planning,
           late night bugfixing or just long conversations about life after a few drinks in the Tower,
-          everything was fun as long as they were doing it together.
+          everything was fun as long as we were doing it together.
           </Trans>))
       ], true),
     new Year(null,
@@ -120,7 +120,7 @@ function Story({t}) {
       [
         new Entry(bigEvent, '', 'But the bigger event is coming...', (<Trans i18nKey="theStoryBigEvent" ns="story">
           Apart from the civil wedding, there are two events that are utterly significant to us:
-          get married in the eyes of God and share out promises with each other.
+          share our promises in front of God and each other.
           We would like to share our joy and happiness with you and celebrate it in a big way.
           Please join us on the most important day!<br></br><b>10.05.2020</b>
           </Trans>))
