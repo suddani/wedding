@@ -16,8 +16,8 @@ function Tips({t}) {
         <Trans i18nKey="gifts" ns="tips">
           <h2>Gifts</h2>
           <p>
-            There is no registry.
-            If you want to bring a gift, we would appreciate a contribution to out honeymoon trip which we plan to do right after the wedding.
+            The biggest gift for us is you attending.
+            But if you really want to bring something, we would appreciate a contribution to out honeymoon trip which we plan to do right after the wedding.
           </p>
         </Trans>
         <Trans i18nKey="dresscode" ns="tips">
@@ -46,7 +46,7 @@ function Tips({t}) {
           </p>
         </Trans>
         <Trans i18nKey="germany" ns="tips">
-          <h3>How to get here from Germany</h3>
+          <h3>How to get to Zalishchyky from Germany</h3>
           <p>
             There are three airports with a good connection to the town.
             <ul>
@@ -75,6 +75,9 @@ function Tips({t}) {
             At the same time, bus tickets can be easily <a href="http://ticket.bus.com.ua/order/forming_bn?point_from=UA4610100000&point_to=UA6122010100&date=01.03.20&date_add=1&fn=round_search" target="_blank">bought</a> a few days before the departure date.
             As an alternative to both, you can use BlaBlaCar since it is very popular in Ukraine.
             For short trips (for example, from the airport to the train station) you can also use Uber.
+            <br></br>
+            If you plan to use plublic transportation please let us know when and where (Ternopil or Chernivtsi) you plan to be.
+            We would help you to book a group ticket with other guests together.
           </p>
         </Trans>
         <Trans i18nKey="visa" ns="tips">
@@ -87,7 +90,7 @@ function Tips({t}) {
         <Trans i18nKey="food" ns="tips">
           <h3>Food</h3>
           <p>
-            The venue of the wedding has a restaurant where you can buy food before and after the wedding party (in case you can still eat afterwards).
+            The venue of the wedding has a caffe where you can buy food.
           </p>
         </Trans>
         <Trans i18nKey="paypal" ns="tips">
@@ -100,11 +103,11 @@ function Tips({t}) {
           <h2>Stuff to do in Ukraine</h2>
           <p>
             If you want to travel a little bit through Ukraine, we can recommend a few cities depending on what you are interested in.<br></br>
-            Please do contact us if you have any questions about where to go in Ukraine but here is a short list of cities and locations to consider.
+            Please do contact us if you have any questions about where to go in Ukraine but here is a short list of cities and locations you can start with.
             <ul>
               <li>Lviv</li>
               <li>Kviv</li>
-              <li>Odessa</li>
+              <li>Odesa</li>
               <li>Chernivtsi</li>
               <li>Bukovel - Mountains</li>
             </ul>
