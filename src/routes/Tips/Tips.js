@@ -61,7 +61,6 @@ function Tips({t}) {
                 <p>
                   There is a direct bus connection to the town.
                   However, the bus takes 6 hours and the last one leaves before 3pm.
-                  Bus tickets can be <a href="http://ticket.bus.com.ua/order/forming_bn?point_from=UA4610100000&point_to=UA6122010100&date=01.03.20&date_add=1&fn=round_search" target="_blank">bought</a> 1 week in advance.
                   <br></br>Otherwise the trip has to be done via Ternopil or Chernivtsi (there is a train connection from Lviv) and then by bus.
                 </p>
               </li>
@@ -72,8 +71,8 @@ function Tips({t}) {
                 </p>
               </li>
             </ul>
-            Train tickets are available 45 days before departure and we strongly recommend to book them as-soon as they are available.
-            At the same time, bus tickets can be easily bought a few days before the departure date.
+            Train tickets are <a href="https://booking.uz.gov.ua/en/">available</a> 45 days before departure and we strongly recommend to book them as-soon as they are available.
+            At the same time, bus tickets can be easily <a href="http://ticket.bus.com.ua/order/forming_bn?point_from=UA4610100000&point_to=UA6122010100&date=01.03.20&date_add=1&fn=round_search" target="_blank">bought</a> a few days before the departure date.
             As an alternative to both, you can use BlaBlaCar since it is very popular in Ukraine.
             For short trips (for example, from the airport to the train station) you can also use Uber.
           </p>
