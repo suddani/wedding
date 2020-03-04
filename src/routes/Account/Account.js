@@ -10,7 +10,7 @@ import { updateUser } from '../../api/auth_service';
 import './Account.scss';
 
 function Account({t, user, setUser}) {
-  const [email, setEmail] = useState(user.user.email);
+  const [email, setEmail] = useState(user.user.email||"");
   const [password, setPassword] = useState("");
   const [access_token, setAccessToken] = useLocalStorage("access_token", null);
   const [refresh_token, setRefreshToken] = useLocalStorage("refresh_token", null);
@@ -69,6 +69,7 @@ function Account({t, user, setUser}) {
   }
 
   return <section>
+    <h1>Account</h1>
     <Grid container direction="column" spacing={1} justify='center' alignContent='center'>
       <Grid item>
         <FormControl>
@@ -82,8 +83,10 @@ function Account({t, user, setUser}) {
           <Input labelid="password-label" name="password" type="password" value={password} onChange={onType(setPassword)}></Input>
         </FormControl>
       </Grid>
-      <Grid item ><Button variant="contained" onClick={onSubmit} color="primary">{t('Update')}</Button></Grid>
-      <Grid item ><Button variant="contained" onClick={onLogout} color="secondary">{t('Logout')}</Button></Grid>
+      <Grid container direction="row" spacing={1} justify='center' alignContent='center'>
+        <Grid item ><Button variant="contained" onClick={onSubmit} color="primary">{t('Update')}</Button></Grid>
+        <Grid item ><Button variant="contained" onClick={onLogout} color="secondary">{t('Logout')}</Button></Grid>
+      </Grid>
     </Grid>
   </section>;
 }
