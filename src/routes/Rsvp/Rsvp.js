@@ -9,6 +9,7 @@ import {
 import useLocalStorage from '../../hooks/useLocalStorage';
 import {requestInvitation, answerInvitation} from '../../api/invitation_service';
 import { useHistory, useLocation } from "react-router-dom";
+import Loading from './../../components/Loading';
 
 import { store } from 'react-notifications-component';
 
@@ -37,6 +38,7 @@ function Rsvp({t}) {
   const [refresh_token, setRefreshToken] = useLocalStorage("refresh_token", null);
   const [guestNames, setGuestNames] = useState([]);
   const [answered, setAnswered] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
 
 
@@ -55,6 +57,7 @@ function Rsvp({t}) {
       setMessage(invitation.message || "");
       setAllergies(invitation.allergies||"");
       setAnswered(invitation.answered);
+      setIsLoading(false);
     }).catch(_=> history.push('/'));
   }, []);
 
@@ -168,114 +171,116 @@ function Rsvp({t}) {
     });
   }
 
+  const content = <MuiPickersUtilsProvider utils={DateFnsUtils}>
+                    <Grid container direction="column" spacing={1} justify='center' alignContent='center'>
+                      <Grid item xs={12} className="Title">{t('R.S.V.P')}</Grid>
+                      <Grid item className="Subtitle">{t('Please let us know if you will be able to make it.')}</Grid>
+                      <Grid item>
+                        <FormControl>
+                          <InputLabel id="name-label">{t('Name')}</InputLabel>
+                          <Input labelid="name-label" name="name" type="text" value={name} onChange={onType(setName)}></Input>
+                        </FormControl>
+                      </Grid>
+                      <Grid item>
+                        <Grid container direction="row" justify="space-around" alignItems="center">
+                          <Button variant={answered && attending == 0 ? "contained" : "outlined"} onClick={willAttend} color="primary">{t('I will attend')}</Button>
+                          <Button variant={answered && attending != 0 ? "contained" : "outlined"} onClick={willNotAttend}>{t('I will Not attend')}</Button>
+                        </Grid>
+                      </Grid>
+                      {
+                        attending == 0 ? (
+                          <Fragment>
+                            <Grid item>
+                              <FormControl>
+                                <InputLabel id="email-label">{t('Email')}</InputLabel>
+                                <Input labelid="email-label" name="email" type="email" value={email} onChange={onType(setEmail)}></Input>
+                              </FormControl>
+                            </Grid>
+                            <Grid item>
+                              <FormControl>
+                                <InputLabel id="guests-label">{t('Guests')}</InputLabel>
+                                <Select labelid="guests-label" value={guestCount} onChange={onChange(changeGuestCount)}>
+                                  <MenuItem value={1}>{t('You')}</MenuItem>
+                                  <MenuItem value={2}>{t('You+1')}</MenuItem>
+                                </Select>
+                              </FormControl>
+                            </Grid>
+
+                            {
+                              guestNames.map((guestName, index) => {
+                                return <Grid item xs={12} key={index}>
+                                        <FormControl>
+                                          <InputLabel id="guest-label">{t('Guest Name')}</InputLabel>
+                                          <Input labelid="guest-label" name="guest" type="text" value={guestNames[index]} onChange={onType(setGuestName(index, guestNames, setGuestNames))}></Input>
+                                        </FormControl>
+                                      </Grid>
+                              })
+                            }
+
+                            <Grid item>
+                              <FormControl>
+                                <InputLabel id="children-label">{t('Children')}</InputLabel>
+                                <Select labelid="children-label" value={childrenCount} onChange={onChange(setChildrenCount)}>
+                                  <MenuItem value={0}>{t('None')}</MenuItem>
+                                  <MenuItem value={1}>{t('One')}</MenuItem>
+                                  <MenuItem value={2}>{t('Two')}</MenuItem>
+                                </Select>
+                              </FormControl>
+                            </Grid>
+                            <Grid item>
+                              <FormControl>
+                                <InputLabel id="allergies-label">{t('Allergies')}</InputLabel>
+                                <Input labelid="allergies-label" name="allergies" type="text" value={allergies} onChange={onType(setAllergies)}></Input>
+                              </FormControl>
+                            </Grid>
+                            <Grid item>
+                              <FormControl>
+                                <InputLabel id="food-label">{t('Food preferences')}</InputLabel>
+                                <Select labelid="food-label" value={foodPreferences} onChange={onChange(setFoodPreferences)}>
+                                  <MenuItem value={0}>{t('None')}</MenuItem>
+                                  <MenuItem value={1}>{t('Vegetarian')}</MenuItem>
+                                  <MenuItem value={2}>{t('Vegan')}</MenuItem>
+                                </Select>
+                              </FormControl>
+                            </Grid>
+                            <Grid item>
+                              <TextField
+                                id="date"
+                                label={t('Arrival Date')}
+                                type="date"
+                                value={selectedDate}
+                                onChange={onChange(setSelectedDate)}
+                                InputLabelProps={{
+                                  shrink: true,
+                                }}
+                              />
+                            </Grid>
+                          </Fragment>
+                        ) : null
+                      }
+                      { answered ? (
+                        <Fragment>
+                          <Grid item>
+                            <TextField
+                              id="message"
+                              label={t('Short Message for the couple')}
+                              multiline
+                              rows="8"
+                              variant="outlined"
+                              value={message}
+                              onChange={onType(setMessage)}
+                            />
+                          </Grid>
+                          {/* <Grid item><div class="g-recaptcha" data-sitekey={process.env.REACT_APP_RECAPTCHA_PUB} data-callback={solvedChallange}></div></Grid> */}
+                          <Grid item ><Button variant="contained" onClick={onSubmit} color="primary">{t('Submit')}</Button></Grid>
+                        </Fragment>
+                      ) : null}
+                    </Grid>
+                  </MuiPickersUtilsProvider>;
+
   return <section className="Rsvp">
       <h1   style={{display: 'none'}}>RSVP</h1>
-      <MuiPickersUtilsProvider utils={DateFnsUtils}>
-        <Grid container direction="column" spacing={1} justify='center' alignContent='center'>
-          <Grid item xs={12} className="Title">{t('R.S.V.P')}</Grid>
-          <Grid item className="Subtitle">{t('Please let us know if you will be able to make it.')}</Grid>
-          <Grid item>
-            <FormControl>
-              <InputLabel id="name-label">{t('Name')}</InputLabel>
-              <Input labelid="name-label" name="name" type="text" value={name} onChange={onType(setName)}></Input>
-            </FormControl>
-          </Grid>
-          <Grid item>
-            <Grid container direction="row" justify="space-around" alignItems="center">
-              <Button variant={answered && attending == 0 ? "contained" : "outlined"} onClick={willAttend} color="primary">{t('I will attend')}</Button>
-              <Button variant={answered && attending != 0 ? "contained" : "outlined"} onClick={willNotAttend}>{t('I will Not attend')}</Button>
-            </Grid>
-          </Grid>
-          {
-            attending == 0 ? (
-              <Fragment>
-                <Grid item>
-                  <FormControl>
-                    <InputLabel id="email-label">{t('Email')}</InputLabel>
-                    <Input labelid="email-label" name="email" type="email" value={email} onChange={onType(setEmail)}></Input>
-                  </FormControl>
-                </Grid>
-                <Grid item>
-                  <FormControl>
-                    <InputLabel id="guests-label">{t('Guests')}</InputLabel>
-                    <Select labelid="guests-label" value={guestCount} onChange={onChange(changeGuestCount)}>
-                      <MenuItem value={1}>{t('You')}</MenuItem>
-                      <MenuItem value={2}>{t('You+1')}</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-
-                {
-                  guestNames.map((guestName, index) => {
-                    return <Grid item xs={12} key={index}>
-                            <FormControl>
-                              <InputLabel id="guest-label">{t('Guest Name')}</InputLabel>
-                              <Input labelid="guest-label" name="guest" type="text" value={guestNames[index]} onChange={onType(setGuestName(index, guestNames, setGuestNames))}></Input>
-                            </FormControl>
-                          </Grid>
-                  })
-                }
-
-                <Grid item>
-                  <FormControl>
-                    <InputLabel id="children-label">{t('Children')}</InputLabel>
-                    <Select labelid="children-label" value={childrenCount} onChange={onChange(setChildrenCount)}>
-                      <MenuItem value={0}>{t('None')}</MenuItem>
-                      <MenuItem value={1}>{t('One')}</MenuItem>
-                      <MenuItem value={2}>{t('Two')}</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item>
-                  <FormControl>
-                    <InputLabel id="allergies-label">{t('Allergies')}</InputLabel>
-                    <Input labelid="allergies-label" name="allergies" type="text" value={allergies} onChange={onType(setAllergies)}></Input>
-                  </FormControl>
-                </Grid>
-                <Grid item>
-                  <FormControl>
-                    <InputLabel id="food-label">{t('Food preferences')}</InputLabel>
-                    <Select labelid="food-label" value={foodPreferences} onChange={onChange(setFoodPreferences)}>
-                      <MenuItem value={0}>{t('None')}</MenuItem>
-                      <MenuItem value={1}>{t('Vegetarian')}</MenuItem>
-                      <MenuItem value={2}>{t('Vegan')}</MenuItem>
-                    </Select>
-                  </FormControl>
-                </Grid>
-                <Grid item>
-                  <TextField
-                    id="date"
-                    label={t('Arrival Date')}
-                    type="date"
-                    value={selectedDate}
-                    onChange={onChange(setSelectedDate)}
-                    InputLabelProps={{
-                      shrink: true,
-                    }}
-                  />
-                </Grid>
-              </Fragment>
-            ) : null
-          }
-          { answered ? (
-            <Fragment>
-              <Grid item>
-                <TextField
-                  id="message"
-                  label={t('Short Message for the couple')}
-                  multiline
-                  rows="8"
-                  variant="outlined"
-                  value={message}
-                  onChange={onType(setMessage)}
-                />
-              </Grid>
-              {/* <Grid item><div class="g-recaptcha" data-sitekey={process.env.REACT_APP_RECAPTCHA_PUB} data-callback={solvedChallange}></div></Grid> */}
-              <Grid item ><Button variant="contained" onClick={onSubmit} color="secondary">{t('Submit')}</Button></Grid>
-            </Fragment>
-          ) : null}
-        </Grid>
-      </MuiPickersUtilsProvider>
+      {isLoading ? <Loading white={true}/> : content}
   </section>
 }
 

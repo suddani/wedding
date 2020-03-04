@@ -10,11 +10,16 @@ import FlowerText from '../FlowerText';
 import Account from './Account';
 import Entry from './Entry';
 import useOnScroll from './../../hooks/useOnScroll';
+import useImagePreloader from '../../hooks/useImagePreloader';
 
 import top_left_img from './top_left_v10.png';
 import top_right_img from './top_right_v10.png';
 
 function MenuBar({slideIn, className, t, user}) {
+  const preLoader = useImagePreloader();
+  preLoader.wait(top_left_img);
+  preLoader.wait(top_right_img);
+
   const location = useLocation();
   const [flowerSize, setFlowerSize] = useState(200);
   const entries = [

@@ -11,6 +11,13 @@
     '. . .'
     '. heart .'
     '. . .';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+}
+
+.LoadingFullscreen.white {
+  background-color: $primary-light;
 }
 
 .LoadingFullscreen i, .LoadingFullscreen .heart {

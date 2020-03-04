@@ -17,7 +17,7 @@ function Tips({t}) {
           <h2>Gifts</h2>
           <p>
             The biggest gift for us is you attending.
-            But if you really want to bring something, we would appreciate a contribution to out honeymoon trip which we plan to do right after the wedding.
+            But if you really want to bring something, we would appreciate a contribution to our honeymoon trip which we plan to do right after the wedding.
           </p>
         </Trans>
         <Trans i18nKey="dresscode" ns="tips">
@@ -67,17 +67,17 @@ function Tips({t}) {
               <li>
                 Chernivtsi
                 <p>
-                  It is only 40km away from the venue. There are a lot of bus connections as well as one train that goes once a day.
+                  It is only 40km away from the venue. There are a lot of bus connections as well as a train that goes once a day.
                 </p>
               </li>
             </ul>
-            Train tickets are <a href="https://booking.uz.gov.ua/en/">available</a> 45 days before departure and we strongly recommend to book them as-soon as they are available.
+            Train tickets are <a href="https://booking.uz.gov.ua/en/">available</a> 45 days before the departure date and we strongly recommend to book them as soon as they are available.
             At the same time, bus tickets can be easily <a href="http://ticket.bus.com.ua/order/forming_bn?point_from=UA4610100000&point_to=UA6122010100&date=01.03.20&date_add=1&fn=round_search" target="_blank">bought</a> a few days before the departure date.
             As an alternative to both, you can use BlaBlaCar since it is very popular in Ukraine.
             For short trips (for example, from the airport to the train station) you can also use Uber.
             <br></br>
-            If you plan to use plublic transportation please let us know when and where (Ternopil or Chernivtsi) you plan to be.
-            We would help you to book a group ticket with other guests together.
+            If you plan to use public transportation please let us know when and where (Ternopil or Chernivtsi) you plan to be.
+            We will help you to book a group ticket with other guests together.
           </p>
         </Trans>
         <Trans i18nKey="visa" ns="tips">
@@ -90,7 +90,7 @@ function Tips({t}) {
         <Trans i18nKey="food" ns="tips">
           <h3>Food</h3>
           <p>
-            The venue of the wedding has a caffe where you can buy food.
+            The venue of the wedding has a Café where you can buy food.
           </p>
         </Trans>
         <Trans i18nKey="paypal" ns="tips">
@@ -106,7 +106,7 @@ function Tips({t}) {
             Please do contact us if you have any questions about where to go in Ukraine but here is a short list of cities and locations you can start with.
             <ul>
               <li>Lviv</li>
-              <li>Kviv</li>
+              <li>Kyiv</li>
               <li>Odesa</li>
               <li>Chernivtsi</li>
               <li>Bukovel - Mountains</li>

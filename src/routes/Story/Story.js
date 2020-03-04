@@ -1,6 +1,7 @@
-import React, { useEffect, useCallback, useRef } from 'react';
+import React, { useEffect, useCallback, useRef, Suspense } from 'react';
 import { withTranslation, Trans } from 'react-i18next';
 import useIntersectionObserver from '../../hooks/useIntersectionObserver';
+import useImagePreloader from '../../hooks/useImagePreloader';
 import './Story.scss';
 
 import firstOktoberfest from './firstOktoberfest.jpg'
@@ -12,12 +13,12 @@ import sheYes from './sheYes.jpg';
 import germanyYes from './germanyYes.jpg';
 import bigEvent from './bigEvent.jpg';
 
-
-function Entry(img, month, title, text) {
+function Entry(img, month, title, text, preLoader) {
   this.reference = useRef(null);
   this.textReference = useRef(null);
 
   this.render = (index, t, left, right) => {
+    preLoader.wait(img);
     const imagePos = index == 0 ? left : (index%2!=0 ? right : left);
     const textPos = index == 0 ? ['text', right].join(' ') : (index%2!=0 ? ['text', left].join(' ') : ['text', right].join(' '));
     return <div className="entry" key={index}>
@@ -53,6 +54,8 @@ function Year(year, entries, reverse) {
 }
 
 function Story({t}) {
+  const preLoader = useImagePreloader();
+
   const story = [
     new Year(null,
       [
@@ -66,7 +69,7 @@ function Story({t}) {
           the author of the most of the code that others called “magic” and a new member of her team beginning from the following month.
           That evening, though, she just answered: “Mariia, nice to meet you”.
           Their conversation that night was limited to just a small talk on the U-Bahn and was interrupted when Mariia had to exit at her station....
-          </Trans>))
+          </Trans>), preLoader)
       ]),
     new Year(null,
       [
@@ -75,7 +78,7 @@ function Story({t}) {
           Regardless whether it was a huge project planning,
           late night bugfixing or just long conversations about life after a few drinks in the Tower,
           everything was fun as long as we were doing it together.
-          </Trans>))
+          </Trans>), preLoader)
       ], true),
     new Year(null,
       [
@@ -84,20 +87,20 @@ function Story({t}) {
           “nice team member” or even “friend”.
           There was more to our relationship than that.
           The question was – how much more? We tried to figure it out by slowly and carefully extending the borders of our relationship:
-          from the office to personal lives:
-          it’s hard to describe Mariia’s astonishment when she saw a real-life fraternity for the first time after having only known about them only from American films.
+          from the office to personal lives;
+          it’s hard to describe Mariia’s astonishment when she saw a real-life fraternity for the first time after having only known about them from American films.
           It’s even harder to describe Daniel’s confusion when he experienced being surrounded by Ukrainians “speaking the weird language he can’t understand” for the first time.
-          </Trans>))
+          </Trans>), preLoader)
       ]),
     new Year(null,
       [
         new Entry(itsLove, '', "It's called love", (<Trans i18nKey="theStoryLove" ns="story">
-          Step by step we were getting closer – starting when we spent time together according to the office 8/5 schedule,
+          Step by step, we were getting closer – starting when we spent time together according to the office 9-to-5 schedule,
           we gradually moved to the point when the schedule of having each other 24/7 made us both happier.
           Holidays together, Mariia’s first legit ski trip (when there was actual skiing instead of just spa :) ) ,
           Daniel’s probation test by 60% home-made vodka in Ukraine  - at some point,
           we realised that life won’t make sense if we are not beside each other.
-          </Trans>))
+          </Trans>), preLoader)
       ], true),
     new Year(null,
       [
@@ -109,12 +112,12 @@ function Story({t}) {
           It totally made sense and became logical a few days after: Daniel proposed to Mariia.
           It was on a ship, at a place where we first went on a holiday as a couple.
           Let us keep the details to ourselves.
-          </Trans>)),
+          </Trans>), preLoader),
         new Entry(germanyYes, '', 'Germany said yes as well', (<Trans i18nKey="theStoryReallyYes" ns="story">
           Starting the process, we were aware of all the bureaucracy issues and expected to legalize our family in 2020.
-          Surprisingly, it only took us a little over a month (our Ukrainians friends keep asking HOW?) and we officially created family Sudmann.
+          Surprisingly, it only took us a little over a month (our Ukrainian friends keep asking HOW?) and we officially created family Sudmann.
           We were happy to share that day with the closest people!
-          </Trans>))
+          </Trans>), preLoader)
       ]),
     new Year(null,
       [
@@ -123,11 +126,12 @@ function Story({t}) {
           share our promises in front of God and each other.
           We would like to share our joy and happiness with you and celebrate it in a big way.
           Please join us on the most important day!<br></br><b>10.05.2020</b>
-          </Trans>))
+          </Trans>), preLoader)
       ]
     )
   ];
   const imageRefs = story.map(year => year.entries.map(entry => entry.reference)).flat();
+  const imageRefValues = story.map(year => year.entries.map(entry => entry.reference.current)).flat();
   const textRefs = story.map(year => year.entries.map(entry => entry.textReference)).flat();
 
   useIntersectionObserver((entries) => {
@@ -139,7 +143,7 @@ function Story({t}) {
         element.target.style.animation = 'none';
       }
     })
-  }, imageRefs, imageRefs);
+  }, imageRefs, imageRefValues);
 
   useIntersectionObserver((entries) => {
     entries.forEach( element => {

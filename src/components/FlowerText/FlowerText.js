@@ -1,9 +1,13 @@
 import React from 'react';
 
+import useImagePreloader from '../../hooks/useImagePreloader';
+
 import './FlowerText.scss';
 import under_monogram from './under_monogram.png';
 
 export default function FlowerText(props) {
+  const preLoader = useImagePreloader();
+  preLoader.wait(under_monogram);
   return (
     <span className={[props.className, 'flowerTextContainer'].join(' ')}>
       <img width={props.size} height={props.size} src={under_monogram} alt='heart' className={props.iconClass}/>

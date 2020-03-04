@@ -34,7 +34,7 @@ function Account({t, user, setUser}) {
     setAccessToken(null);
     setRefreshToken(null);
     store.addNotification({
-      title: t("Good bye"),
+      title: t("Goodbye"),
       message: t('You have been logged out'),
       type: "default",
       insert: "top",

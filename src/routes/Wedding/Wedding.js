@@ -1,6 +1,8 @@
 import React from 'react';
 import { withTranslation, Trans } from 'react-i18next';
 
+import useImagePreloader from '../../hooks/useImagePreloader';
+
 import './Wedding.scss';
 
 import restaurant from './restaurant.jpeg';
@@ -11,6 +13,10 @@ const partyMap = "aHR0cHM6Ly93d3cuZ29vZ2xlLmNvbS9tYXBzL2VtYmVkL3YxL3BsYWNlP3E9cG
 
 const toPartMake = (data) => atob(data)
 function Wedding({t}) {
+  const preLoader = useImagePreloader();
+  preLoader.wait(restaurant);
+  preLoader.wait(church);
+
   return <section className="Wedding">
     <h2>
       <Trans i18nKey="ourWeddingHeader" ns="wedding">Our wedding will take place on May, 10th in Zalishchyky, Ukraine.</Trans>
@@ -32,7 +38,7 @@ function Wedding({t}) {
         <p>
           <Trans i18nKey="venueAgenda" ns="wedding">
             Our celebration program will start at <b>3:30pm</b> with some aperatives in front of the venue if the weather allows it.<br></br>
-            In <b>ca. an hour</b> we will have a short ceremony that will follow with reception and party.
+            In <b>ca. an hour</b> we will have a short ceremony that will be followed by a reception and party.
           </Trans>
         </p>
         <div className="embed-container">
@@ -40,15 +46,6 @@ function Wedding({t}) {
         </div>
       </div>
     </div>
-    {/* <div className="banner" style={{backgroundImage: `url(${restaurant})`}}></div>
-    <div className="text">
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-    </div>
-    <iframe width="1280" height="450" frameborder="0" src={toPartMake(church)} allowfullscreen></iframe>
-    <div className="text">
-      Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
-    </div>
-    <iframe width="1280" height="450" frameborder="0" src={toPartMake(party)} allowfullscreen></iframe> */}
   </section>;
 }
 
