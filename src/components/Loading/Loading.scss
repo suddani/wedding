@@ -20,6 +20,19 @@
   background-color: $primary-light;
 }
 
+.LoadingFullscreen.tiny {
+  height: 36px;
+  width: inherit;
+  position: inherit;
+  top: inherit;
+  left: inherit;
+  font-size: 0.3em;
+}
+
+.LoadingFullscreen.tiny p {
+  display: none;
+}
+
 .LoadingFullscreen i, .LoadingFullscreen .heart {
   grid-area: heart;
   justify-self: center;

@@ -14,6 +14,7 @@ function Account({t, user, setUser}) {
   const [password, setPassword] = useState("");
   const [access_token, setAccessToken] = useLocalStorage("access_token", null);
   const [refresh_token, setRefreshToken] = useLocalStorage("refresh_token", null);
+  const [isSending, setIsSending] = useState(false);
 
   const history = useHistory();
 
@@ -49,6 +50,7 @@ function Account({t, user, setUser}) {
   }
 
   function onSubmit() {
+    setIsSending(true);
     updateUser(user.user.id, email, password, access_token, refresh_token, setAccessToken).then(
       userData => {
         store.addNotification({
@@ -65,7 +67,7 @@ function Account({t, user, setUser}) {
         });
         setUser(userData);
       }
-    ).catch( _ => history.push('/'));
+    ).catch( _ => history.push('/')).finally(_=>setIsSending(false));
   }
 
   return <section>
@@ -84,8 +86,8 @@ function Account({t, user, setUser}) {
         </FormControl>
       </Grid>
       <Grid container direction="row" spacing={1} justify='center' alignContent='center'>
-        <Grid item ><Button variant="contained" onClick={onSubmit} color="primary">{t('Update')}</Button></Grid>
-        <Grid item ><Button variant="contained" onClick={onLogout} color="secondary">{t('Logout')}</Button></Grid>
+        <Grid item ><Button variant="contained" onClick={onSubmit} color="primary" disabled={isSending}>{t('Update')}</Button></Grid>
+        <Grid item ><Button variant="contained" onClick={onLogout} color="secondary" disabled={isSending}>{t('Logout')}</Button></Grid>
       </Grid>
     </Grid>
   </section>;

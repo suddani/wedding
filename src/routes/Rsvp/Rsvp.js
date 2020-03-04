@@ -39,6 +39,7 @@ function Rsvp({t}) {
   const [guestNames, setGuestNames] = useState([]);
   const [answered, setAnswered] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const [isSending, setIsSending] = useState(false);
 
 
 
@@ -106,10 +107,6 @@ function Rsvp({t}) {
     setAttending(1)
   }
 
-  function solvedChallange(key) {
-    debugger
-  }
-
   function onSubmit() {
     if (!email || email == "") {
       store.addNotification({
@@ -126,6 +123,7 @@ function Rsvp({t}) {
       });
       return;
     }
+    setIsSending(true);
     answerInvitation({
       email: email,
       firstname: firstname,
@@ -168,7 +166,7 @@ function Rsvp({t}) {
           duration: 10000
         }
       });
-    });
+    }).finally(_=> setIsSending(false));
   }
 
   const content = <MuiPickersUtilsProvider utils={DateFnsUtils}>
@@ -272,7 +270,10 @@ function Rsvp({t}) {
                             />
                           </Grid>
                           {/* <Grid item><div class="g-recaptcha" data-sitekey={process.env.REACT_APP_RECAPTCHA_PUB} data-callback={solvedChallange}></div></Grid> */}
-                          <Grid item ><Button variant="contained" onClick={onSubmit} color="primary">{t('Submit')}</Button></Grid>
+                          <Grid item xs>
+                            
+                            <Button variant="contained" onClick={onSubmit} color="primary" disabled={isSending}>{t('Submit')}</Button>
+                          </Grid>
                         </Fragment>
                       ) : null}
                     </Grid>
