@@ -44,10 +44,12 @@ function Year(year, entries, reverse) {
       get: _ => reverse ? '' : 'right'
     }
   });
+
+  const headline = ({year}) => year ? <h1>{year}</h1> : null;
   
   this.render = (index, t) => {
     return <div className="year" key={index}>
-            <h1>{year}</h1>
+            <headline year={year}/>
             {entries.map((entry, index) => entry.render(index, t, this.left, this.right))}
           </div>
   }
