@@ -18,6 +18,13 @@
   color: rgba(0, 0, 0, 0.87);
 }
 
+.Rsvp #date::-webkit-inner-spin-button {
+  display: none;
+}
+
+.Rsvp #date::-webkit-clear-button {
+  display: none;
+}
 
 @media only screen and (min-width: 755px) {
   .Rsvp .MuiGrid-item {

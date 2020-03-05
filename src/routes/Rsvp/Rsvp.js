@@ -76,6 +76,12 @@ function Rsvp({t, setUser}) {
     }
   }
 
+  function onDateChange(setter) {
+    return (event) => {
+      setter(event.target.value);
+    }
+  }
+
   function onType(setter) {
     return (event) => {
       try {
@@ -251,7 +257,7 @@ function Rsvp({t, setUser}) {
                                 label={t('Arrival Date')}
                                 type="date"
                                 value={selectedDate}
-                                onChange={onChange(setSelectedDate)}
+                                onChange={onDateChange(setSelectedDate)}
                                 InputLabelProps={{
                                   shrink: true,
                                 }}
