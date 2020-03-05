@@ -67,7 +67,12 @@ function Account({t, user, setUser}) {
         });
         setUser(userData);
       }
-    ).catch( _ => history.push('/')).finally(_=>setIsSending(false));
+    ).catch( _ => {
+      setUser(null);
+      setAccessToken(null);
+      setRefreshToken(null);
+      history.push('/')
+    }).finally(_=>setIsSending(false));
   }
 
   return <section>

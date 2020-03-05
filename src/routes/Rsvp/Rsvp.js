@@ -15,7 +15,7 @@ import { store } from 'react-notifications-component';
 
 import './Rsvp.scss';
 
-function Rsvp({t}) {
+function Rsvp({t, setUser}) {
 
   const location = useLocation();
 
@@ -33,7 +33,6 @@ function Rsvp({t}) {
   const [foodPreferences, setFoodPreferences] = useState(0);
   const [attending, setAttending] = useState(1);
   const [selectedDate, setSelectedDate] = useState(new Date());
-  const [userData, setUser] = useLocalStorage("user", null);
   const [access_token, setAccessToken] = useLocalStorage("access_token", null);
   const [refresh_token, setRefreshToken] = useLocalStorage("refresh_token", null);
   const [guestNames, setGuestNames] = useState([]);
@@ -59,7 +58,12 @@ function Rsvp({t}) {
       setAllergies(invitation.allergies||"");
       setAnswered(invitation.answered);
       setIsLoading(false);
-    }).catch(_=> history.push('/'));
+    }).catch(_=> {
+      setUser(null);
+      setAccessToken(null);
+      setRefreshToken(null);
+      history.push('/')
+    });
   }, []);
 
   function onChange(setter) {

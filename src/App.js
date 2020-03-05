@@ -60,13 +60,13 @@ function App() {
 
             {/* Protected Routes */}
             <PrivateRoute exact path="/gallery" user={user}>
-              <Gallery user={user}></Gallery>
+              <Gallery user={user} setUser={setUser}></Gallery>
             </PrivateRoute>
             <PrivateRoute exact path="/account" user={user}>
               <Account user={user} setUser={setUser}></Account>
             </PrivateRoute>
             <PrivateRoute exact path="/rsvp" user={user}>
-              <Rsvp user={user}></Rsvp>
+              <Rsvp user={user} setUser={setUser}></Rsvp>
             </PrivateRoute>
           </Suspense>
 
