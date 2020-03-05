@@ -28,7 +28,7 @@ function Invite({t, setUser}) {
             setAccessToken(access_data.access_token);
             setRefreshToken(access_data.refresh_token);
             requestUser(access_data.access_token).then(user => setUser(user)).then(
-              _=> history.push('/')
+              _=> history.push('/rsvp')
             );
           }
         )
