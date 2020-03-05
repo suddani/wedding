@@ -1,11 +1,14 @@
 import React, {useState} from 'react';
 import { withTranslation, Trans } from 'react-i18next';
 import { Link } from 'react-router-dom';
+import useImagePreloader from '../../hooks/useImagePreloader';
 import './Tips.scss'
 
 import tipPicture from './tips.jpg';
 
 function Tips({t}) {
+  const preLoader = useImagePreloader();
+  preLoader.wait(tipPicture);
 
   const weddingMailText = `mailto:info@daniel-mariia.wedding?subject=${t('Question about your wedding')}&body=${t('Hey Mariia and Daniel,%0d%0a%0d%0aGreetings')}`;
 
