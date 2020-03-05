@@ -1,12 +1,14 @@
 {
   "Home": "Übersicht",
-  "About": "Über",
-  "Gallery": "Fotos",
   "The Story": "Geschichte",
   "The Wedding": "Hochzeit",
-  "Account": "Zugang",
-  "Login": "Einloggen",
-  "Go": "Los",
-  "Gifts": "Geschenke",
-  "Local Tips": "Standorttipps"
+  "Gallery": "Fotos",
+  "Local Tips": "FAQ",
+  "Story": "Geschichte",
+  "Wedding": "Hochzeit",
+  "Tips": "FAQ",
+  "Rsvp": "R.S.V.P",
+  "Translations": "Übersetzungen",
+  "Login": "Login",
+  "Account": "Account"
 }

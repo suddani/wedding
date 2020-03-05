@@ -1,12 +1,14 @@
 {
-  "Home": "будинки",
-  "Gallery": "галерея",
-  "About": "про",
+  "Home": "Дім",
   "The Story": "Історія",
   "The Wedding": "Весілля",
-  "Account": "рахунок",
-  "Login": "Ввійти",
-  "Go": "йти",
-  "Gifts": "Подарунки",
-  "Local Tips": "\nМісцеві поради"
+  "Gallery": "Галерея",
+  "Local Tips": "Підказки",
+  "Story": "Історія",
+  "Tips": "Підказки",
+  "Wedding": "Весілля",
+  "Rsvp": "R.S.V.P.",
+  "Translations": "Переклад",
+  "Account": "Account",
+  "Login": "Login"
 }

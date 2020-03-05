@@ -1,12 +1,13 @@
 {
-  "Home": "Home",
-  "About": "About",
-  "The Story": "The Story",
-  "Gallery": "Gallery",
+  "Story": "Story",
   "The Wedding": "The Wedding",
+  "Gallery": "Gallery",
+  "The Story": "The Story",
+  "Local Tips": "Tips",
   "Account": "Account",
-  "Login": "Login",
-  "Go": "Go",
-  "Gifts": "Gifts",
-  "Local Tips": "Local Tips"
+  "Wedding": "Wedding",
+  "Tips": "Tips",
+  "Rsvp": "Rsvp",
+  "Home": "Home",
+  "Login": "Login"
 }
