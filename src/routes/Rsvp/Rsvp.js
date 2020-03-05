@@ -162,6 +162,7 @@ function Rsvp({t, setUser}) {
             duration: 5000
           }
         });
+        history.push('/');
       }
     ).catch(_=> {
       store.addNotification({
