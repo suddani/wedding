@@ -12,7 +12,7 @@ export default function FlowerText(props) {
     <span className={[props.className, 'flowerTextContainer'].join(' ')}>
       <img width={props.size} height={props.size} src={under_monogram} alt='heart' className={props.iconClass}/>
       <span style={{fontSize: `${props.size/4.5}px`}}>M & D</span>
-      <span style={{fontSize: `${props.size/11}px`}}>19.07.2020</span>
+      <span style={{fontSize: `${props.size/11}px`}}>29.07.2021</span>
     </span>
   );
 }

@@ -5,7 +5,7 @@ import useInterval from '../../hooks/useInterval';
 import './CountDown.scss';
 
 function CountDown({className, t}) {
-  const countDownDate = Date.parse("2020-05-10T12:30:00Z");
+  const countDownDate = Date.parse("2021-07-29T12:30:00Z");
   function generateCounter() {
     var distance = countDownDate - new Date().getTime();
 

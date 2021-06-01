@@ -4,13 +4,23 @@ const translations_host = process.env.REACT_APP_TRANSLATION_API_ENDPOINT || proc
 
 export function loadGroups() {
   return fetch(`//${translations_host}/translation/translations/groups/wedding_page`).then(
-    response => response.json()
+    response => {
+      if (response.ok)
+        return response.json()
+      else
+        return Promise.reject()
+    }
   );
 }
 
 export function loadTranslations(selectedGroup) {
   return fetch(`//${translations_host}/translation/translations/groups/wedding_page/${selectedGroup}`).then(
-    response => response.json()
+    response => {
+      if (response.ok)
+        return response.json()
+      else
+        return Promise.reject()
+    }
   );
 }
 
@@ -34,7 +44,12 @@ export function postTranslationUpdate(translation, token) {
 
 export function updateTranslation(translation, jwt, refresh_token, setAccessToken) {
   return postTranslationUpdate(translation, jwt)
-    .then(response => response.json())
+    .then(response => {
+      if (response.ok)
+        return response.json()
+      else
+        return Promise.reject()
+    })
     .catch( _=> requestAccessKey(refresh_token).then(
       access => {
         setAccessToken(access.access_token);

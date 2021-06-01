@@ -10,7 +10,12 @@ export function requestUser(token, user_id) {
     },
     credentials: "same-origin"
   }).then(
-    response => response.json(), e => console.log(e)
+    response => {
+      if (response.ok)
+        return response.json()
+      else
+        return Promise.reject()
+    }, e => console.log(e)
   );
 }
 
@@ -28,7 +33,12 @@ export function putUser(token, user_id, email, password) {
     }),
     credentials: "same-origin"
   }).then(
-    response => requestUser(token, user_id)
+    response => {
+      if (response.ok)
+        return requestUser(token, user_id)
+      else
+        return Promise.reject()
+    }
   );
 }
 
@@ -55,7 +65,12 @@ export function requestAccessKey(token, type) {
     },
     credentials: "same-origin"
   }).then(
-    response => response.json(), e => console.log(e)
+    response => {
+      if (response.ok)
+        return response.json()
+      else
+        return Promise.reject()
+    }, e => console.log(e)
   );
 }
 
@@ -73,7 +88,12 @@ export function login(username, password) {
     },
     credentials: "same-origin"
   }).then(
-    response => response.json()
+    response => {
+      if (response.ok)
+        return response.json()
+      else
+        return Promise.reject()
+    }
   );
 }
 
@@ -90,6 +110,11 @@ export function forgotPassword(email) {
     },
     credentials: "same-origin"
   }).then(
-    response => response.json()
+    response => {
+      if (response.ok)
+        return response.json()
+      else
+        return Promise.reject()
+    }
   );
 }

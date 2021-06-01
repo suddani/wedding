@@ -16,7 +16,12 @@ export function fetchInvitation(token, user_email){
 
 export function requestInvitation(token, refresh_token, setAccessToken, user_email) {
   return fetchInvitation(token, user_email).then(
-    response => response.json()
+    response => {
+      if (response.ok)
+        return response.json()
+      else
+        return Promise.reject()
+    }
   ).catch( _=> requestAccessKey(refresh_token).then(
     access => {
       setAccessToken(access.access_token);
@@ -40,7 +45,12 @@ export function postAnswer(token, payload, user_email) {
 
 export function answerInvitation(payload, jwt, refresh_token, setAccessToken, user_email) {
   return postAnswer(jwt, payload, user_email).then(
-    response => response.json()
+    response => {
+      if (response.ok)
+        return response.json()
+      else
+        return Promise.reject()
+    }
   ).catch( _=> requestAccessKey(refresh_token).then(
     access => {
       setAccessToken(access.access_token);

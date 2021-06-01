@@ -87,6 +87,7 @@
   align-self: stretch;
   grid-column: 1/2;
   grid-row: 1/2;
+  pointer-events: none;
 }
 
 .MenuBar > .top_right {
@@ -95,10 +96,11 @@
   align-self: stretch;
   grid-column: 3/4;
   grid-row: 1/2;
+  pointer-events: none;
 }
 
 .MenuBar > .top_left > img {
-  height: 85%;
+  width: 100%;
   transform: rotateX(155deg);
   position: relative;
   top: 30px;
@@ -110,7 +112,7 @@
 }
 
 .MenuBar > .top_right > img {
-  height: 160%;
+  width: 140%;
   transform: rotate(20deg);
   position: relative;
   top: -30px;
