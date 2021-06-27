@@ -24,7 +24,7 @@ i18n
   .use(initReactI18next)
   .init({
     debug: process.env.REACT_APP_STAGE === 'dev',
-    saveMissing: true,
+    saveMissing: process.env.REACT_APP_STAGE === 'dev',
     saveMissingTo: 'current',
     saveMissingPlurals: true,
     fallbackLng: process.env.REACT_APP_STAGE === 'dev' ? false : {
