@@ -22,6 +22,7 @@ i18n
   .use(LanguageDetector)
   // pass the i18n instance to react-i18next.
   .use(initReactI18next)
+  .on("languageChanged", (lang) => document.documentElement.setAttribute('lang', lang))
   .init({
     debug: process.env.REACT_APP_STAGE === 'dev',
     saveMissing: process.env.REACT_APP_STAGE === 'dev',
