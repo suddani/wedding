@@ -1,0 +1,41 @@
+{
+  "files": {
+    "main.css": "/static/css/main.a2a307de.chunk.css",
+    "main.js": "/static/js/main.7106610e.chunk.js",
+    "main.js.map": "/static/js/main.7106610e.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.244f0e60.js",
+    "runtime-main.js.map": "/static/js/runtime-main.244f0e60.js.map",
+    "static/css/2.609d5137.chunk.css": "/static/css/2.609d5137.chunk.css",
+    "static/js/2.865ac35b.chunk.js": "/static/js/2.865ac35b.chunk.js",
+    "static/js/2.865ac35b.chunk.js.map": "/static/js/2.865ac35b.chunk.js.map",
+    "index.html": "/index.html",
+    "precache-manifest.f5b3f42b2618934d75cf441c0369cf21.js": "/precache-manifest.f5b3f42b2618934d75cf441c0369cf21.js",
+    "service-worker.js": "/service-worker.js",
+    "static/css/2.609d5137.chunk.css.map": "/static/css/2.609d5137.chunk.css.map",
+    "static/css/main.a2a307de.chunk.css.map": "/static/css/main.a2a307de.chunk.css.map",
+    "static/js/2.865ac35b.chunk.js.LICENSE.txt": "/static/js/2.865ac35b.chunk.js.LICENSE.txt",
+    "static/media/bigEvent.jpg": "/static/media/bigEvent.fd629f5a.jpg",
+    "static/media/church.jpg": "/static/media/church.d8cb62bd.jpg",
+    "static/media/firstOktoberfest.jpg": "/static/media/firstOktoberfest.9a19f0cd.jpg",
+    "static/media/firstSelfie.jpg": "/static/media/firstSelfie.14f826e1.jpg",
+    "static/media/germanyYes.jpg": "/static/media/germanyYes.2eb81fa1.jpg",
+    "static/media/greatProject.jpg": "/static/media/greatProject.1abc10fd.jpg",
+    "static/media/heart.svg": "/static/media/heart.3648117f.svg",
+    "static/media/home.png": "/static/media/home.68e3fa7e.png",
+    "static/media/itsLove.jpg": "/static/media/itsLove.2e77a888.jpg",
+    "static/media/justFriends.jpg": "/static/media/justFriends.8fd75dc7.jpg",
+    "static/media/restaurant.jpeg": "/static/media/restaurant.6d12dbe4.jpeg",
+    "static/media/sheYes.jpg": "/static/media/sheYes.bd1c2612.jpg",
+    "static/media/tips.jpg": "/static/media/tips.99e8b880.jpg",
+    "static/media/top_left_v10.png": "/static/media/top_left_v10.4fba39be.png",
+    "static/media/top_right_v10.png": "/static/media/top_right_v10.7d648000.png",
+    "static/media/under_monogram.png": "/static/media/under_monogram.a33983f7.png"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.244f0e60.js",
+    "static/css/2.609d5137.chunk.css",
+    "static/js/2.865ac35b.chunk.js",
+    "static/css/main.a2a307de.chunk.css",
+    "static/js/main.7106610e.chunk.js"
+  ]
+}
